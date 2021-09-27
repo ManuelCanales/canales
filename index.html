@@ -29,6 +29,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="assets/css/style.css" rel="stylesheet">
 
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '280258540586226');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=280258540586226&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+
   <!-- =======================================================
   * Template Name: Mamba - v4.5.0
   * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
@@ -739,9 +757,9 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Datos web</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a data-toggle="modal" data-target="#modal2">IMPRESSUM</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a data-toggle="modal" data-target="#modal1">Normas comunitarias</a></li>
@@ -837,6 +855,45 @@
         </ul>
         <br>
         <b>Nos reservamos el derecho de bloqueo y reporte.</b>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        <!---<button type="button" class="btn btn-primary">Save changes</button>--->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal2 -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><b>IMPRESSUM</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <b>Manuel Canales Quintanilla</b>
+        <br>
+        <br>
+        Lima Metropolitana (República del Perú)
+        <br>
+        <br>
+        <ul>
+          <li><b>Web:</b> <a href="https://www.canales.pe/">canales.pe</a></li>
+          <li><b>Mail:</b> <a href="mailto:manuel@canales.pe">manuel@canales.pe</a></li>
+          <li><b>Twitter:</b> <a href="https://www.twitter.com/manuelcanalesq/">@manuelcanalesq</a></li>
+          <li><b>Periscope:</b> <a href="https://www.periscope.tv/manuelcanales/">@manuelcanales</a></li>
+          <li><b>Instagram:</b> <a href="www.instagram.com/manuelcanales/">@manuelcanales</a></li>
+          <li><b>Facebook:</b> <a href="https://www.facebook.com/manuelcanales/">@manuelcanales</a></li>
+          <li><b>Behance:</b> <a href="www.behance.net/manuelcanales/">@manuelcanales</a></li>
+          <li><b>Pinterest:</b> <a href="https://www.pinterest.es/manuelcanales/">@manuelcanales</a></li>
+          <li><b>MeWe:</b> <a href="https://www.mewe.com/i/canales/">@canales</a></li>
+          <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/manuelito/">@manuelito</a></li>
+          <li><b>YouTube:</b> <a href="https://www.youtube.com/manuelcanales/">@manuelcanales</a></li>
+        </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
