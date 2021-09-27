@@ -472,7 +472,12 @@ section {
   font-weight: 600;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #5c768d;
+  color: rgb(0,130,255);
+color: -moz-linear-gradient(25deg, rgba(0,130,255,1) 0%, rgba(8,35,215,1) 100%);
+color: -webkit-linear-gradient(25deg, rgba(0,130,255,1) 0%, rgba(8,35,215,1) 100%);
+color: linear-gradient(25deg, rgba(0,130,255,1) 0%, rgba(8,35,215,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082ff",endColorstr="#0823d7",GradientType=1);
+  /*color: #5c768d;*/
 }
 .section-title p {
   margin-bottom: 0;
