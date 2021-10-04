@@ -2,12 +2,8 @@
 RewriteBase /
 RewriteEngine On
 
-RewriteBase /
-
-RewriteCond %{HTTP_HOST} ^canales\.pe [NC]
-
+RewriteEngine On
 RewriteCond %{SERVER_PORT} 80
-
 RewriteRule ^(.*)$ https://sandbox.canales.pe/$1 [R,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
