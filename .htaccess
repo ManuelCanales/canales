@@ -2,8 +2,9 @@
 RewriteBase /
 RewriteEngine On
 
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://sanbox.canales.pe/$1 [R,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
