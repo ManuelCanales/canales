@@ -15,7 +15,7 @@
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("../img/hero-bg.jpg") center center;
+  background: url("https://www.canales.pe/assets/img/slide/slide-2.jpg") center center;
   background-size: cover;
   position: relative;
 }
