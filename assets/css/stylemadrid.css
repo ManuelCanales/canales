@@ -109,6 +109,44 @@ section {
   position: relative;
   min-height: 562px;
 }
+
+.altura_tit {
+  min-height: 50px;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+user agent stylesheet
+div {
+  display: block;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 300;
+  min-height: 135px;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+user agent stylesheet
+div {
+  display: block;
+}
+
+.btn_flotante {
+  bottom: 7%;
+  position: absolute;
+  width: 82%;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+user agent stylesheet
+div {
+  display: block;
+}
+
 /*--------------------------------------------------------------
 # footer2
 --------------------------------------------------------------*/
