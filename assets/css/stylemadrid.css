@@ -103,7 +103,8 @@ section {
 .detalle {
   background: #fff;
   color: #585d5e;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
   padding: 40px 30px 140px 30px;
   margin-bottom: 60px;
   position: relative;
