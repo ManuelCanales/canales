@@ -121,6 +121,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
+.mov--black{
+  background-image: url('https://www.canales.pe/qtu/qtu_fondo.jpg');
+    position: relative;
+}
+
+.box-logo{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    background-attachment: fixed;
+    display: block;
+    max-width: 1200px;
+    width: 100%;
+    margin:  auto;
+    padding: 15rem 1rem;    
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+.auto {
+    display: block;
+    margin: auto;
+}
+.pulse-logo {
+    animation: heart-pulse 2s infinite ease-out;
+}
+.img-fluid {
+    max-width: 60%;
+    height: auto;
+}
+img {
+    max-width: 100%;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+@keyframes heart-pulse {
+    0% {
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(1.1);
+    }
+    100% {
+    transform: scale(1);
+    }
+    }
 
 </style>
 </head>
@@ -156,10 +206,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <main id="main">
 
-
-
-
     <section id="portfolio" class="portfolio section-bg">
+      <div class="mov--black pt-5 pt-md-85 pl-1 pr-1">
+        <!-- TEMPLATE FLEXBOX -->
+        
+        
+        <div class="box-logo">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+          
+          <img src="https://www.canales.pe/qtu/quintu_logo.png" class="img-fluid auto pulse-logo" title="stone-temple-pilots" alt="stone-temple-pilots">
+          </div>
+        </div>
+        <!-- TEMPLATE FLEXBOX -->
+        <br><br><br>
+      </div>
      
 
         </section>
