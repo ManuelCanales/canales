@@ -419,7 +419,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 32px;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: 0.5s;
   line-height: 1;
   margin: 10px;
@@ -427,10 +427,11 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
   border: 0;
-  background: #428bca;
+  background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
+  background-size: 600% 600%;
 }
 #hero .btn-get-started:hover {
-  background: #1c5c93;
+  background: #137cd8;
 }
 @media (max-width: 768px) {
   #hero h2 {
