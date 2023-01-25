@@ -51,5 +51,6 @@
     "theme_color": "#0572cd",
     "background_color": "#0572cd",
     "start_url": "https://www.canales.pe/",
+    "description" : "Soy Manuel Canales Quintanilla. Ciudadano de la República del Perú, fundador de @TendenciasLima , grafista profesional, fotógrafo aficionado y limeño.",
     "display": "standalone"
 }
