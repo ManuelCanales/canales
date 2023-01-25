@@ -1,25 +1,3 @@
-
-RewriteBase /
-RewriteEngine On
-
-RewriteEngine On
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.canales.pe/$1 [R,L]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.*)$ $1.php
-
-
-Options All -Indexes
-
-ErrorDocument 404 /404.html
-ErrorDocument 403 /403.html
-
 #MCQ
 
 
@@ -62,3 +40,28 @@ RewriteRule [A-Z] - [N]
  
 RewriteCond %{ENV:HASCAPS} TRUE
 RewriteRule ^/?(.*) /$1 [R=301,L]
+
+#MCQ
+
+
+RewriteBase /
+RewriteEngine On
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.canales.pe/$1 [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+
+Options All -Indexes
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+
