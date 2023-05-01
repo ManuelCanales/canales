@@ -56,7 +56,7 @@
 }
 
 
-.actores_nombres{
+.elementos_nombres{
   position: absolute;
   top: 3%;
   width: 64%;
@@ -67,14 +67,14 @@
 
 .colores_madrid{
   position: absolute;
-  top: 6%;
+  top: 15%;
   width: 74%;
   left: 50%;
   margin-left: -37%;
   z-index: 2;
 }
 
-.actores{
+.elementos{
   position: absolute;
   top: 30%;
   width: 90%;
@@ -83,7 +83,7 @@
   z-index: 2;
 }
 
-.marsano{
+.proyectoig{
   position: absolute;
   bottom: 4%;
   width: 60%;
@@ -92,7 +92,7 @@
   z-index: 3;
 }
 
-.bbva{
+.banck{
     width: 27%;
 }
 
@@ -139,7 +139,9 @@
 .resena--disco {
   background-color: #000000c2;
   padding: 2rem;
-  color: #9f9f9f;
+  color: #ffffff;
+  outline: 0.3rem solid #AA151B;
+  border: 0.3rem solid #F1BF00;
 }
 
 .titu_resena {
@@ -421,7 +423,7 @@
   font-weight: 100 !important;
 }
 
-.logo_interbank {
+.logo_adicional {
   width: 50%;
 }
 
@@ -970,7 +972,10 @@ hr {
 .footer {
   text-align: center;
   padding-top: 40px;
-  background: #252424;
+  background-color: #000000;
+opacity: 1;
+background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 30px 30px, linear-gradient(#111111 2.4000000000000004px, transparent 2.4000000000000004px) 0 -1.2000000000000002px, linear-gradient(90deg, #111111 2.4000000000000004px, #000000 2.4000000000000004px) -1.2000000000000002px 0;
+background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;
   padding-bottom: 40px;
 }
 
@@ -1500,7 +1505,7 @@ input[type='submit'],
   margin-right: auto;
 }
 
-.datos_interbank {
+.datos_adicional {
   margin-bottom: 35px;
   width: 35%;
   display: block;
@@ -6296,7 +6301,7 @@ body>.jcf-select-drop.jcf-drop-flipped {
     margin-right: auto;
   }
 
-  .datos_interbank {
+  .datos_adicional {
     margin-bottom: 0;
     width: 55%;
     display: block;
@@ -6325,7 +6330,7 @@ body>.jcf-select-drop.jcf-drop-flipped {
 
 
 
-  .actores_nombres {
+  .elementos_nombres {
     position: absolute;
     top: 3%;
     width: 80%;
@@ -6334,7 +6339,7 @@ body>.jcf-select-drop.jcf-drop-flipped {
     z-index: 2;
 }
 
-.marsano {
+.proyectoig {
   position: absolute;
   bottom: 5%;
   width: 80%;
@@ -6343,7 +6348,7 @@ body>.jcf-select-drop.jcf-drop-flipped {
   z-index: 3;
 }
 
-.actores {
+.elementos {
   position: absolute;
   top: 40%;
   width: 100%;
@@ -6365,7 +6370,7 @@ body>.jcf-select-drop.jcf-drop-flipped {
   min-width: 300px;
 }
 
-.bbva{
+.banck{
   width: 45%;
 }
 
