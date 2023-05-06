@@ -254,8 +254,11 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   right: 0;
   left: 0;
   bottom: 0;
-  opacity: 90%;
-  background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
+  background: rgb(0,130,240);
+background: -moz-linear-gradient(270deg, rgba(0,130,240,0.8407738095238095) 0%, rgba(8,35,215,0.8631827731092436) 100%);
+background: -webkit-linear-gradient(270deg, rgba(0,130,240,0.8407738095238095) 0%, rgba(8,35,215,0.8631827731092436) 100%);
+background: linear-gradient(270deg, rgba(0,130,240,0.8407738095238095) 0%, rgba(8,35,215,0.8631827731092436) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082f0",endColorstr="#0823d7",GradientType=1);
   background-size: 600% 600%;
   -webkit-animation: AnimationName 9s ease infinite;
   -moz-animation: AnimationName 9s ease infinite;
