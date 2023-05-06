@@ -269,18 +269,21 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   top: 15px;
   right: 15px;
 }
-.navbar-mobile ul {
+.navbar-mobile ul{
   display: block;
-  position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
-  padding: 10px 0;
-  background-color: #fff;
-  overflow-y: auto;
-  transition: 0.3s;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: auto;
+    left: 15px;
+    padding: 10px 0;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+    opacity: 100% !important;
+    border-radius: 20px;
 }
+
 .navbar-mobile a, .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
