@@ -289,11 +289,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082f0",endCo
 
 .navbar-mobile a, .navbar-mobile a:focus {
   padding: 10px 20px;
-  font-size: 15px;
-  color: #1f3548;
+  font-size: 17px;
+  color: #898989;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #428bca;
+  color: #0823d7;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
