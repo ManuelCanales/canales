@@ -254,7 +254,13 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(31, 53, 72, 0.9);
+  opacity: 90%;
+  background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
+  background-size: 600% 600%;
+  -webkit-animation: AnimationName 9s ease infinite;
+  -moz-animation: AnimationName 9s ease infinite;
+  -o-animation: AnimationName 9s ease infinite;
+  animation: AnimationName 9s ease infinite;
   transition: 0.3s;
   z-index: 998;
 }
