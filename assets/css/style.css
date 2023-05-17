@@ -1204,14 +1204,12 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082ff",endCo
   font-size: 14px;
 }
 #footer .footer-top {
-  background: rgb(0,130,255);
-background: -moz-linear-gradient(25deg, rgba(0,130,255,1) 0%, rgba(8,35,215,1) 100%);
-background: -webkit-linear-gradient(25deg, rgba(0,130,255,1) 0%, rgba(8,35,215,1) 100%);
-background: linear-gradient(25deg, rgba(0,130,255,1) 0%, rgba(8,35,215,1) 100%);
+  background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 30px 30px, linear-gradient(#111111 2.4000000000000004px, transparent 2.4000000000000004px) 0 -1.2000000000000002px, linear-gradient(90deg, #111111 2.4000000000000004px, #000000 2.4000000000000004px) -1.2000000000000002px 0;
+    background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082ff",endColorstr="#0823d7",GradientType=1);
   /*background: #5c768d;*/
-  border-top: 1px solid #768fa6;
-  border-bottom: 1px solid #67839c;
+  border-top: 1px solid #768fa600;
+  border-bottom: 1px solid #67839c00;
   padding: 60px 0 30px 0;
 }
 #footer .footer-top .footer-info {
