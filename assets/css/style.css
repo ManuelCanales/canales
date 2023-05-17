@@ -1249,7 +1249,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082ff",endCo
   transition: 0.3s;
 }
 #footer .footer-top .social-links a:hover {
-  background: #428bca;
+  background: #0823d7;
   color: #fff;
   text-decoration: none;
 }
@@ -1289,7 +1289,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082ff",endCo
   line-height: 1;
 }
 #footer .footer-top .footer-links ul a:hover {
-  color: #9eccf4;
+  color: #0823d7;
 }
 #footer .footer-top .footer-newsletter form {
   margin-top: 30px;
