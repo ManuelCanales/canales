@@ -25,6 +25,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.colors { 
+  height: 100%;
+  width: 100%;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 80%;
+  /* position: relative; */
+background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+background-size: 1800% 1800%;
+
+-webkit-animation: rainbow 18s ease infinite;
+-z-animation: rainbow 18s ease infinite;
+-o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
 /*para cabecera y footer*/
 .pt-nav.dark {
   background-color: #000;
@@ -71,6 +110,24 @@
   width: 74%;
   left: 50%;
   margin-left: -37%;
+  z-index: 2;
+}
+
+.oso_madrid {
+  position: absolute;
+  top: -3%;
+  width: 64%;
+  left: 50%;
+  margin-left: -33%;
+  z-index: 2;
+}
+
+.sombra_madrid {
+  position: absolute;
+  top: -27%;
+  width: 100%;
+  left: 50%;
+  margin-left: -50%;
   z-index: 2;
 }
 
@@ -6359,7 +6416,25 @@ body>.jcf-select-drop.jcf-drop-flipped {
 
 .colores_madrid {
   position: absolute;
-  top: 30%;
+  top: 19%;
+  width: 120%;
+  left: 50%;
+  margin-left: -60%;
+  z-index: 2;
+}
+
+.oso_madrid {
+  position: absolute;
+  top: 8%;
+  width: 59%;
+  left: 50%;
+  margin-left: 2%;
+  z-index: 2;
+}
+
+.sombra_madrid {
+  position: absolute;
+  top: -48%;
   width: 120%;
   left: 50%;
   margin-left: -60%;
