@@ -137,51 +137,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <style>
 
+    .modal{
+      top: 90px !important;
+    }
+
+.postales{
+  margin-top: 40px;
+  margin-bottom: 50px;
+  padding: 12px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0px 8px 13px 0px #00000021;
+}
+
+@media only screen and (max-width: 768px){
+.postales {
+    margin-top: 40px;
+    margin-bottom: -11px;
+    padding: 2%;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0px 8px 13px 0px #00000021;
+}
+}
+
 
 .headergaleria {
   text-align: center;
   padding: 32px;
 }
 
-.rowgaleria {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-
-/* Create four equal columns that sits next to each other */
-.columngaleria {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
-}
-
-.columngaleria img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .columngaleria {
-    -ms-flex: 50%;
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .columngaleria {
-    -ms-flex: 100%;
-    flex: 100%;
-    max-width: 100%;
-  }
-}
 
 .img-fluid-mad {
     max-width: 100%;
@@ -459,132 +446,166 @@ position: relative;
 
               <div id="price-section" class="scheme-section section black-theme-dark pt-1">
 
-                <div class="container">
-                  <div class="container">
-        
-                    <div class="row biography-row">
-                      <div class="card-biography">
-                        <div class="row">
-        
-                        
+                <div class="container eventos">
+                  <div class="headergaleria">
+                    <h1 style="color: #fff;">GALERÍA</h1>
+                  </div>
+            
+                  <div class="row align-items-center">
         
         
-                          <div class="col-12 col-md-8 col-lg-8 col_center content-description text-center">
-        
-        
-                            <div class="row">
-        
-                              <div class="col-11 col-md-10 col-lg-12 text-center col_center">
-                               
-                                <!-- Header -->
-<div class="headergaleria">
-  <h1 style="color: #fff;">GALERÍA</h1>
-</div>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad001">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD001.png" alt=""></a>
 
-<!-- Photo Grid -->
-<div class="rowgaleria"> 
+                      </div>
+                    </div>
 
-  <div class="columngaleria">
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad002">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD002.png" alt=""></a>
 
-    <a href="#" data-toggle="modal" data-target="#mad001">
-      <img src="https://cdn.canales.pe/madrid/MAD001.png" style="width:100%"></a>
+                      </div>
+                    </div>
 
-      <a href="#" data-toggle="modal" data-target="#mad005">
-        <img src="https://cdn.canales.pe/madrid/MAD005.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad003">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD003.png" alt=""></a>
 
-        <a href="#" data-toggle="modal" data-target="#mad009">
-          <img src="https://cdn.canales.pe/madrid/MAD009.png" style="width:100%"></a>
+                      </div>
+                    </div>
 
-          <a href="#" data-toggle="modal" data-target="#mad013">
-            <img src="https://cdn.canales.pe/madrid/MAD013.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad004">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD004.png" alt=""></a>
 
-            <a href="#" data-toggle="modal" data-target="#mad017">
-              <img src="https://cdn.canales.pe/madrid/MAD017.png" style="width:100%"></a>
+                      </div>
+                    </div>
 
-  </div>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad005">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD005.png" alt=""></a>
 
-  <div class="columngaleria">
+                      </div>
+                    </div>
 
-    <a href="#" data-toggle="modal" data-target="#mad002">
-      <img src="https://cdn.canales.pe/madrid/MAD002.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad006">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD006.png" alt=""></a>
 
-      <a href="#" data-toggle="modal" data-target="#mad006">
-        <img src="https://cdn.canales.pe/madrid/MAD006.png" style="width:100%"></a>
+                      </div>
+                    </div>
 
-        <a href="#" data-toggle="modal" data-target="#mad010">
-          <img src="https://cdn.canales.pe/madrid/MAD010.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad007">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD007.png" alt=""></a>
 
-          <a href="#" data-toggle="modal" data-target="#mad014">
-            <img src="https://cdn.canales.pe/madrid/MAD014.png" style="width:100%"></a>
+                      </div>
+                    </div>
 
-            <a href="#" data-toggle="modal" data-target="#mad018">
-              <img src="https://cdn.canales.pe/madrid/MAD018.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad008">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD008.png" alt=""></a>
 
-  </div>
+                      </div>
+                    </div>
 
-  <div class="columngaleria">
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad009">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD009.png" alt=""></a>
 
-    <a href="#" data-toggle="modal" data-target="#mad003">
-      <img src="https://cdn.canales.pe/madrid/MAD003.png" style="width:100%"></a>
+                      </div>
+                    </div>
 
-      <a href="#" data-toggle="modal" data-target="#mad007">
-        <img src="https://cdn.canales.pe/madrid/MAD007.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad010">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD010.png" alt=""></a>
 
-        <a href="#" data-toggle="modal" data-target="#mad011">
-          <img src="https://cdn.canales.pe/madrid/MAD011.png" style="width:100%"></a>
+                      </div>
+                    </div>
 
-          <a href="#" data-toggle="modal" data-target="#mad015">
-            <img src="https://cdn.canales.pe/madrid/MAD015.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad011">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD011.png" alt=""></a>
 
+                      </div>
+                    </div>
 
-  </div>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad012">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD012.png" alt=""></a>
 
-    <div class="columngaleria">
+                      </div>
+                    </div>
 
-      <a href="#" data-toggle="modal" data-target="#mad004">
-        <img src="https://cdn.canales.pe/madrid/MAD004.png" style="width:100%"></a>
-  
-        <a href="#" data-toggle="modal" data-target="#mad008">
-          <img src="https://cdn.canales.pe/madrid/MAD008.png" style="width:100%"></a>
-  
-          <a href="#" data-toggle="modal" data-target="#mad012">
-            <img src="https://cdn.canales.pe/madrid/MAD012.png" style="width:100%"></a>
-  
-            <a href="#" data-toggle="modal" data-target="#mad016">
-              <img src="https://cdn.canales.pe/madrid/MAD016.png" style="width:100%"></a>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad013">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD013.png" alt=""></a>
 
-  </div>
-  
-</div>
+                      </div>
+                    </div>
 
-                              </div>
-        
-        
-                          
-                              </div>
-        
-        
-        
-        
-        
-                            </div>
-        
-        
-        
-                          </div>
-        
-        
-                        </div>
-        
-        
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad014">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD014.png" alt=""></a>
+
+                      </div>
+                    </div>
+
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad015">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD015.png" alt=""></a>
+
+                      </div>
+                    </div>
+
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad016">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD016.png" alt=""></a>
+
                       </div>
                     </div>
         
-                  </div>
-                  <br>
-                  <br>
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad017">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD017.png" alt=""></a>
+
+                      </div>
+                    </div>
+
+                    <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+                      <div class="postales">
+                        <a href="#" data-toggle="modal" data-target="#mad018">
+                          <img class="img-fluid " src="https://cdn.canales.pe/madrid/MAD018.png" alt=""></a>
+
+                      </div>
+                    </div>
         
+        
+        
+                  </div>
                 </div>
+
+                <br><br>
+        
+              </div>
         
       
               <!--galeria-->
