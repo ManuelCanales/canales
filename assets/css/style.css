@@ -879,6 +879,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0082ff",endCo
   transition: 0.3s;
   position: relative;
   overflow: hidden;
+  border-radius: 20px;
 }
 .portfolio .portfolio-wrap img {
   transition: 0.3s;
