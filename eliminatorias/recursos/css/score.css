@@ -320,7 +320,7 @@
   padding: 10px 33px;
   color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
-  box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25);
+  /* box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25); */
 }
 
 .match-bet-placeoff {
@@ -334,7 +334,7 @@
   padding: 10px 33px;
   color: rgb(72, 72, 69) !important;
   font-size: 14px;
-  box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25);
+  /* box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25); */
   cursor: pointer;
   pointer-events: none
 }
