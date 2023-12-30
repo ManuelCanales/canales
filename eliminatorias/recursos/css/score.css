@@ -324,20 +324,6 @@
   /* box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25); */
 }
 
-.match-bet-place:hover {
-  position: absolute;
-  bottom: -52px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: none;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 38px;
-  padding: 10px 33px;
-  color: red;
-  font-size: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  /* box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25); */
-}
 
 .match-bet-placeoff {
   position: absolute;
