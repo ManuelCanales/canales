@@ -329,10 +329,10 @@
   left: 50%;
   transform: translateX(-50%);
   border: none;
-  background-color: #201f20;
+  background-color: #201f20 !important;
   border-radius: 38px;
   padding: 10px 33px;
-  color: #484845;
+  color: #484845 !important;
   font-size: 14px;
   box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25);
   cursor: pointer;
