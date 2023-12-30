@@ -329,12 +329,14 @@
   left: 50%;
   transform: translateX(-50%);
   border: none;
-  background-color: rgb(143, 143, 143);
+  background-color: #201f20;
   border-radius: 38px;
   padding: 10px 33px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #484845;
   font-size: 14px;
   box-shadow: 0 4px 8px 0 rgba(48, 48, 48, 0.25);
+  cursor: pointer;
+  pointer-events: none
 }
 
 
