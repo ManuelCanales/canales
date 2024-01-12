@@ -72,25 +72,6 @@
 <body>
     <iframe width="100%" height="650px" frameborder="0" src="https://canales.speedtestcustom.com"></iframe>
 
-<center>   <script>
-  function getCurrentDateTime() {
-      var now = new Date();
-      return now.toLocaleString();
-  }
-
-  function updateDateTime() {
-      var datetime = document.body;
-      datetime.textContent = 'Fecha y Hora: ' + getCurrentDateTime();
-  }
-
-  // Actualizar cada 1 minuto (puedes ajustar el intervalo según tus necesidades)
-  setInterval(updateDateTime, 60000);
-
-  // Inicializar al cargar la página
-  document.addEventListener('DOMContentLoaded', function () {
-      updateDateTime();
-  });
-</script>
-   </center>
+<center>   <script type="text/javascript">     var d = Date(Date.now());         document.write(d);        </script>          </center>
 
 </body>
