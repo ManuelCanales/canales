@@ -72,6 +72,44 @@
 <body>
     <iframe width="100%" height="650px" frameborder="0" src="https://canales.speedtestcustom.com"></iframe>
 
-<center>   <script type="text/javascript">     var d = Date(Date.now());         document.write(d);        </script>          </center>
+<center>   <script>
+  function getCurrentDateTime() {
+      var now = new Date();
+      return now.toLocaleString();
+  }
+
+  function getTemperature() {
+      // Utilizando la API OpenWeatherMap para obtener la temperatura (necesitas tu propia clave API)
+      var apiKey = '0afa18e062c7c349ddaa08bfbac69146';
+      var city = 'LIMA';
+      var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey;
+
+      $.ajax({
+          url: apiUrl,
+          method: 'GET',
+          success: function (data) {
+              var temperature = data.main.temp - 273.15; // Convertir de Kelvin a Celsius
+              $('#temperature').text('Temperatura: ' + temperature.toFixed(2) + '°C');
+          },
+          error: function () {
+              $('#temperature').text('No se pudo obtener la temperatura');
+          }
+      });
+  }
+
+  function updateDateTimeAndTemperature() {
+      $('#datetime').text('Fecha y Hora: ' + getCurrentDateTime());
+      getTemperature();
+  }
+
+  // Actualizar cada 1 minuto (puedes ajustar el intervalo según tus necesidades)
+  setInterval(updateDateTimeAndTemperature, 60000);
+
+  // Inicializar al cargar la página
+  $(document).ready(function () {
+      updateDateTimeAndTemperature();
+  });
+</script>
+   </center>
 
 </body>
