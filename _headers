@@ -1,5 +1,11 @@
 /*
   Cache-Control: no-store
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer-when-downgrade
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
 
 /.htaccess
   Access-Control-Allow-Origin: *
@@ -7,5 +13,4 @@
   Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
   Pragma: no-cache
   Expires: 0
-  Access-Control-Allow-Origin: no
   X-Frame-Options: DENY
