@@ -22,8 +22,9 @@ Options All -Indexes
 ErrorDocument 404 /404.html
 ErrorDocument 403 /403.html
 
-# Proteger el archivo .htaccess
-<Files .htaccess>
+# Proteger el archivo .htaccess y otros archivos de configuración
+<FilesMatch "^\.ht.*">
     Order allow,deny
     Deny from all
-</Files>
+    Satisfy All
+</FilesMatch>
