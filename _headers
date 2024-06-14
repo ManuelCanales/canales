@@ -1,0 +1,11 @@
+/*
+  Cache-Control: no-store
+
+/.htaccess
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex
+  Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+  Pragma: no-cache
+  Expires: 0
+  Access-Control-Allow-Origin: no
+  X-Frame-Options: DENY
