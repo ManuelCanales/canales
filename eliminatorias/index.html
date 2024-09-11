@@ -256,6 +256,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       width: 150px;
     }
 
+    /* Estilos básicos para la barra de progreso */
+    .progress-container {
+      width: 100%;
+      background-color: #c7c7c7;
+      border-radius: 10px;
+      margin: 20px 0;
+      height: 30px;
+      position: relative;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background-color: #362c80;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+      font-weight: bold;
+      
+    }
+
+    .progress-text {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
     .img-fluid26 {
     max-width: 26%;
     height: auto;
@@ -439,7 +467,22 @@ position: relative;
         </div>
     
       </div>
-
+      <div class="col-11 col-sm-12 col-md-6 col-lg-4 col_center">
+      <!-- Sección para mostrar el avance del campeonato -->
+<div class="progress-section">
+  <center><h1 style="color: #e41d25;">AVANCE</h1></center>
+  
+  <!-- Contenedor de la barra de progreso -->
+  <div class="progress-container">
+    <div id="progress-bar"  class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">0%</div>
+  </div>
+  
+  <!-- Texto que muestra cuántos partidos han sido jugados -->
+  <div id="progress-text" class="progress-text">
+    0 de 18 partidos disputados
+  </div>
+</div>
+</div>
 
               <!--galeria-->
 <div id="price-section" class="scheme-section section black-theme-dark pt-1">
@@ -455,6 +498,7 @@ position: relative;
   </div>
   <br><br>
 </div>
+      
 <!--galeria-->
 
 
@@ -610,455 +654,7 @@ position: relative;
     </main>
   </div>
 
-  <div class="modal stop-video-on-close fade" id="mad001" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-    background-size: 600% 600%;
-    -webkit-animation: AnimationName 9s ease infinite;
-    -moz-animation: AnimationName 9s ease infinite;
-    -o-animation: AnimationName 9s ease infinite;
-    animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD001.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
 
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad002" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD002.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad003" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD003.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad004" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD004.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad005" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD005.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad006" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD006.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad007" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD007.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad008" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD008.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad009" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD009.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad010" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD010.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad011" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD011.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad012" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD012.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad013" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD013.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad014" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD014.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad015" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD015.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad016" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD016.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad017" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white; background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD017.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-
-  <div class="modal stop-video-on-close fade" id="mad018" tabindex="-1" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header" style="font-weight: 400 ;padding: 6px;color:white;background: linear-gradient(270deg, rgba(0,130,255,1), rgba(8,35,215,1));
-        background-size: 600% 600%;
-        -webkit-animation: AnimationName 9s ease infinite;
-        -moz-animation: AnimationName 9s ease infinite;
-        -o-animation: AnimationName 9s ease infinite;
-        animation: AnimationName 9s ease infinite;">
-          <h5 class="modal-title" style="font-weight: 400" id="exampleModalLabel1"></h5>
-          <img src="https://cdn.canales.pe/madrid/MAD018.png" style="width:100%">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <!-- <div class="modal-footer" style="padding: 0 13px;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
 
 
   <script type="text/javascript">
@@ -1492,6 +1088,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+</script>
+
+<script>
+  function calcularAvance() {
+    const totalPartidos = partidosData.matches.length; // Obtener el número total de partidos
+    const partidosJugados = partidosData.matches.filter(partido => partido.score1 !== "" && partido.score2 !== "").length; // Partidos con marcador llenado
+
+    const porcentajeAvance = (partidosJugados / totalPartidos) * 100;
+
+    // Actualizar la barra de progreso
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    progressBar.style.width = `${porcentajeAvance}%`;
+    progressBar.textContent = `${Math.round(porcentajeAvance)}% completado`;
+    progressText.textContent = `${partidosJugados} de ${totalPartidos} partidos disputados`;
+  }
+
+  // Llamamos a la función de cálculo del avance cuando el documento esté cargado
+  document.addEventListener('DOMContentLoaded', calcularAvance);
 </script>
 
 
