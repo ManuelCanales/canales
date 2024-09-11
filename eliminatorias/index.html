@@ -776,17 +776,17 @@ position: relative;
                               <div class="match-details">
                                 <div class="match-date">
                                   05.09.24 <br>
-                                  <strong> Por confirmar</strong>
+                                  <!-- <strong> Por confirmar</strong> -->
                                 </div>
-                                <!-- <div class="match-score">
-                                  <span class="match-score-number">3</span>
+                                <div class="match-score">
+                                  <span class="match-score-number">1</span>
                                   <span class="match-score-divider">:</span>
                                   <span class="match-score-number">1</span>
-                                </div> -->
+                                </div>
                       
                       
                                 
-                                <button class="match-bet-placeoff btn"><a style="color: aliceblue; text-decoration: none;" href="#0" target="_blank">Más información</a></button>
+                                <button class="match-bet-place btn"><a style="color: aliceblue; text-decoration: none;" href="https://www.fifa.com/es/match-centre/match/520/288315/288316/400018616" target="_blank">Más información</a></button>
                               </div>
                             </div>
                             <div class="column">
@@ -826,17 +826,17 @@ position: relative;
                               <div class="match-details">
                                 <div class="match-date">
                                   10.09.24 <br>
-                                  <strong> Por confirmar</strong>
+                                  <!-- <strong> Por confirmar</strong> -->
                                 </div>
-                                <!-- <div class="match-score">
-                                  <span class="match-score-number">3</span>
-                                  <span class="match-score-divider">:</span>
+                                <div class="match-score">
                                   <span class="match-score-number">1</span>
-                                </div> -->
+                                  <span class="match-score-divider">:</span>
+                                  <span class="match-score-number">0</span>
+                                </div>
                       
                       
                                 
-                                <button class="match-bet-placeoff btn"><a style="color: aliceblue; text-decoration: none;" href="#0" target="_blank">Más información</a></button>
+                                <button class="match-bet-placeoff btn"><a style="color: aliceblue; text-decoration: none;" href="https://www.fifa.com/es/match-centre/match/520/288315/288316/400018613" target="_blank">Más información</a></button>
                               </div>
                             </div>
                             <div class="column">
@@ -1985,6 +1985,69 @@ position: relative;
   <script type="text/javascript" src='https://cdn.mcq.cl/eliminatorias/recursos/js/script.js'></script>
 
   <script src="https://cdn.mcq.cl/assets/js/loader.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Función que actualiza el botón según el valor del href
+        function updateButton(buttonLink) {
+            const parentButton = buttonLink.closest('.match-bet-placeoff.btn') || buttonLink.closest('.match-bet-place.btn');
+            if (buttonLink.getAttribute('href') === '#0') {
+                buttonLink.textContent = 'No disponible';
+                if (parentButton) {
+                    parentButton.classList.remove('match-bet-place');
+                    parentButton.classList.add('match-bet-placeoff');
+                }
+            } else {
+                buttonLink.textContent = 'Más información';
+                if (parentButton) {
+                    parentButton.classList.remove('match-bet-placeoff');
+                    parentButton.classList.add('match-bet-place');
+                }
+            }
+        }
+    
+        // Función que observa cambios en el href del enlace
+        function observeHrefChanges(buttonLink) {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
+                        updateButton(buttonLink);
+                    }
+                });
+            });
+    
+            // Inicia la observación de cambios en el atributo href
+            observer.observe(buttonLink, { attributes: true });
+    
+            // Chequeo inicial del href
+            updateButton(buttonLink);
+        }
+    
+        // Observa el DOM por cambios que agreguen botones dinámicamente
+        const dynamicObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                const addedNodes = mutation.addedNodes;
+                addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && node.matches('.match-bet-placeoff.btn, .match-bet-place.btn')) {
+                        const buttonLink = node.querySelector('a');
+                        if (buttonLink) {
+                            observeHrefChanges(buttonLink);
+                        }
+                    }
+                });
+            });
+        });
+    
+        // Observa el body por cambios en el DOM
+        dynamicObserver.observe(document.body, { childList: true, subtree: true });
+    
+        // Si ya hay botones en el DOM al cargar la página, los procesa
+        document.querySelectorAll('.match-bet-placeoff.btn a, .match-bet-place.btn a').forEach(function(buttonLink) {
+            observeHrefChanges(buttonLink);
+        });
+    });
+    </script>
+    
 
 
 </body>
