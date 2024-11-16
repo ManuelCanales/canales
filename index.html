@@ -164,6 +164,145 @@ position: relative;
   text-align: justify !important;
 }
 
+/*  */
+
+.rrss-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .col-lg-3 {
+    flex: 0 0 25%; /* 4 columnas en escritorio */
+    max-width: 25%;
+  }
+
+  .rrsstarjeta {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    background-color: #F5F5F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #000;
+    text-decoration: none;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+
+  /* Hover solo en escritorio */
+  @media screen and (min-width: 769px) {
+    .rrsstarjetatw:hover {
+      transform: scale(1.02);
+      background-color: #000;
+    }
+
+    .rrsstarjetafb:hover {
+      transform: scale(1.02);
+      background-color: #1877F2;
+    }
+
+    .rrsstarjetaig:hover {
+      transform: scale(1.02);
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+    }
+
+    .rrsstarjetath:hover {
+      transform: scale(1.02);
+      background-color: #000;
+    }
+
+    .rrsstarjeta:hover i {
+      color: #fff;
+    }
+  }
+
+  /* Tooltip - solo visible en escritorio */
+  .tooltip {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #333;
+  }
+
+  .rrsstarjeta:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+  }
+
+  /* Responsive: ajustes para móvil */
+  @media screen and (max-width: 768px) {
+    .rrss-row {
+      gap: 15px; /* Espaciado solo en móvil */
+    }
+
+    .col-lg-3 {
+      flex: 0 0 100%; /* Una tarjeta por fila */
+      max-width: 100%;
+    }
+
+    .rrsstarjeta {
+      height: 150px; /* Más altura en móvil */
+      border-radius: 20px; /* Más redondeo */
+      transform: none; /* Sin transformaciones */
+      background-color: #F5F5F6; /* Fijo el color */
+    }
+
+    /* Quitar efecto hover en móvil */
+    .rrsstarjetatw:hover,
+    .rrsstarjetafb:hover,
+    .rrsstarjetaig:hover,
+    .rrsstarjetath:hover {
+      transform: none !important;
+      background-color: #F5F5F6 !important;
+    }
+
+    .tooltip {
+      display: none !important; /* Ocultar tooltip en móvil */
+    }
+
+    .username {
+      display: inline-block !important; /* Asegura visibilidad */
+      font-size: 16px;
+      color: #000 !important; /* Texto negro */
+      font-weight: normal;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+
+  /* Ocultar el username en pantallas grandes */
+  .username {
+    display: none; /* Por defecto está oculto */
+  }
+
+/*  */
+
 @-webkit-keyframes AnimationName {
   0% {
     background-position: 0% 50%;
@@ -670,7 +809,7 @@ position: relative;
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-12 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <img src="https://cdn.mcq.cl/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="Patupie">
               <div class="portfolio-info">
@@ -684,7 +823,7 @@ position: relative;
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-12 portfolio-item filter-card">
             <div class="portfolio-wrap">
               <img src="https://cdn.mcq.cl/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="Monarca">
               <div class="portfolio-info">
@@ -698,7 +837,7 @@ position: relative;
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-12 portfolio-item filter-card">
             <div class="portfolio-wrap">
               <img src="https://cdn.mcq.cl/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="Bicentenario Perú">
               <div class="portfolio-info">
@@ -712,7 +851,7 @@ position: relative;
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-12 portfolio-item filter-web">
             <div class="portfolio-wrap">
               <img src="https://cdn.mcq.cl/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="Pinterest">
               <div class="portfolio-info">
@@ -788,82 +927,61 @@ position: relative;
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Mis publicaciones <i class="bi bi-patch-check-fill"></i></h2>
+          <h2>Mis publicaciones</h2>
           <p class="justificador">Los tweets y posts que comparto en mis redes sociales reflejan opiniones estrictamente personales. Quiero dejar claro que los retweets y compartidos de contenido ajeno no deben ser interpretados como un respaldo o endoso por mi parte. Siempre recomiendo a mis seguidores y lectores que analicen y evalúen la información por sí mismos antes de tomar cualquier decisión basada en ella. Es fundamental ejercer un pensamiento crítico y formarse una opinión propia.</p>
         </div>
 
-        <div class="row">
+        <br>
 
-          <div class="col-md-6 column col_center" data-aos="fade-up">
-            <div class="member">
-              <a class="twitter-timeline" data-width="600" data-height="800" data-dnt="true" href="https://twitter.com/ManuelCanales?ref_src=twsrc%5Etfw">Tweets de Manuel Canales Q.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-              <!---<div class="pic"><img src="https://cdn.mcq.cl/assets/img/team/team-1.jpg" class="img-fluid" alt="abc"></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>--->
-            </div>
+        <div class="rrss-row">
+
+          <!-- Tarjeta de Twitter -->
+          <div class="col-lg-3">
+            <a href="https://twitter.com/ManuelCanales" target="_blank" class="rrsstarjeta rrsstarjetatw">
+              <i class="bi bi-twitter-x"></i>
+              <span class="username"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></span>
+              <div class="tooltip"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></div>
+            </a>
+          </div>
+        
+          <!-- Tarjeta de Facebook -->
+          <div class="col-lg-3">
+            <a href="https://facebook.com/ManuelCanales" target="_blank" class="rrsstarjeta rrsstarjetafb">
+              <i class="bi bi-facebook"></i>
+              <span class="username"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></span>
+              <div class="tooltip"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></div>
+            </a>
+          </div>
+        
+          <!-- Tarjeta de Instagram -->
+          <div class="col-lg-3">
+            <a href="https://instagram.com/ManuelCanales" target="_blank" class="rrsstarjeta rrsstarjetaig">
+              <i class="bi bi-instagram"></i>
+              <span class="username"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></span>
+              <div class="tooltip"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></div>
+            </a>
+          </div>
+        
+          <!-- Tarjeta de Threads -->
+          <div class="col-lg-3">
+            <a href="https://threads.net/ManuelCanales" target="_blank" class="rrsstarjeta rrsstarjetath">
+              <i class="bi bi-threads"></i>
+              <span class="username"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></span>
+              <div class="tooltip"><strong><i class="bi bi-at"></i>manuelcanales</strong> <i class="bi bi-patch-check-fill"></i></div>
+            </a>
           </div>
 
-          <div class="col-md-6 column col_center" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmanuelcanales&tabs=timeline&width=600&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="600" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-
-              <!---<div class="pic"><img src="https://cdn.mcq.cl/assets/img/team/team-2.jpg" class="img-fluid" alt="abc"></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>--->
-            </div>
-          </div>
-<!--
-          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="pic"><img src="https://cdn.mcq.cl/assets/img/team/team-3.jpg" class="img-fluid" alt="abc"></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="https://cdn.mcq.cl/assets/img/team/team-4.jpg" class="img-fluid" alt="abc"></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>-->
+          
 
         </div>
 
-      </div>
+        
+
+        
+
+        <br>
+        
+
       <!-- partial:index.partial.html -->
 <div class="slider">
 	<div class="slide-track">
