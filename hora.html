@@ -3,42 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relojes del mundo </title>
-    <meta content="Soy Manuel Canales Quintanilla. Ciudadano de la República del Perú, fundador de Tendencias Lima , diseñador gráfico, fotógrafo aficionado y limeño." name="description">
-    <meta content="Manuel Canales, diseñador, Manuel Canales Quintanilla, peruano, hora, time, hour, GMT" name="keywords">
-    <link rel="image_src" type="image/jpeg" href="https://cdn.mcq.cl/assets/img/generico.png" />
-    <meta name="author" content="Manuel Canales Quintanilla" />
-    <meta name="copyright" content="Manuel Canales Quintanilla" />
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Manuel Canales Q." />
-    <meta property="og:url" content="https://www.canales.pe/" />
-  
-    <meta property="og:image" content="https://cdn.mcq.cl/assets/img/generico.png" />
-    <meta property="og:description" content="Soy Manuel Canales Quintanilla. Ciudadano de la República del Perú, fundador de Tendencias Lima , diseñador gráfico, fotógrafo aficionado y limeño." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@manuelcanales" />
-  <meta name="twitter:creator" content="@manuelcanales" />
-  <meta name="twitter:domain" content="www.canales.pe"/>
-  
-  <meta name="twitter:title" content="Manuel Canales Q." />
-  <meta name="twitter:description" content="Soy Manuel Canales Quintanilla. Ciudadano de la República del Perú, fundador de Tendencias Lima , diseñador gráfico, fotógrafo aficionado y limeño." />
-  <meta name="twitter:image" content="https://cdn.mcq.cl/assets/img/generico.png" /> 
-  <link rel="canonical" href="https://www.canales.pe/" />
-
-   <!-- Favicons -->
-   <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.mcq.cl/apple-touch-icon.png">
-   <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.mcq.cl/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="194x194" href="https://cdn.mcq.cl/favicon-194x194.png">
-   <link rel="icon" type="image/png" sizes="192x192" href="https://cdn.mcq.cl/android-chrome-192x192.png">
-   <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.mcq.cl/favicon-16x16.png">
-   <link rel="manifest" href="https://www.canales.pe/site.webmanifest">
-   <link rel="mask-icon" href="https://cdn.mcq.cl/safari-pinned-tab.svg" color="#0572cd">
-   <meta name="apple-mobile-web-app-title" content="Manuel Canales Q.">
-   <meta name="application-name" content="Manuel Canales Q.">
-   <meta name="msapplication-TileColor" content="#0572cd">
-   <meta name="msapplication-TileImage" content="https://cdn.mcq.cl/mstile-144x144.png">
-   <meta name="theme-color" content="#0572cd">
-
+    <title>Relojes del mundo</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -117,51 +82,51 @@
 
     <script>
         const cities = [
-            { name: "Lima", offset: -5, flag: "pe" },
-            { name: "Santiago de Chile", offset: -3, flag: "cl" },
-            { name: "Caracas", offset: -4, flag: "ve" },
-            { name: "CDMX", offset: -6, flag: "mx" },
-            { name: "Bogotá", offset: -5, flag: "co" },
-            { name: "Medellín", offset: -5, flag: "co" },
-            { name: "Madrid", offset: 1, flag: "es" },
-            { name: "Miami", offset: -5, flag: "us" },
-            { name: "Temuco", offset: -3, flag: "cl" },
-            { name: "Sao Paulo", offset: -3, flag: "br" },
-            { name: "Roma", offset: 1, flag: "it" },
-            { name: "Paris", offset: 1, flag: "fr" },
-            { name: "Panamá", offset: -5, flag: "pa" },
-            { name: "Moscú", offset: 3, flag: "ru" },
-            { name: "Tokio", offset: 9, flag: "jp" },
-            { name: "Estambul", offset: 3, flag: "tr" },
-            { name: "Quito", offset: -5, flag: "ec" },
-            { name: "Montevideo", offset: -3, flag: "uy" },
-            { name: "Asunción", offset: -3, flag: "py" },
-            { name: "Newark", offset: -5, flag: "us" },
-            { name: "Arizona", offset: -7, flag: "us" },
-            { name: "Barcelona", offset: 1, flag: "es" },
-            { name: "Arequipa", offset: -5, flag: "pe" },
-            { name: "Pekín", offset: 8, flag: "cn" },
-            { name: "Guadalajara", offset: -6, flag: "mx" },
-            { name: "Monterrey", offset: -6, flag: "mx" },
-            { name: "Sydney", offset: 11, flag: "au" },
-            { name: "Auckland", offset: 13, flag: "nz" },
-            { name: "Seúl", offset: 9, flag: "kr" },
-            { name: "Pyongyang", offset: 9, flag: "kp" },
-            { name: "Shanghái", offset: 8, flag: "cn" },
-            { name: "Milán", offset: 1, flag: "it" },
-            { name: "Kiev", offset: 2, flag: "ua" },
-            { name: "Bagdad", offset: 3, flag: "iq" },
-            { name: "Riad", offset: 3, flag: "sa" },
-            { name: "Bruselas", offset: 1, flag: "be" },
-            { name: "San Petersburgo", offset: 3, flag: "ru" },
-            { name: "Buenos Aires", offset: -3, flag: "ar" },
-            { name: "Sucre", offset: -4, flag: "bo" },
-            { name: "Brasilia", offset: -3, flag: "br" },
-            { name: "Cusco", offset: -5, flag: "pe" },
-            { name: "Rapa Nui", offset: -6, flag: "cl" },
-            { name: "Bariloche", offset: -3, flag: "ar" },
-            { name: "San Juan", offset: -4, flag: "pr" },
-            { name: "Ottawa", offset: -5, flag: "ca" }
+            { name: "Lima", timeZone: "America/Lima", flag: "pe" },
+            { name: "Santiago de Chile", timeZone: "America/Santiago", flag: "cl" },
+            { name: "Rapa Nui", timeZone: "Pacific/Easter", flag: "cl" },
+            { name: "Madrid", timeZone: "Europe/Madrid", flag: "es" },
+            { name: "Tokio", timeZone: "Asia/Tokyo", flag: "jp" },
+            { name: "Nueva York", timeZone: "America/New_York", flag: "us" },
+            { name: "Sydney", timeZone: "Australia/Sydney", flag: "au" },
+            { name: "Caracas", timeZone: "America/Caracas", flag: "ve" },
+            { name: "Bogotá", timeZone: "America/Bogota", flag: "co" },
+            { name: "CDMX", timeZone: "America/Mexico_City", flag: "mx" },
+            { name: "Miami", timeZone: "America/New_York", flag: "us" },
+            { name: "Temuco", timeZone: "America/Santiago", flag: "cl" },
+            { name: "Sao Paulo", timeZone: "America/Sao_Paulo", flag: "br" },
+            { name: "Roma", timeZone: "Europe/Rome", flag: "it" },
+            { name: "Paris", timeZone: "Europe/Paris", flag: "fr" },
+            { name: "Panamá", timeZone: "America/Panama", flag: "pa" },
+            { name: "Moscú", timeZone: "Europe/Moscow", flag: "ru" },
+            { name: "Estambul", timeZone: "Europe/Istanbul", flag: "tr" },
+            { name: "Quito", timeZone: "America/Guayaquil", flag: "ec" },
+            { name: "Montevideo", timeZone: "America/Montevideo", flag: "uy" },
+            { name: "Asunción", timeZone: "America/Asuncion", flag: "py" },
+            { name: "Newark", timeZone: "America/New_York", flag: "us" },
+            { name: "Arizona", timeZone: "America/Phoenix", flag: "us" },
+            { name: "Barcelona", timeZone: "Europe/Madrid", flag: "es" },
+            { name: "Arequipa", timeZone: "America/Lima", flag: "pe" },
+            { name: "Pekín", timeZone: "Asia/Shanghai", flag: "cn" },
+            { name: "Guadalajara", timeZone: "America/Mexico_City", flag: "mx" },
+            { name: "Monterrey", timeZone: "America/Monterrey", flag: "mx" },
+            { name: "Auckland", timeZone: "Pacific/Auckland", flag: "nz" },
+            { name: "Seúl", timeZone: "Asia/Seoul", flag: "kr" },
+            { name: "Pyongyang", timeZone: "Asia/Pyongyang", flag: "kp" },
+            { name: "Shanghái", timeZone: "Asia/Shanghai", flag: "cn" },
+            { name: "Milán", timeZone: "Europe/Rome", flag: "it" },
+            { name: "Kiev", timeZone: "Europe/Kiev", flag: "ua" },
+            { name: "Bagdad", timeZone: "Asia/Baghdad", flag: "iq" },
+            { name: "Riad", timeZone: "Asia/Riyadh", flag: "sa" },
+            { name: "Bruselas", timeZone: "Europe/Brussels", flag: "be" },
+            { name: "San Petersburgo", timeZone: "Europe/Moscow", flag: "ru" },
+            { name: "Buenos Aires", timeZone: "America/Argentina/Buenos_Aires", flag: "ar" },
+            { name: "Sucre", timeZone: "America/La_Paz", flag: "bo" },
+            { name: "Brasilia", timeZone: "America/Sao_Paulo", flag: "br" },
+            { name: "Cusco", timeZone: "America/Lima", flag: "pe" },
+            { name: "Bariloche", timeZone: "America/Argentina/Buenos_Aires", flag: "ar" },
+            { name: "San Juan", timeZone: "America/Puerto_Rico", flag: "pr" },
+            { name: "Ottawa", timeZone: "America/Toronto", flag: "ca" }
         ];
 
         const clockContainer = document.getElementById('clockContainer');
@@ -181,30 +146,25 @@
             clockContainer.appendChild(clock);
         });
 
-        // Actualizar los relojes en tiempo real
+        // Actualizar los relojes en tiempo real con manejo de DST
         function updateClocks() {
             cities.forEach(city => {
-                const now = new Date();
-                const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-                const localTime = new Date(utc + city.offset * 3600000);
+                const localTime = new Date().toLocaleString('en-US', {
+                    timeZone: city.timeZone,
+                    hour12: true,
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric'
+                });
 
-                const hours = localTime.getHours();
-                const minutes = localTime.getMinutes();
-                const seconds = localTime.getSeconds();
-                const ampm = hours >= 12 ? 'PM' : 'AM';
+                const [time, period] = localTime.split(' ');
+                const [hours, minutes, seconds] = time.split(':');
 
-                const formattedHours = hours % 12 || 12; // Convertir 0 a 12 para AM/PM
-                const formattedMinutes = minutes.toString().padStart(2, '0');
-                const formattedSeconds = seconds.toString().padStart(2, '0');
-
-                const timeString = `${formattedHours}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
                 const clockElement = document.getElementById(city.name.replace(/ /g, "-"));
+                clockElement.querySelector('p').textContent = `${hours}:${minutes}:${seconds} ${period}`;
 
-                // Actualizar hora
-                clockElement.querySelector('p').textContent = timeString;
-
-                // Cambiar fondo según si es día o noche
-                if (hours >= 6 && hours < 18) {
+                const hour24 = (period === 'PM' && hours !== "12" ? parseInt(hours, 10) + 12 : parseInt(hours, 10));
+                if (hour24 >= 6 && hour24 < 18) {
                     clockElement.classList.add('day');
                     clockElement.classList.remove('night');
                 } else {
@@ -216,8 +176,6 @@
 
         // Actualizar cada segundo
         setInterval(updateClocks, 1000);
-
-        // Inicializar los relojes
         updateClocks();
     </script>
 </body>
