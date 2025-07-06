@@ -23,10 +23,10 @@
     html, body {
       margin: 0;
       padding: 0;
-      background-color: black;
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      background-color: #000;
+      color: white;
       height: 100%;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -37,11 +37,10 @@
   <script src="https://cdn.mcq.cl/assets/js/loader.js"></script>
 
   <script>
+    // Esperamos que se dibuje el loader
     setTimeout(() => {
-      document.body.style.opacity = '0';
-      setTimeout(() => {
-        window.location.href = "https://beacons.ai/manuelcanales";
-      }, 500); // tiempo para transición
+      // Redirigimos reemplazando el historial y evitando parpadeo
+      window.location.replace("https://beacons.ai/manuelcanales");
     }, 4000);
   </script>
 </body>
