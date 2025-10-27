@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -60,6 +60,9 @@
   <link href="https://cdn.mcq.cl/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="https://cdn.mcq.cl/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="https://cdn.mcq.cl/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/header26.css">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/contacto.css">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/frecuentes.css">
 
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -382,68 +385,62 @@ position: relative;
 
 
   <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center mcqdivisor">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-at"></i><a href="mailto:manuel@canales.pe">manuel@canales.pe</a>
-      </div>
-      <div class="social-links d-none d-md-block">
-        <a href="https://www.canales.pe/twitter" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://www.canales.pe/facebook" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.canales.pe/instagram" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.canales.pe/threads" class="threads"><i class="bi bi-threads"></i></a>
-        <a href="https://www.canales.pe/tiktok" class="tiktok"><i class="bx bxl-tiktok"></i></a>
-        <!---<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>--->
-      </div>
+
+
+<header id="cqhdr" class="cqhdr-is-expanded" aria-label="Barra superior">
+  <div class="cqhdr-bar">
+    <div class="cqhdr-left">
+      <!-- Logo SVG externo -->
+      <a href="/" class="cqhdr-reset-link" aria-label="CANALES">
+        <img class="cqhdr-logo-img" src="https://cdn.mcq.cl/logo/canales.svg" alt="CANALES" width="140" height="28" loading="eager" decoding="async">
+      </a>
+
+      <button class="cqhdr-burger" id="cqhdr-burger" aria-expanded="false" aria-label="Abrir menú">
+        <div class="cqhdr-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <!-- Píldora inline (desktop, horizontal dinámica) -->
+        <nav class="cqhdr-pill" aria-label="Menú inline (desktop)">
+          <a class="cqhdr-reset-link" href="/">Inicio</a>
+          <a class="cqhdr-reset-link" href="#about">Sobre mí</a>
+          <a class="cqhdr-reset-link" href="#services">Servicios</a>
+          <a class="cqhdr-reset-link" href="#portfolio">Portafolio</a>
+          <a class="cqhdr-reset-link" href="#team">Publicaciones</a>
+          <a class="cqhdr-reset-link" href="#cq-hub">Contacto</a>
+        </nav>
+      </button>
     </div>
-  </section>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center">
 
-      <div class="logo me-auto">
-        <div class="canales-logo"><a href="https://www.canales.pe" class="canales-brand d-none d-lg-block"><img src="https://cdn.mcq.cl/logo/canales.svg" alt="canales" height="69"></a><a href="https://www.canales.pe" class="canales-brand d-block d-lg-none"><img class="hasIso" src="https://cdn.mcq.cl/logo/canales.svg" alt="Canales" height="100"></a></div>
-        <!--<h1><a href="index">Mamba</a></h1>-->
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index"><img src="assets/img/logo.png" alt="abc" class="img-fluid"></a>-->
-      </div>
+    <div></div>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li class="mcq-cl"><a class="nav-link scrollto" href="javascript:void(0)"><img src="https://cdn.mcq.cl/logo/canales-white.svg" alt="canales" height="69"></a></li>
-          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="#about">Sobre mí</a></li>
-          <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portafolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Mis publicaciones <i class="bi bi-patch-check"></i></a></li>
-          
-          <!---<li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>-->
-          <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+    <div class="cqhdr-social" aria-label="Redes sociales">
 
+
+        <a class="cqhdr-reset-link" href="https://www.canales.pe/facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a class="cqhdr-reset-link" href="https://www.canales.pe/threads" aria-label="Threads"><i class="bi bi-threads"></i></a>
+      <a class="cqhdr-reset-link" href="https://www.canales.pe/twitter" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+      <a class="cqhdr-reset-link" href="https://www.canales.pe/instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a></a>
+      <a class="cqhdr-reset-link" href="https://www.canales.pe/tiktok" aria-label="TikTok"><i class="bx bxl-tiktok"></i></a>
     </div>
-  </header><!-- End Header -->
+  </div>
+</header>
 
-  <div class="mcqdivisor"> </div>
+<!-- Drawer móvil -->
+<div id="cqhdr-mob" aria-hidden="true">
+  <div class="cqhdr-mob-sheet" role="menu" aria-label="Menú móvil">
+    <nav class="cqhdr-mob-list">
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="/">Inicio</a>
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#about">Sobre mí</a>
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#services">Servicios</a>
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#portfolio">Portafolio</a>
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#team">Publicaciones</a>
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cq-hub">Contacto</a>
+    </nav>
+  </div>
+</div>
+
+  <!-- <div class="mcqdivisor"> </div> -->
 
   <!-- ======= Hero Section ======= -->
   <div id="cq-hero"></div>
@@ -580,6 +577,7 @@ position: relative;
 
       </div>
     </section><!-- End Counts Section -->
+    
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -950,138 +948,173 @@ position: relative;
       </div>
     </div> <br>
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq section-bg">
-      <div class="container" data-aos="fade-up">
+    <section id="env-apple" class="env-apple">
+  <div class="env-shell " data-aos="fade-up">
+    <h2 class="env-title">Preguntas frecuentes</h2>
 
-        <div class="section-title">
-          <h2>Preguntas frecuentes</h2>
-        </div>
+    <div class="env-grid">
+      <article class="env-card" data-modal="#m1">
+        <div class="env-ico">⏱️</div>
+        <h3>¿Cuáles son los plazos de entrega?</h3>
+        <p>Dependen de la complejidad del proyecto.</p>
+        <button class="env-plus" aria-label="Ver más"></button>
+      </article>
 
-        <div class="row  d-flex align-items-stretch">
+      <article class="env-card" data-modal="#m2">
+        <div class="env-ico">💳</div>
+        <h3>¿Cómo se hacen los pagos?</h3>
+        <p>50% de anticipo y 50% al finalizar.</p>
+        <button class="env-plus" aria-label="Ver más"></button>
+      </article>
 
-          <div class="col-lg-6 faq-item" data-aos="fade-up">
-            <h4>¿Cuáles son los plazos de entrega?</h4>
-            <p class="justificador">
-              Los plazos de entrega variarán en función de la complejidad del proyecto. Estaremos encantados de acordarlos de manera específica al revisar la solicitud de servicio y determinar las acciones que vamos a desarrollar.
-            </p>
-          </div>
+      <article class="env-card" data-modal="#m3">
+        <div class="env-ico">🏦</div>
+        <h3>¿Qué métodos de pago aceptas?</h3>
+        <p>BCP, Yape/Plin, PayPal, PagoEfectivo.</p>
+        <button class="env-plus" aria-label="Ver más"></button>
+      </article>
 
-          <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-            <h4>¿Cómo se hacen los pagos?</h4>
-            <p class="justificador">
-              Al llegar a un acuerdo, se requerirá realizar un abono del 50% del monto total acordado como anticipo. El 50% restante se abonará al finalizar la presentación de la propuesta final para proceder con la liberación de los archivos. Es importante mencionar que los archivos editables podrían incurrir en un costo adicional. Al concluir el servicio, se emitirá un recibo por honorarios.
-            </p>
-          </div>
+      <article class="env-card" data-modal="#m4">
+        <div class="env-ico">📦</div>
+        <h3>¿Cuál es el método de entrega?</h3>
+        <p>Google Drive o WeTransfer.</p>
+        <button class="env-plus" aria-label="Ver más"></button>
+      </article>
+    </div>
+  </div>
 
-          <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="200">
-            <h4>¿Qué métodos de pagos aceptas?</h4>
-            <p class="justificador">
-              Aceptamos diferentes métodos de pago para tu comodidad. Puedes realizar depósitos bancarios a través del Banco de Crédito BCP, efectuar transacciones mediante Yape o Plin, usar PayPal (en dólares estadounidenses con comisiones adicionales), optar por Pago Link (con recargo) o utilizar el código CIP de PagoEfectivo (con recargo adicional). Te recomendamos elegir la opción que te resulte más conveniente.
-            </p>
-          </div>
-
-          <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="300">
-            <h4>¿Cuál es el método de entrega?</h4>
-            <p class="justificador">
-              Para la entrega de las piezas, ofrecemos dos opciones principales: un enlace compartido en Google Drive, donde podrás acceder y descargar los archivos directamente, o una transferencia a través de WeTransfer. Es importante tener en cuenta que el enlace de WeTransfer caduca en 3 días a partir de la fecha de envío. Si prefieres utilizar un método de entrega diferente o tienes alguna solicitud específica, estamos dispuestos a coordinar previamente para satisfacer tus necesidades.
-            </p>
-          </div>
-          <!---
-          <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="400">
-            <h4>¿Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
-            <p class="justificador">
-              Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-            </p>
-          </div>
-
-          <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="500">
-            <h4>¿Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor?</h4>
-           <p class="justificador">
-              Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-            </p>
-          </div>--->
-
-        </div>
-
+  <!-- ===== Modales ===== -->
+  <div id="m1" class="env-modal" role="dialog" aria-modal="true" aria-labelledby="m1t" aria-describedby="m1d" hidden>
+    <div class="env-backdrop"></div>
+    <div class="env-sheet" role="document">
+      <button class="env-close" aria-label="Cerrar">✕</button>
+      <h3 id="m1t" class="env-h">Plazos de entrega</h3>
+      <div id="m1d" class="env-body">
+        <p>Los plazos de entrega variarán en función de la complejidad del proyecto. Estaremos encantados de acordarlos de manera específica al revisar la solicitud de servicio y determinar las acciones que vamos a desarrollar.</p>
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </div>
+  </div>
 
-    <!-- ======= Contact Us Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contacto</h2>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-box">
-              <i class="bi bi-envelope-at"></i>
-              <h3>Correo Electrónico</h3>
-              <p><a href="mailto:manuel@canales.pe">manuel@canales.pe</a><!-- <br><a href="mailto:manuelcanalesq@icloud.com">manuelcanalesq@icloud.com</a> --></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="info-box">
-              <i class="bi bi-whatsapp"></i>
-              <h3>WhatsApp</h3>
-              <p><a href="https://api.whatsapp.com/send?phone=5117381445&text=Hola"><b>+51 1 738 14 45</b></a> <br>
-              <span style="font-size: 10px;">Este número solo está habilitado para mensajería</span> </p> 
-            </div>
-          </div>
-
-          
-
-          <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="info-box ">
-              <i class="bi bi-telegram"></i>
-              <h3>Telegram</h3>
-              <p><a href="https://t.me/manuelcanales">t.me/manuelcanales</a></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="info-box ">
-              <i class="bi bi-messenger"></i>
-              <h3>Messenger</h3>
-              <p><a href="https://m.me/manuelcanales">m.me/manuelcanales</a></p>
-            </div>
-          </div>
-          <!---
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-lg-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Ingresa tu nombre" required>
-                </div>
-                <div class="col-lg-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Ingresa tu correo electrónico" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Escribe el asunto" required>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" placeholder="¿Qué tienes en mente?" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Enviando</div>
-                <div class="error-message"></div>
-                <div class="sent-message">¡Genial!. Ya tenemos registrada tu respuesta, pronto te contactaré</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            </form>
-          </div>
-          --->
-
-        </div>
-
+  <div id="m2" class="env-modal" role="dialog" aria-modal="true" aria-labelledby="m2t" aria-describedby="m2d" hidden>
+    <div class="env-backdrop"></div>
+    <div class="env-sheet" role="document">
+      <button class="env-close" aria-label="Cerrar">✕</button>
+      <h3 id="m2t" class="env-h">Pagos</h3>
+      <div id="m2d" class="env-body">
+        <p>Al llegar a un acuerdo, se requerirá realizar un abono del 50% del monto total acordado como anticipo. El 50% restante se abonará al finalizar la presentación de la propuesta final para proceder con la liberación de los archivos. Es importante mencionar que los archivos editables podrían incurrir en un costo adicional. Al concluir el servicio, se emitirá un recibo por honorarios.</p>
       </div>
-    </section><!-- End Contact Us Section -->
+    </div>
+  </div>
+
+  <div id="m3" class="env-modal" role="dialog" aria-modal="true" aria-labelledby="m3t" aria-describedby="m3d" hidden>
+    <div class="env-backdrop"></div>
+    <div class="env-sheet" role="document">
+      <button class="env-close" aria-label="Cerrar">✕</button>
+      <h3 id="m3t" class="env-h">Métodos de pago</h3>
+      <div id="m3d" class="env-body">
+        <p>Aceptamos diferentes métodos de pago para tu comodidad. Puedes realizar depósitos bancarios a través del Banco de Crédito BCP, efectuar transacciones mediante Yape o Plin, usar PayPal (en dólares estadounidenses con comisiones adicionales), optar por Pago Link (con recargo) o utilizar el código CIP de PagoEfectivo (con recargo adicional). Te recomendamos elegir la opción que te resulte más conveniente.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="m4" class="env-modal" role="dialog" aria-modal="true" aria-labelledby="m4t" aria-describedby="m4d" hidden>
+    <div class="env-backdrop"></div>
+    <div class="env-sheet" role="document">
+      <button class="env-close" aria-label="Cerrar">✕</button>
+      <h3 id="m4t" class="env-h">Entrega</h3>
+      <div id="m4d" class="env-body">
+        <p>Para la entrega de las piezas, ofrecemos dos opciones principales: un enlace compartido en Google Drive, donde podrás acceder y descargar los archivos directamente, o una transferencia a través de WeTransfer. Es importante tener en cuenta que el enlace de WeTransfer caduca en 3 días a partir de la fecha de envío. Si prefieres utilizar un método de entrega diferente o tienes alguna solicitud específica, estamos dispuestos a coordinar previamente para satisfacer tus necesidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <section id="cq-hub" class="cq-hub">
+  <div class="cq-hub-shell" data-aos="fade-up">
+    <!-- Rail / Intro (sin botón) -->
+    <aside class="cq-hub-rail">
+      <h2 class="cq-hub-title">Hablemos</h2>
+      <p class="cq-hub-sub">Elige el canal que prefieras. Suelo responder rápido.</p>
+
+      <div class="cq-hub-status">
+        <span class="cq-dot"></span>
+        <span class="cq-hub-status-text">Calculando disponibilidad…</span>
+      </div>
+
+      <div class="cq-info">
+        <p><strong>Horario ref.</strong> 09:00–20:00 (Lima)</p>
+        <p class="cq-muted">Fuera de horario, igual dejo todo en leído y respondo apenas pueda.</p>
+      </div>
+    </aside>
+
+    <!-- Grid de canales (sin Agenda) -->
+    <div class="cq-hub-grid">
+
+
+      <!-- correo -->
+      <article class="cq-card">
+        <a class="cq-card-hit" href="mailto:manuel@canales.pe" target="_blank" rel="noopener" aria-label="Enviar correo" data-ripple>
+          <div class="cq-ico" aria-hidden="true"><i class="bi bi-envelope-at"></i></div>
+          <div class="cq-body">
+            <h3>Correo</h3>
+            <p class="cq-val">manuel@canales.pe</p>
+            <span class="cq-mini">Enviar correo</span>
+          </div>
+        </a>
+      </article>
+
+
+      <!-- WhatsApp -->
+      <article class="cq-card">
+        <a class="cq-card-hit" href="https://wa.me/5117381445" target="_blank" rel="noopener" aria-label="Abrir WhatsApp" data-ripple>
+          <div class="cq-ico" aria-hidden="true"><i class="bi bi-whatsapp"></i></div>
+          <div class="cq-body">
+            <h3>WhatsApp</h3>
+            <p class="cq-val">+51 1 738 14 45</p>
+            <span class="cq-mini">Solo mensajes</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Telegram -->
+      <article class="cq-card">
+        <a class="cq-card-hit" href="https://t.me/manuelcanales" target="_blank" rel="noopener" aria-label="Abrir Telegram" data-ripple>
+          <div class="cq-ico" aria-hidden="true"><i class="bi bi-telegram"></i></div>
+          <div class="cq-body">
+            <h3>Telegram</h3>
+            <p class="cq-val">t.me/manuelcanales</p>
+            <span class="cq-mini">Abre nueva pestaña</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Messenger -->
+      <article class="cq-card">
+        <a class="cq-card-hit" href="https://m.me/manuelcanales" target="_blank" rel="noopener" aria-label="Abrir Messenger" data-ripple>
+          <div class="cq-ico" aria-hidden="true"><i class="bi bi-messenger"></i></div>
+          <div class="cq-body">
+            <h3>Messenger</h3>
+            <p class="cq-val">m.me/manuelcanales</p>
+            <span class="cq-mini">Abre nueva pestaña</span>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="cq-toast" role="status" aria-live="polite"></div>
+
+  <!-- Action bar móvil (la mantengo; si quieres, la quitamos) -->
+  <div class="cq-hub-bar">
+    <a href="https://wa.me/5117381445" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="mailto:manuel@canales.pe">Email</a>
+  </div>
+</section>
+
+
 
   </main><!-- End #main -->
   <div class="mcqdivisor-footer"> </div>
@@ -1324,6 +1357,12 @@ position: relative;
   }
 ]
 </script>
+
+<script src="https://cdn.mcq.cl/assets/js/header26.js"></script>
+
+<script src="https://cdn.mcq.cl/assets/js/contacto.js"></script>
+
+<script src="https://cdn.mcq.cl/assets/js/frecuentes.js"></script>
 
 <script src="https://cdn.mcq.cl/cqhero/js/cqhero.js"></script>
 
