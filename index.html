@@ -63,6 +63,9 @@
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/header26.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/contacto.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/frecuentes.css">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/cuenta26.css">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/acercade.css">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/servicios.css">
 
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -402,8 +405,8 @@ position: relative;
         <!-- Píldora inline (desktop, horizontal dinámica) -->
         <nav class="cqhdr-pill" aria-label="Menú inline (desktop)">
           <a class="cqhdr-reset-link" href="/">Inicio</a>
-          <a class="cqhdr-reset-link" href="#about">Sobre mí</a>
-          <a class="cqhdr-reset-link" href="#services">Servicios</a>
+          <a class="cqhdr-reset-link" href="#cqab">Sobre mí</a>
+          <a class="cqhdr-reset-link" href="#cqsrv">Servicios</a>
           <a class="cqhdr-reset-link" href="#portfolio">Portafolio</a>
           <a class="cqhdr-reset-link" href="#team">Publicaciones</a>
           <a class="cqhdr-reset-link" href="#cq-hub">Contacto</a>
@@ -431,8 +434,8 @@ position: relative;
   <div class="cqhdr-mob-sheet" role="menu" aria-label="Menú móvil">
     <nav class="cqhdr-mob-list">
       <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="/">Inicio</a>
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#about">Sobre mí</a>
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#services">Servicios</a>
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cqab">Sobre mí</a>
+      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cqsrv">Servicios</a>
       <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#portfolio">Portafolio</a>
       <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#team">Publicaciones</a>
       <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cq-hub">Contacto</a>
@@ -447,44 +450,47 @@ position: relative;
 
   <main id="main">
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+    <section id="cqab" class="cqab">
+  <div class="cqab-shell"  data-aos="fade-up">
+    <div class="cqab-grid">
+      <!-- TOP: foto + bio (misma altura) -->
+      <div class="cqab-top">
+        <!-- FOTO (tarjeta cuadrada 1:1) -->
+        <article class="cqab-card cqab-card-photo">
+          <figure class="cqab-photo">
+            <img src="https://cdn.mcq.cl/assets/img/manu.jpg" alt="Manuel Canales Quintanilla">
+          </figure>
+        </article>
 
-        <div class="row no-gutters">
-          <div class="col-lg-6 video-box text-center">
-            <img src="https://cdn.mcq.cl/assets/img/manu.jpg" class="img-fluid" alt="Retrato Manuel Canales">
-             <!--<a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>-->
-          </div>
-
-          <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
-
-            <div class="section-title">
-              <h2>Sobre mí</h2>
-              <p class="justificador">Mi nombre es <b>Manuel Canales Quintanilla</b>. Como diseñador gráfico, no solo ejerzo una profesión, sino que también vivo mi pasión por el diseño y la creatividad. En mi tiempo libre, la fotografía es mi escape y mi forma de expresión. Siempre me esfuerzo por contribuir de manera positiva y trabajar para un Perú mejor. Valoro sinceramente a las personas sencillas y de buen corazón, ya que considero que son la verdadera esencia de nuestra sociedad. 
-                <br>
-                <br>
-                <a href="https://twitter.com/manuelcanales?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Seguir a @manuelcanales</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-              </p>
-            </div>
-
-            <!--<div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><i class="bx bx-fingerprint"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><i class="bx bx-gift"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>-->
-
-          </div>
-        </div>
-
+        <!-- BIO (se estira a la altura de la foto) -->
+        <article class="cqab-card cqab-card-bio">
+          <h2 class="cqab-title">Sobre mí</h2>
+          <p class="cqab-copy">
+            Mi nombre es <strong>Manuel Canales Quintanilla</strong>. Como diseñador gráfico,
+            no solo ejerzo una profesión, sino que también vivo mi pasión por el diseño y la
+            creatividad. En mi tiempo libre, la fotografía es mi escape y mi forma de
+            expresión. Siempre me esfuerzo por contribuir de manera positiva y trabajar para
+            un Perú mejor. Valoro sinceramente a las personas sencillas y de buen corazón,
+            pues son la verdadera esencia de nuestra sociedad.
+          </p>
+        </article>
       </div>
-    </section><!-- End About Us Section -->
+
+      <!-- PÍLDORAS -->
+      <article class="cqab-card cqab-card-pills">
+        <ul class="cqab-pills">
+          <li><a class="cqab-pill cqab-tiktok"   href="https://www.tiktok.com/@canales"         target="_blank"><i class="bx bxl-tiktok"></i><span>@canales</span></a></li>
+          <li><a class="cqab-pill cqab-insta"    href="https://www.instagram.com/manuelcanales" target="_blank"><i class="bi bi-instagram"></i><span>@manuelcanales</span></a></li>
+          <li><a class="cqab-pill cqab-threads"  href="https://www.threads.net/@manuelcanales"  target="_blank"><i class="bi bi-threads"></i><span>@manuelcanales</span></a></li>
+          <li><a class="cqab-pill cqab-twitter"  href="https://twitter.com/manuelcanales"       target="_blank"><i class="bi bi-twitter-x"></i><span>@manuelcanales</span></a></li>
+          <li><a class="cqab-pill cqab-facebook" href="https://facebook.com/manuelcanales"      target="_blank"><i class="bi bi-facebook"></i><span>@manuelcanales</span></a></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+
     
     <!-- ======= About Lists Section ======= -->
     <!--
@@ -535,95 +541,79 @@ position: relative;
       --->
     </section><!-- End About Lists Section -->
 
-    <!-- ======= Counts Section ======= -->
-    <section class="counts section-bg">
-      <div class="container">
+    <section style="background-color: #F5F5F6;" id="cqx" class="cqx cqx--dense">
+  <div class="cqx-shell" data-aos="fade-up">
+    <div class="cqx-grid">
+      <article class="cqx-card">
+        <h3 class="cqx-num" data-target="35000">0</h3>
+        <p class="cqx-label">Seguidores</p>
+      </article>
+      <article class="cqx-card">
+        <h3 class="cqx-num" data-target="7">0</h3>
+        <p class="cqx-label">Marcas</p>
+      </article>
+      <article class="cqx-card">
+        <h3 class="cqx-num" data-target="3200">0</h3>
+        <p class="cqx-label">Piezas</p>
+      </article>
+      <article class="cqx-card">
+        <h3 class="cqx-num" data-target="20">0</h3>
+        <p class="cqx-label">Campañas</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-        <div class="row">
+<section id="cqsrv" class="cqsrv cqsrv--dark">
+  <div class="cqsrv-shell" data-aos="fade-up">
+    <header class="cqsrv-head">
+      <h2 class="cqsrv-title">Servicios</h2>
+      <p class="cqsrv-sub">Hacemos soluciones para que tu marca se vea, se entienda y crezca..</p>
+    </header>
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-simple-smile" style="color: #20b38e;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="+35000" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Seguidores</p>
-            </div>
-          </div>
+    <div class="cqsrv-grid">
+      <article class="cqsrv-card">
+        <div class="cqsrv-icon">🎯</div>
+        <h3 class="cqsrv-name">Branding</h3>
+        <p class="cqsrv-desc">Creamos la identidad visual de tu marca: nombre, logotipo y estilo coherente en todos los medios.</p>
+      </article>
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-document-folder" style="color: #c042ff;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="+5" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Marcas</p>
-            </div>
-          </div>
+      <article class="cqsrv-card">
+        <div class="cqsrv-icon">♻️</div>
+        <h3 class="cqsrv-name">Rebranding</h3>
+        <p class="cqsrv-desc">Actualizamos tu marca manteniendo su esencia, mejorando su imagen y conexión con el público.</p>
+      </article>
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
-            <div class="count-box">
-              <i class="bi bi-live-support" style="color: #46d1ff;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="+3000" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Piezas generadas</p>
-            </div>
-          </div>
+      <article class="cqsrv-card">
+        <div class="cqsrv-icon">✏️</div>
+        <h3 class="cqsrv-name">Diseño gráfico</h3>
+        <p class="cqsrv-desc">Diseñamos piezas visuales para redes, impresos o campañas, cuidando la armonía y el impacto.</p>
+      </article>
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
-            <div class="count-box">
-              <i class="bi bi-users-alt-5" style="color: #ffb459;"></i>
-              <span data-purecounter-start="0" data-purecounter-end="17" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Campañas</p>
-            </div>
-          </div>
+      <article class="cqsrv-card">
+        <div class="cqsrv-icon">📑</div>
+        <h3 class="cqsrv-name">Diseño editorial</h3>
+        <p class="cqsrv-desc">Diseñamos catálogos, revistas o publicaciones con estructura clara y buena legibilidad.</p>
+      </article>
 
-        </div>
+      <article class="cqsrv-card">
+        <div class="cqsrv-icon">🧩</div>
+        <h3 class="cqsrv-name">Diseño y desarrollo web (Front)</h3>
+        <p class="cqsrv-desc">Creamos sitios modernos, adaptables y visualmente atractivos. Incluye configuración de dominio y DNS para dejar tu web lista en línea.</p>
+      </article>
 
-      </div>
-    </section><!-- End Counts Section -->
-    
+      <article class="cqsrv-card">
+        <div class="cqsrv-icon">🎞️</div>
+        <h3 class="cqsrv-name">Piezas animadas</h3>
+        <p class="cqsrv-desc">Animamos tus ideas con videos breves y dinámicos, pensados para destacar en redes y presentaciones.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Servicios</h2>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-body-text"></i></div>
-            <h4 class="title"><a href="">Diseño editorial</a></h4>
-            <p class="description">Diseño y maquetación de flyers, brochures, revistas, manuales, diarios y suplementos</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-bounding-box"></i></div>
-            <h4 class="title"><a href="">Diseño gráfico</a></h4>
-            <p class="description">Diseño de piezas a medida, vectorización, plantillas personalizadas para RRSS en diferentes formatos, piezas gráficas en general, etc.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-skip-forward"></i></i></div>
-            <h4 class="title"><a href="">Piezas animadas</a></h4>
-            <p class="description">Piezas con animación para RRSS en diferentes formatos, banners, moscas, etc.</p>
-          </div>
-          <!---
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-globe"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar2-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
-        -->
-        </div>
 
-      </div>
-    </section><!-- End Services Section -->
 
     <!-- ======= Our Portfolio Section ======= -->
     <section id="portfolio" class="portfolio section-bg">
@@ -783,7 +773,7 @@ position: relative;
     
     <!-- partial:index.partial.html -->
 <div class="slider">
-	<div class="slide-track">
+	<div class="slide-track2">
 		<div class="slide">
 			<img src="https://cdn.mcq.cl/carrusel-cq-1.png" height="100" width="250" alt="logo" />
 		</div>
@@ -1107,11 +1097,10 @@ position: relative;
   <!-- Toast -->
   <div class="cq-toast" role="status" aria-live="polite"></div>
 
-  <!-- Action bar móvil (la mantengo; si quieres, la quitamos) -->
-  <div class="cq-hub-bar">
-    <a href="https://wa.me/5117381445" target="_blank" rel="noopener">WhatsApp</a>
+
+  <!-- <div class="cq-hub-bar">
     <a href="mailto:manuel@canales.pe">Email</a>
-  </div>
+  </div> -->
 </section>
 
 
@@ -1149,8 +1138,8 @@ position: relative;
           <h4>Menú</h4>
           <ul>
             <li><i class="bx bx-chevron-right"></i> <a href="#hero">Inicio</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#about">Sobre mí</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#services">Servicios</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#cqab">Sobre mí</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#cqsrv">Servicios</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Portafolio</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="#team">Mis publicaciones <i class="bi bi-patch-check"></i></a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="https://brandfetch.com/canales.pe">Nuestro Brandfetch</a></li>
@@ -1302,6 +1291,23 @@ position: relative;
 
 </body>
 
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault(); // evita el salto y el #
+      const offset = parseInt(getComputedStyle(document.documentElement)
+                     .getPropertyValue('--cqhdr-hdr-offset') || 80);
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+</script>
+
  <script>
   (function(){
     var isMobile = matchMedia("(max-width:768px)").matches;
@@ -1364,7 +1370,10 @@ position: relative;
 
 <script src="https://cdn.mcq.cl/assets/js/frecuentes.js"></script>
 
+<script src="https://cdn.mcq.cl/assets/js/cuenta26.js"></script>
+
 <script src="https://cdn.mcq.cl/cqhero/js/cqhero.js"></script>
+
 
 <script>
   // Obtén el elemento donde se mostrará el año
