@@ -50,6 +50,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   
@@ -60,7 +61,7 @@
   <link href="https://cdn.mcq.cl/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="https://cdn.mcq.cl/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="https://cdn.mcq.cl/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/header26-2.css">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/hdr-2.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/contacto-2.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/frecuentes-2.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/cuenta26-2.css">
@@ -140,6 +141,11 @@
     body {
       background-color: #000;
     }
+
+
+
+
+    
 
      /* Cubre pantalla desde el primer frame */
   #loadermcq{
@@ -408,59 +414,84 @@ a:hover {
 
   <!-- ======= Top Bar ======= -->
 
-
-<header id="cqhdr" class="cqhdr-is-expanded" aria-label="Barra superior">
-  <div class="cqhdr-bar">
-    <div class="cqhdr-left">
-      <!-- Logo SVG externo -->
-      <a href="/" class="cqhdr-reset-link" aria-label="CANALES">
-        <img class="cqhdr-logo-img" src="https://cdn.mcq.cl/logo/canales-white.svg" alt="CANALES" width="140" height="28" loading="eager" decoding="async">
+<header id="mcqhdr" class="mcqhdr-is-expanded" aria-label="Barra superior">
+  <div class="mcqhdr-bar">
+    <div class="mcqhdr-left">
+      <a href="/" class="mcqhdr-reset-link" aria-label="CANALES">
+        <img class="mcqhdr-logo-img" src="https://cdn.mcq.cl/logo/canales-white.svg" alt="CANALES" width="140" height="28" loading="eager" decoding="async">
       </a>
 
-      <button class="cqhdr-burger" id="cqhdr-burger" aria-expanded="false" aria-label="Abrir menú">
-        <div class="cqhdr-bars" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
-        <!-- Píldora inline (desktop, horizontal dinámica) -->
-        <nav class="cqhdr-pill" aria-label="Menú inline (desktop)">
-          <a class="cqhdr-reset-link" href="/">Inicio</a>
-          <a class="cqhdr-reset-link" href="#cqab">Sobre mí</a>
-          <a class="cqhdr-reset-link" href="#cqsrv">Servicios</a>
-          <a class="cqhdr-reset-link" href="#cqpfolio">Portafolio</a>
-          <a class="cqhdr-reset-link" href="#team">Publicaciones</a>
-          <a class="cqhdr-reset-link" href="#cq-hub">Contacto</a>
+      <button class="mcqhdr-burger" id="mcqhdr-burger" aria-expanded="false" aria-label="Abrir menú">
+        <div class="mcqhdr-bars" aria-hidden="true"><span></span><span></span><span></span></div>
+        <nav class="mcqhdr-pill" aria-label="Menú inline (desktop)">
+          <a class="mcqhdr-reset-link" href="/">Inicio</a>
+          <a class="mcqhdr-reset-link" href="#cqab">Sobre mí</a>
+          <a class="mcqhdr-reset-link" href="#cqsrv">Servicios</a>
+          <a class="mcqhdr-reset-link" href="#cqpfolio">Portafolio</a>
+          <a class="mcqhdr-reset-link" href="#team">Publicaciones</a>
+          <a class="mcqhdr-reset-link" href="#cq-hub">Contacto</a>
         </nav>
       </button>
     </div>
 
-
     <div></div>
 
-    <div class="cqhdr-social" aria-label="Redes sociales">
-
-
-        <a class="cqhdr-reset-link" href="https://www.canales.pe/facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a class="cqhdr-reset-link" href="https://www.canales.pe/threads" aria-label="Threads"><i class="bi bi-threads"></i></a>
-      <a class="cqhdr-reset-link" href="https://www.canales.pe/twitter" aria-label="X"><i class="bi bi-twitter-x"></i></a>
-      <a class="cqhdr-reset-link" href="https://www.canales.pe/instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a></a>
-      <a class="cqhdr-reset-link" href="https://www.canales.pe/tiktok" aria-label="TikTok"><i class="bx bxl-tiktok"></i></a>
+    <!-- SOCIAL (desktop) -->
+    <div class="mcqhdr-social" aria-label="Redes sociales">
+      <a class="mcqhdr-reset-link" data-net="fb" href="https://www.canales.pe/facebook" aria-label="Facebook">
+        <i class="bi bi-facebook" aria-hidden="true"></i><span class="label">@manuelcanales</span>
+      </a>
+      <a class="mcqhdr-reset-link" data-net="th" href="https://www.canales.pe/threads" aria-label="Threads">
+        <i class="bi bi-threads" aria-hidden="true"></i><span class="label">@manuelcanales</span>
+      </a>
+      <a class="mcqhdr-reset-link" data-net="x" href="https://www.canales.pe/twitter" aria-label="X">
+        <i class="bi bi-twitter-x" aria-hidden="true"></i><span class="label">@manuelcanales</span>
+      </a>
+      <a class="mcqhdr-reset-link" data-net="ig" href="https://www.canales.pe/instagram" aria-label="Instagram">
+        <i class="bi bi-instagram" aria-hidden="true"></i><span class="label">@manuelcanales</span>
+      </a>
+      <a class="mcqhdr-reset-link" data-net="tt" href="https://www.canales.pe/tiktok" aria-label="TikTok">
+        <i class="bx bxl-tiktok" aria-hidden="true"></i><span class="label">@canales</span>
+      </a>
     </div>
   </div>
 </header>
 
 <!-- Drawer móvil -->
-<div id="cqhdr-mob" aria-hidden="true">
-  <div class="cqhdr-mob-sheet" role="menu" aria-label="Menú móvil">
-    <nav class="cqhdr-mob-list">
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="/">Inicio</a>
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cqab">Sobre mí</a>
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cqsrv">Servicios</a>
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cqpfolio">Portafolio</a>
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#team">Publicaciones</a>
-      <a class="cqhdr-mob-item cqhdr-reset-link" role="menuitem" href="#cq-hub">Contacto</a>
+<div id="mcqhdr-mob" aria-hidden="true">
+  <div class="mcqhdr-mob-backdrop" aria-hidden="true"></div>
+
+  <div class="mcqhdr-mob-sheet" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="mcqhdr-mob-head">
+      <div class="mcqhdr-mob-title">
+        <img src="https://cdn.mcq.cl/logo/canales-white.svg" alt="" width="88" height="18" style="opacity:.9">
+        <span>Menú</span>
+      </div>
+      <button class="mcqhdr-mob-close" id="mcqhdr-close" aria-label="Cerrar menú">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <nav class="mcqhdr-mob-list">
+      <a class="mcqhdr-mob-item" role="menuitem" href="/"><span class="label">Inicio</span><i class="bi bi-chevron-right"></i></a>
+      <a class="mcqhdr-mob-item" role="menuitem" href="#cqab"><span class="label">Sobre mí</span><i class="bi bi-chevron-right"></i></a>
+      <a class="mcqhdr-mob-item" role="menuitem" href="#cqsrv"><span class="label">Servicios</span><i class="bi bi-chevron-right"></i></a>
+      <a class="mcqhdr-mob-item" role="menuitem" href="#cqpfolio"><span class="label">Portafolio</span><i class="bi bi-chevron-right"></i></a>
+      <a class="mcqhdr-mob-item" role="menuitem" href="#team"><span class="label">Publicaciones</span><i class="bi bi-chevron-right"></i></a>
+      <a class="mcqhdr-mob-item" role="menuitem" href="#cq-hub"><span class="label">Contacto</span><i class="bi bi-chevron-right"></i></a>
     </nav>
+
+    <!-- RRSS movidas aquí en móvil -->
+    <div data-mcqhdr-social-wrapper></div>
+
+    <div class="mcqhdr-mob-foot">
+      <span>© CANALES</span>
+      <span>Hecho en Lima</span>
+    </div>
   </div>
 </div>
+
+
 
   <!-- <div class="mcqdivisor"> </div> -->
 
@@ -1326,7 +1357,8 @@ a:hover {
 ]
 </script>
 
-<script src="https://cdn.mcq.cl/assets/js/header26.js"></script>
+<script src="https://cdn.mcq.cl/assets/js/hdr-2a.js"></script>
+<script src="https://cdn.mcq.cl/assets/js/hdr-2b.js"></script>
 
 <script src="https://cdn.mcq.cl/assets/js/contacto.js"></script>
 
