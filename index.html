@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/contacto-2.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/frecuentes-2.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/cuenta26-2.css">
-  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/acercade-2.css">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/acercade-3.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/servicios-2.css">
   <link rel="stylesheet" href="https://cdn.mcq.cl/assets/css/porta26-2.css">
 
@@ -220,6 +220,21 @@ a:hover {
     flex: 0 0 25%; /* 4 columnas en escritorio */
     max-width: 25%;
   }
+
+  #cqab .cqab-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, .22);
+    color: rgba(255, 255, 255, .75);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 10px;
+    transition: border-color .25s ease, box-shadow .25s ease, color .25s ease;
+}
 
 
 
@@ -476,7 +491,7 @@ a:hover {
         <i class="bi bi-instagram" aria-hidden="true"></i><span class="label">@manuelcanales</span>
       </a>
       <a class="mcqhdr-reset-link" data-net="tt" href="https://www.canales.pe/tiktok" aria-label="TikTok">
-        <i class="bx bxl-tiktok" aria-hidden="true"></i><span class="label">@canales</span>
+        <i class="bi bi-tiktok" aria-hidden="true"></i><span class="label">@canales</span>
       </a>
     </div>
   </div>
@@ -525,21 +540,20 @@ a:hover {
 
   <main id="main">
 
-    <section id="cqab" class="cqab">
-  <div class="cqab-shell"  data-aos="fade-up">
-    <div class="cqab-grid">
-      <!-- TOP: foto + bio (misma altura) -->
-      <div class="cqab-top">
-        <!-- FOTO (tarjeta cuadrada 1:1) -->
-        <article class="cqab-card cqab-card-photo">
-          <figure class="cqab-photo">
-            <img src="https://cdn.mcq.cl/assets/img/manu.jpg" alt="Manuel Canales Quintanilla">
-          </figure>
-        </article>
+ <section id="cqab">
+  <div class="cqab-shell" data-aos="fade-up" data-aos-delay="100">
+    <article class="cqab-card">
+      <div class="cqab-row">
 
-        <!-- BIO (se estira a la altura de la foto) -->
-        <article class="cqab-card cqab-card-bio">
+        <!-- FOTO -->
+        <div class="cqab-photoBox">
+          <img src="https://cdn.mcq.cl/assets/img/manu.png" alt="Manuel Canales Quintanilla">
+        </div>
+
+        <!-- TEXTO -->
+        <div class="cqab-text">
           <h2 class="cqab-title">Sobre mí</h2>
+
           <p class="cqab-copy">
             Mi nombre es <strong>Manuel Canales Quintanilla</strong>. Como diseñador gráfico,
             no solo ejerzo una profesión, sino que también vivo mi pasión por el diseño y la
@@ -548,20 +562,31 @@ a:hover {
             un Perú mejor. Valoro sinceramente a las personas sencillas y de buen corazón,
             pues son la verdadera esencia de nuestra sociedad.
           </p>
-        </article>
-      </div>
 
-      <!-- PÍLDORAS -->
-      <article class="cqab-card cqab-card-pills">
-        <ul class="cqab-pills">
-          <li><a class="cqab-pill cqab-tiktok"   href="https://www.tiktok.com/@canales"         target="_blank"><i class="bx bxl-tiktok"></i><span>@canales</span></a></li>
-          <li><a class="cqab-pill cqab-insta"    href="https://www.instagram.com/manuelcanales" target="_blank"><i class="bi bi-instagram"></i><span>@manuelcanales</span></a></li>
-          <li><a class="cqab-pill cqab-threads"  href="https://www.threads.net/@manuelcanales"  target="_blank"><i class="bi bi-threads"></i><span>@manuelcanales</span></a></li>
-          <li><a class="cqab-pill cqab-twitter"  href="https://twitter.com/manuelcanales"       target="_blank"><i class="bi bi-twitter-x"></i><span>@manuelcanales</span></a></li>
-          <li><a class="cqab-pill cqab-facebook" href="https://facebook.com/manuelcanales"      target="_blank"><i class="bi bi-facebook"></i><span>@manuelcanales</span></a></li>
-        </ul>
-      </article>
-    </div>
+          <div class="cqab-line"></div>
+
+          <!-- BOTONES -->
+          <nav class="cqab-dock">
+            <a class="cqab-link" href="https://www.tiktok.com/@canales" target="_blank">
+              <i class="bi bi-tiktok"></i><span>@canales</span>
+            </a>
+            <a class="cqab-link" href="https://www.instagram.com/manuelcanales" target="_blank">
+              <i class="bi bi-instagram"></i><span>@manuelcanales</span>
+            </a>
+            <a class="cqab-link" href="https://www.threads.net/@manuelcanales" target="_blank">
+              <i class="bi bi-threads"></i><span>@manuelcanales</span>
+            </a>
+            <a class="cqab-link" href="https://twitter.com/manuelcanales" target="_blank">
+              <i class="bi bi-twitter-x"></i><span>@manuelcanales</span>
+            </a>
+            <a class="cqab-link" href="https://facebook.com/manuelcanales" target="_blank">
+              <i class="bi bi-facebook"></i><span>@manuelcanales</span>
+            </a>
+          </nav>
+        </div>
+
+      </div>
+    </article>
   </div>
 </section>
 
@@ -1148,7 +1173,7 @@ a:hover {
           <br>
           <p><strong><i class="bi bi-at"></i>canales</strong></p>
           <div class="social-links mt-3">
-            <a href="https://www.canales.pe/tiktok" class="tiktok"><i class="bx bxl-tiktok"></i></a>
+            <a href="https://www.canales.pe/tiktok" class="tiktok"><i class="bi bi-tiktok"></i></a>
           </div>
         </div>
 
@@ -1192,7 +1217,7 @@ a:hover {
         <a href="https://www.canales.pe/facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.canales.pe/instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://www.canales.pe/threads"><i class="bi bi-threads"></i></a>
-        <a href="https://www.canales.pe/tiktok" ><i class="bx bxl-tiktok"></i></a>
+        <a href="https://www.canales.pe/tiktok" ><i class="bi bi-tiktok"></i></a>
       </div>
     </div>
   </div>
