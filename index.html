@@ -221,6 +221,31 @@ a:hover {
     max-width: 25%;
   }
 
+	  @-webkit-keyframes scroll2 {
+  100% {
+    transform: translateX(0);
+  }
+  0% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+@keyframes scroll2 {
+  100% {
+    transform: translateX(0);
+  }
+  0% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+.slider .slide-track2 {
+  -webkit-animation: scroll2 30s linear infinite;
+          animation: scroll2 30s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+}
+
   #cqab .cqab-link {
     display: inline-flex;
     align-items: center;
