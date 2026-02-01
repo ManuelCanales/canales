@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHILE</title>
+
+   <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.mcq.cl/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.mcq.cl/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.mcq.cl/favicon-16x16.png">
+  <link rel="manifest" href="https://www.canales.pe/site.webmanifest">
+  <meta name="theme-color" content="#0572cd">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070A10;
+      --stroke: rgba(255,255,255,.14);
+      --shadow: 0 26px 90px rgba(0,0,0,.72);
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; margin:0; }
+    body{ background: var(--bg); overflow:hidden; }
+
+    /* Fondo SVG fullscreen */
+    #scene{
+      position:fixed;
+      inset:0;
+      width:100vw;
+      height:100vh;
+      display:block;
+    }
+
+    /* === CHILE “glass text” (efecto SOLO en letras) === */
+    #dvd{
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 20;
+      pointer-events: none;
+      user-select: none;
+
+      font-family: "Space Grotesk", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+
+      font-size: clamp(44px, 7vw, 92px);
+      line-height: 1;
+
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.35);
+
+      background:
+        linear-gradient(135deg,
+          rgba(255,255,255,.95) 0%,
+          rgba(255,255,255,.35) 28%,
+          rgba(255,255,255,.75) 52%,
+          rgba(255,255,255,.20) 70%,
+          rgba(255,255,255,.85) 100%
+        );
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 220% 220%;
+      background-position: 0% 0%;
+      animation: glassShift 3.8s var(--ease) infinite;
+
+      filter:
+        drop-shadow(0 14px 26px rgba(0,0,0,.55))
+        drop-shadow(0 0 34px rgba(255,255,255,.10));
+    }
+
+    #dvd::before{
+      content: attr(data-text);
+      position:absolute;
+      inset:0;
+      color: rgba(255,255,255,.18);
+      -webkit-text-stroke: 0 transparent;
+      filter: blur(16px);
+      transform: translateZ(0);
+      z-index: -2;
+      opacity: .85;
+    }
+
+    #dvd::after{
+      content: attr(data-text);
+      position:absolute;
+      inset:0;
+      color: transparent;
+      -webkit-text-stroke: 0 transparent;
+
+      background:
+        radial-gradient(120% 70% at 22% 22%,
+          rgba(255,255,255,.95) 0%,
+          rgba(255,255,255,.35) 28%,
+          rgba(255,255,255,0) 62%
+        );
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      mix-blend-mode: screen;
+      opacity: .70;
+      transform: translateZ(0);
+      animation: specShift 3.8s var(--ease) infinite;
+      z-index: 2;
+    }
+
+    @keyframes glassShift{
+      0%   { background-position: 0% 10%; }
+      50%  { background-position: 100% 90%; }
+      100% { background-position: 0% 10%; }
+    }
+    @keyframes specShift{
+      0%   { transform: translate(-1px,-1px); opacity:.65; }
+      50%  { transform: translate( 2px, 1px); opacity:.80; }
+      100% { transform: translate(-1px,-1px); opacity:.65; }
+    }
+
+    /* Pill footer logo */
+    .brand-pill{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 15;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(7,10,16,.78);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      box-shadow: var(--shadow);
+    }
+    .brand-pill img{
+      height: 22px;
+      width:auto;
+      display:block;
+      opacity:.95;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.55));
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #dvd{ display:none !important; }
+      animate { display:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Fondo: bandera de Chile blur + ondeo -->
+  <svg id="scene" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-label="Bandera de Chile">
+    <defs>
+      <!-- Colores (aprox) -->
+      <!-- rojo: #D52B1E, azul: #0039A6, blanco: #FFFFFF -->
+      <linearGradient id="clothShade" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%"   stop-color="rgba(255,255,255,.00)"/>
+        <stop offset="18%"  stop-color="rgba(255,255,255,.08)"/>
+        <stop offset="50%"  stop-color="rgba(0,0,0,.22)"/>
+        <stop offset="82%"  stop-color="rgba(255,255,255,.08)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,.06)"/>
+      </linearGradient>
+
+      <filter id="waveSoft" x="-14%" y="-14%" width="128%" height="128%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.010 0.060" numOctaves="2" seed="7" result="noise">
+          <animate attributeName="baseFrequency"
+                   dur="7s"
+                   values="0.009 0.055; 0.012 0.070; 0.010 0.060; 0.009 0.055"
+                   repeatCount="indefinite"/>
+        </feTurbulence>
+
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G">
+          <animate attributeName="scale"
+                   dur="4.8s"
+                   values="10; 16; 12; 18; 10"
+                   repeatCount="indefinite"/>
+        </feDisplacementMap>
+      </filter>
+
+      <!-- Blur al máximo práctico -->
+      <filter id="bgBlur" x="-18%" y="-18%" width="136%" height="136%">
+        <feGaussianBlur stdDeviation="75"/>
+      </filter>
+
+      <radialGradient id="vignette" cx="50%" cy="45%" r="70%">
+        <stop offset="0%" stop-color="rgba(0,0,0,0.00)"/>
+        <stop offset="60%" stop-color="rgba(0,0,0,0.12)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,0.72)"/>
+      </radialGradient>
+
+      <!-- Estrella (shape) para el cantón azul -->
+      <polygon id="star"
+        points="
+          0,-34
+          10,-10
+          34,-10
+          15,6
+          22,30
+          0,16
+          -22,30
+          -15,6
+          -34,-10
+          -10,-10
+        " />
+    </defs>
+
+    <!-- Bandera Chile (con blur + onda) -->
+    <g filter="url(#waveSoft)" opacity="0.98">
+      <g filter="url(#bgBlur)">
+
+        <!-- Fondo completo rojo (mitad inferior) + blanco (superior) -->
+        <rect x="0" y="0" width="1000" height="300" fill="#FFFFFF"/>
+        <rect x="0" y="300" width="1000" height="300" fill="#D52B1E"/>
+
+        <!-- Cantón azul (cuadrante superior izquierdo) -->
+        <!-- Altura = mitad de la bandera (300). Para cuadrado, ancho = 300 -->
+        <rect x="0" y="0" width="300" height="300" fill="#0039A6"/>
+
+        <!-- Estrella blanca centrada en cantón -->
+        <g transform="translate(150 150) scale(1)">
+          <use href="#star" fill="#FFFFFF"/>
+        </g>
+
+        <!-- Sombreado lateral (tela) -->
+        <rect x="-220" y="0" width="1440" height="600" fill="url(#clothShade)" opacity="0.95">
+          <animateTransform attributeName="transform" type="translate" dur="6.4s"
+                            values="-64 0; 64 0; -64 0" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+
+    <rect x="0" y="0" width="1000" height="600" fill="url(#vignette)" opacity="0.92"/>
+  </svg>
+
+  <!-- CHILE rebotando -->
+  <div id="dvd" data-text="CHILE" aria-hidden="true">CHILE</div>
+
+  <!-- Pill footer -->
+  <a class="brand-pill" href="https://www.canales.pe" target="_blank" rel="noopener" aria-label="Ir a canales.pe">
+    <img src="https://cdn.mcq.cl/logo/canales-white.svg" alt="CANALES" loading="lazy" decoding="async">
+  </a>
+
+  <script>
+    (function(){
+      const dvd = document.getElementById('dvd');
+      if (!dvd) return;
+
+      let vw = window.innerWidth, vh = window.innerHeight;
+
+      let px = 60, py = 60;
+      let vx = 260;
+      let vy = 210;
+
+      const margin = 10;
+      const bottomSafe = 86;
+
+      let last = performance.now();
+
+      function resize(){
+        vw = window.innerWidth;
+        vh = window.innerHeight;
+      }
+      window.addEventListener('resize', resize, { passive:true });
+
+      function step(now){
+        const dt = Math.min(0.033, (now - last) / 1000);
+        last = now;
+
+        const r = dvd.getBoundingClientRect();
+        const maxX = vw - r.width  - margin;
+        const maxY = vh - r.height - margin - bottomSafe;
+
+        px += vx * dt;
+        py += vy * dt;
+
+        if (px <= margin){ px = margin; vx *= -1; }
+        else if (px >= maxX){ px = maxX; vx *= -1; }
+
+        if (py <= margin){ py = margin; vy *= -1; }
+        else if (py >= maxY){ py = maxY; vy *= -1; }
+
+        dvd.style.transform = `translate3d(${px.toFixed(2)}px, ${py.toFixed(2)}px, 0)`;
+        requestAnimationFrame(step);
+      }
+
+      resize();
+      requestAnimationFrame(step);
+    })();
+  </script>
+</body>
+</html>
+
