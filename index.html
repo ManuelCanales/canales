@@ -42,101 +42,94 @@
   <meta name="theme-color" content="#0572cd">
 
   <!-- JSON-LD estructurado -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://www.canales.pe/#website",
-        "url": "https://www.canales.pe/",
-        "name": "CANALES®",
-        "alternateName": [
-          "Manuel Canales Q.",
-          "Manuel Canales", "Canales", "Manuel Canales Quintanilla"
-        ],
-        "description": "CANALES es el Sitio oficial de Manuel Canales Q..",
-        "inLanguage": "es-PE",
-        "publisher": {
-          "@id": "https://www.canales.pe/#organization"
-        }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.canales.pe/#person",
+      "name": "Manuel Canales Q.",
+      "alternateName": ["Manuel Canales Quintanilla", "Manuel Canales", "Canales"],
+      "url": "https://www.canales.pe/",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://www.canales.pe/#personImage",
+        "url": "https://cdn.mcq.cl/assets/img/manu.png",
+        "caption": "Manuel Canales Q.",
+        "width": "800",
+        "height": "800"
       },
-      {
-        "@type": "Organization",
-        "@id": "https://www.canales.pe/#organization",
-        "name": "CANALES",
-        "url": "https://www.canales.pe/",
-        "logo": {
-          "@type": "ImageObject",
-          "@id": "https://www.canales.pe/#logo",
-          "url": "https://cdn.mcq.cl/logo/canales-black.svg",
-          "contentUrl": "https://cdn.mcq.cl/logo/canales-black.svg"
-        },
-        "image": {
-          "@id": "https://www.canales.pe/#logo"
-        },
-        "founder": {
-          "@id": "https://www.canales.pe/#person"
-        },
-        "foundingLocation": {
-          "@type": "Country",
-          "name": "Perú"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Lima",
-          "addressCountry": "PE"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Perú"
-        }
+      "description": "Diseñador gráfico, fotógrafo y fundador de Tendencias Lima.",
+      "jobTitle": [
+        "Fundador de Tendencias Lima",
+        "Diseñador Gráfico",
+        "Fotógrafo"
+      ],
+      "knowsAbout": [
+        "Diseño Gráfico",
+        "Identidad Visual",
+        "Branding",
+        "Fotografía Digital",
+        "Dirección Creativa"
+      ],
+      "nationality": { "@type": "Country", "name": "Perú" },
+      "homeLocation": { "@type": "Place", "name": "Lima, Perú" },
+      "brand": { "@id": "https://www.canales.pe/#organization" },
+      "worksFor": { "@id": "https://www.canales.pe/#organization" },
+      "sameAs": [
+        "https://www.linkedin.com/in/manuelito",
+        "https://www.instagram.com/manuelcanales",
+        "https://www.facebook.com/manuelcanales",
+        "https://twitter.com/manuelcanales",
+        "https://www.tiktok.com/@canales"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.canales.pe/#organization",
+      "name": "CANALES®",
+      "legalName": "CANALES",
+      "url": "https://www.canales.pe/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.canales.pe/#logo",
+        "url": "https://cdn.mcq.cl/logo/canales-black.svg",
+        "contentUrl": "https://cdn.mcq.cl/logo/canales-black.svg",
+        "width": "512",
+        "height": "512"
       },
-      {
-        "@type": "Person",
-        "@id": "https://www.canales.pe/#person",
-        "name": "Manuel Canales Quintanilla",
-        "alternateName": [
-          "Manuel Canales Q.",
-          "Manuel Canales"
-        ],
-        "url": "https://www.canales.pe/",
-        "jobTitle": [
-          "Fundador de Tendencias Lima",
-          "Diseñador gráfico",
-          "Fotógrafo aficionado"
-        ],
-        "nationality": {
-          "@type": "Country",
-          "name": "Perú"
-        },
-        "homeLocation": {
-          "@type": "Place",
-          "name": "Lima, Perú"
-        },
-        "worksFor": {
-          "@id": "https://www.canales.pe/#organization"
-        }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.canales.pe/#webpage",
-        "url": "https://www.canales.pe/",
-        "name": "CANALES&reg; | Manuel Canales Q.",
-        "isPartOf": {
-          "@id": "https://www.canales.pe/#website"
-        },
-        "about": {
-          "@id": "https://www.canales.pe/#person"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://www.canales.pe/#logo"
-        },
-        "inLanguage": "es-PE"
+      "founder": { "@id": "https://www.canales.pe/#person" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lima",
+        "addressCountry": "PE"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.canales.pe/#website",
+      "url": "https://www.canales.pe/",
+      "name": "CANALES®",
+      "publisher": { "@id": "https://www.canales.pe/#organization" },
+      "author": { "@id": "https://www.canales.pe/#person" },
+      "inLanguage": "es-PE"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.canales.pe/#webpage",
+      "url": "https://www.canales.pe/",
+      "name": "Manuel Canales Q. | CANALES®",
+      "isPartOf": { "@id": "https://www.canales.pe/#website" },
+      "about": { "@id": "https://www.canales.pe/#person" },
+      "author": { "@id": "https://www.canales.pe/#person" },
+      "primaryImageOfPage": { "@id": "https://www.canales.pe/#personImage" },
+      "description": "Sitio oficial de Manuel Canales Q., portafolio de diseño gráfico y fotografía.",
+      "inLanguage": "es-PE"
+    }
+  ]
+}
+</script>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.mcq.cl/apple-touch-icon.png">
