@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>CANALES&reg; | Manuel Canales Q.</title>
+   <title>Facebook | CANALES&reg;</title>
   <meta name="description" content="CANALES es el Sitio oficial de Manuel Canales Q.. Fundador de Tendencias Lima, diseñador gráfico, fotógrafo aficionado y limeño.">
   <meta name="keywords" content="CANALES, Manuel Canales, Manuel Canales Quintanilla, Tendencias Lima, diseñador gráfico, fotógrafo, Lima, Perú">
   <meta name="author" content="Manuel Canales Quintanilla">
   <meta name="copyright" content="Manuel Canales Quintanilla">
-  <link rel="canonical" href="https://www.canales.pe/">
+  <link rel="canonical" href="https://www.canales.pe/facebook">
 
   <link rel="image_src" type="image/png" href="https://cdn.mcq.cl/assets/img/generico.png">
 
@@ -39,7 +39,6 @@
   <meta name="msapplication-TileImage" content="https://cdn.mcq.cl/mstile-144x144.png">
   <meta name="theme-color" content="#0572cd">
 
-  <link rel="canonical" href="https://www.canales.pe/" />
 
   <!-- JSON-LD estructurado -->
 <script type="application/ld+json">
@@ -175,10 +174,11 @@
         min-height: 100vh;
         font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         color: var(--text);
-        background: 
-          radial-gradient(circle at 18% 18%, rgba(8, 102, 255, 0.09), transparent 24%),
-          radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.05), transparent 24%),
-          linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+        background:
+          radial-gradient(circle at 16% 18%, rgba(8, 102, 255, 0.18) 0%, rgba(8, 102, 255, 0.08) 18%, transparent 42%),
+          radial-gradient(circle at 84% 14%, rgba(255, 255, 255, 0.08) 0%, transparent 34%),
+          radial-gradient(circle at 72% 80%, rgba(8, 102, 255, 0.12) 0%, transparent 28%),
+          linear-gradient(180deg, #0b1019 0%, #050505 100%);
         overflow-x: hidden;
         position: relative;
       }
@@ -187,8 +187,6 @@
         color: inherit;
       }
 
-      
-      
       .fb-bg {
         position: fixed;
         inset: 0;
@@ -198,104 +196,175 @@
         isolation: isolate;
       }
 
-      .fb-pattern {
+      .fb-bg::before,
+      .fb-bg::after {
+        content: "";
         position: absolute;
-        inset: -10vh -10vw;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: clamp(32px, 6vw, 92px) clamp(26px, 5vw, 82px);
-        align-content: space-evenly;
-        justify-items: center;
-        mix-blend-mode: screen;
+        inset: -8%;
+        pointer-events: none;
       }
 
-      .fb-pattern-a {
-        opacity: 0.07;
-        filter: blur(16px);
-        transform: rotate(-14deg) scale(1.08);
-        animation: fbPatternDriftA 28s ease-in-out infinite alternate;
+      .fb-bg::before {
+        background: radial-gradient(circle at 18% 24%, rgba(8, 102, 255, 0.22) 0%, transparent 34%), radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.08) 0%, transparent 24%), radial-gradient(circle at 62% 76%, rgba(8, 102, 255, 0.14) 0%, transparent 28%);
+        filter: blur(36px);
+        opacity: 0.92;
+        animation: fbGradientDriftA 18s ease-in-out infinite alternate;
       }
 
-      .fb-pattern-b {
-        opacity: 0.045;
-        filter: blur(22px);
-        transform: rotate(-10deg) translate3d(6vw, 7vh, 0) scale(1.03);
-        animation: fbPatternDriftB 34s ease-in-out infinite alternate;
+      .fb-bg::after {
+        background: linear-gradient(135deg, rgba(8, 102, 255, 0.06) 0%, transparent 38%, rgba(255, 255, 255, 0.03) 62%, transparent 100%);
+        filter: blur(54px);
+        opacity: 0.88;
+        animation: fbGradientDriftB 24s ease-in-out infinite alternate;
       }
 
-      .fb-mark {
+      .fb-watermark {
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        color: rgba(8, 102, 255, 0.16);
+        mix-blend-mode: screen;
+        will-change: transform, opacity, filter;
       }
 
-      .fb-mark .fb-wordmark,
-      .fb-mark .fb-separator,
-      .fb-mark .fb-canales-logo {
+      .fb-watermark--a {
+        top: 50%;
+        left: 58%;
+        width: clamp(340px, 54vw, 860px);
+        transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1);
+        opacity: 0.08;
+        filter: blur(13px);
+        animation: fbLogoFloatA 18s ease-in-out infinite alternate,
+                   fbLogoPulse 9s ease-in-out infinite;
+      }
+
+      .fb-watermark--b {
+        top: 16%;
+        right: -4%;
+        width: clamp(180px, 24vw, 360px);
+        transform: rotate(-8deg) scale(0.96);
+        opacity: 0.035;
+        filter: blur(18px);
+        animation: fbLogoFloatB 22s ease-in-out infinite alternate,
+                   fbLogoPulse 11s ease-in-out infinite reverse;
+      }
+
+      .fb-logo-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .fb-logo-wrap .fb-wordmark,
+      .fb-logo-wrap .fb-separator,
+      .fb-logo-wrap .fb-canales-logo {
         display: none !important;
       }
 
-      .fb-mark .fb-logo,
-      .fb-mark .fb-giphy-logo,
-      .fb-mark .fb-instagram-logo,
-      .fb-mark .fb-tiktok-logo,
-      .fb-mark img,
-      .fb-mark svg {
+      .fb-logo-wrap .fb-logo,
+      .fb-logo-wrap .fb-giphy-logo,
+      .fb-logo-wrap .fb-instagram-logo,
+      .fb-logo-wrap .fb-tiktok-logo,
+      .fb-logo-wrap img,
+      .fb-logo-wrap svg {
         display: block;
-        width: clamp(92px, 10vw, 150px) !important;
+        width: 100% !important;
         height: auto !important;
         max-width: none;
         object-fit: contain;
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(8, 102, 255, 0.16);
       }
 
-      @keyframes fbPatternDriftA {
-        0% { transform: rotate(-14deg) translate3d(0, 0, 0) scale(1.08); }
-        100% { transform: rotate(-11deg) translate3d(2vw, -1.6vh, 0) scale(1.11); }
+      .fb-bg .fb-logo-wrap svg,
+      .fb-bg .fb-logo-wrap img {
+        opacity: 1;
       }
 
-      @keyframes fbPatternDriftB {
-        0% { transform: rotate(-10deg) translate3d(6vw, 7vh, 0) scale(1.03); }
-        100% { transform: rotate(-14deg) translate3d(4vw, 9vh, 0) scale(1.06); }
+      .fb-bg .fb-logo-wrap path,
+      .fb-bg .fb-logo-wrap rect,
+      .fb-bg .fb-logo-wrap circle {
+        vector-effect: non-scaling-stroke;
+      }
+
+      .fb-bg .fb-logo-mark {
+        width: 78% !important;
+        max-width: 540px;
+      }
+      @keyframes fbGradientDriftA {
+        0% { transform: translate3d(0, 0, 0) scale(1); }
+        100% { transform: translate3d(-2.2%, 2.8%, 0) scale(1.04); }
+      }
+
+      @keyframes fbGradientDriftB {
+        0% { transform: translate3d(0, 0, 0) scale(1); }
+        100% { transform: translate3d(2.6%, -2.4%, 0) scale(1.06); }
+      }
+
+      @keyframes fbLogoFloatA {
+        0% { transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1); }
+        100% { transform: translate3d(-48%, -52%, 0) rotate(-8deg) scale(1.05); }
+      }
+
+      @keyframes fbLogoFloatB {
+        0% { transform: translate3d(0, 0, 0) rotate(-8deg) scale(0.96); }
+        100% { transform: translate3d(-1.4vw, 2.2vh, 0) rotate(-12deg) scale(1.02); }
+      }
+
+      @keyframes fbLogoPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.86; }
       }
 
       @media (max-width: 900px) {
-        .fb-pattern {
-          inset: -6vh -16vw;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: clamp(24px, 8vw, 58px) clamp(18px, 7vw, 42px);
+        .fb-watermark--a {
+          left: 50%;
+          width: clamp(280px, 68vw, 620px);
+          opacity: 0.068;
+          filter: blur(10px);
         }
-        .fb-pattern-a { opacity: 0.06; filter: blur(14px); }
-        .fb-pattern-b { opacity: 0.04; filter: blur(18px); }
-        .fb-mark .fb-logo,
-        .fb-mark .fb-giphy-logo,
-        .fb-mark .fb-instagram-logo,
-        .fb-mark .fb-tiktok-logo,
-        .fb-mark img,
-        .fb-mark svg { width: clamp(80px, 18vw, 120px) !important; }
+
+        .fb-watermark--b {
+          top: 11%;
+          right: auto;
+          left: 74%;
+          width: clamp(150px, 24vw, 240px);
+          opacity: 0.03;
+          filter: blur(13px);
+        }
       }
 
       @media (max-width: 520px) {
-        .fb-pattern {
-          inset: -3vh -22vw;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 30px 20px;
+        .fb-watermark--a {
+          left: 50%;
+          top: 47%;
+          width: min(92vw, 460px);
+          opacity: 0.094;
+          filter: blur(11px);
         }
-        .fb-pattern-a { opacity: 0.055; filter: blur(12px); }
-        .fb-pattern-b { opacity: 0.035; filter: blur(16px); }
-        .fb-mark .fb-logo,
-        .fb-mark .fb-giphy-logo,
-        .fb-mark .fb-instagram-logo,
-        .fb-mark .fb-tiktok-logo,
-        .fb-mark img,
-        .fb-mark svg { width: 88px !important; }
+
+        .fb-watermark--b {
+          top: 8%;
+          left: 72%;
+          width: min(40vw, 170px);
+          opacity: 0.042;
+          filter: blur(15px);
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .fb-pattern-a,
-        .fb-pattern-b { animation: none !important; }
+        .fb-watermark--a,
+        .fb-watermark--b {
+          animation: none !important;
+        }
+
+        .fb-bg::before,
+        .fb-bg::after {
+          animation: none !important;
+        }
       }
+
 
       @keyframes floatOne {
         0% { transform: translate3d(0, 0, 0) scale(1); }
@@ -509,6 +578,33 @@
         transform: translateY(-2px);
         filter: brightness(1.04);
         box-shadow: 0 20px 40px rgba(8, 102, 255, 0.3);
+      }
+
+      .fb-cta-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 58px;
+        margin-top: 12px;
+        padding: 14px 22px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(8, 102, 255, 0.42);
+        background: rgba(255, 255, 255, 0.02);
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 800;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+      }
+
+      .fb-cta-outline:hover {
+        transform: translateY(-2px);
+        background: rgba(8, 102, 255, 0.12);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
       }
 
       .fb-note {
@@ -965,122 +1061,22 @@
   </head>
 
   <body>
-        <div class="fb-bg" aria-hidden="true">
-      <div class="fb-pattern fb-pattern-a">
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
+    <div class="fb-bg" aria-hidden="true">
+      <div class="fb-watermark fb-watermark--a">
+        <div class="fb-logo-wrap"><svg aria-hidden="true" class="fb-logo fb-logo-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M13.135 22v-8.53h2.86l.428-3.327h-3.288V8.02c0-.963.267-1.62 1.648-1.62h1.76V3.424A23.998 23.998 0 0 0 13.978 3c-2.54 0-4.279 1.55-4.279 4.4v2.743H6.82v3.327h2.879V22h3.436Z"></path></svg></div>
       </div>
-      <div class="fb-pattern fb-pattern-b">
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
-        <div class="fb-mark" aria-hidden="true"><div class="fb-brand" aria-label="Facebook">
-              <svg viewBox="0 0 36 36" class="fb-logo" fill="currentColor" aria-hidden="true">
-                <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-                <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
-              </svg>
-              <span class="fb-wordmark">Facebook</span>
-            </div></div>
+      <div class="fb-watermark fb-watermark--b">
+        <div class="fb-logo-wrap"><svg aria-hidden="true" class="fb-logo fb-logo-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M13.135 22v-8.53h2.86l.428-3.327h-3.288V8.02c0-.963.267-1.62 1.648-1.62h1.76V3.424A23.998 23.998 0 0 0 13.978 3c-2.54 0-4.279 1.55-4.279 4.4v2.743H6.82v3.327h2.879V22h3.436Z"></path></svg></div>
+      </div>
+    </div>
+      <div class="fb-watermark fb-watermark--b">
+        <div class="fb-logo-wrap"><div aria-label="Facebook" class="fb-brand">
+<svg aria-hidden="true" class="fb-logo" fill="currentColor" viewbox="0 0 36 36">
+<path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
+<path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="#ffffff"></path>
+</svg>
+<span class="fb-wordmark">Facebook</span>
+</div></div>
       </div>
     </div>
 
@@ -1125,7 +1121,7 @@
               <div class="fb-stat">
                 <div>
                   <span class="fb-stat-label">Seguidores</span>
-                  <span class="fb-stat-value">13K</span>
+                  <span class="fb-stat-value">13k</span>
                 </div>
                 <span class="fb-stat-accent"></span>
               </div>
@@ -1145,9 +1141,13 @@
               Seguir en Facebook
             </a>
 
-            <div style="opacity: 0 !important;" class="fb-note">
-              <strong id="fbHandleInline"></strong>
-            </div>
+            <a
+              href="https://www.canales.pe/"
+              target="_self"
+              class="fb-cta-outline"
+            >
+              Volver a canales.pe
+            </a>
           </div>
         </div>
       </section>

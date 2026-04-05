@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CANALES&reg; | Manuel Canales Q.</title>
+    <title>Instagram | CANALES&reg;</title>
   <meta name="description" content="CANALES es el Sitio oficial de Manuel Canales Q.. Fundador de Tendencias Lima, diseñador gráfico, fotógrafo aficionado y limeño.">
   <meta name="keywords" content="CANALES, Manuel Canales, Manuel Canales Quintanilla, Tendencias Lima, diseñador gráfico, fotógrafo, Lima, Perú">
   <meta name="author" content="Manuel Canales Quintanilla">
   <meta name="copyright" content="Manuel Canales Quintanilla">
-  <link rel="canonical" href="https://www.canales.pe/">
+  <link rel="canonical" href="https://www.canales.pe/instagram">
 
   <link rel="image_src" type="image/png" href="https://cdn.mcq.cl/assets/img/generico.png">
 
@@ -39,7 +39,6 @@
   <meta name="msapplication-TileImage" content="https://cdn.mcq.cl/mstile-144x144.png">
   <meta name="theme-color" content="#0572cd">
 
-  <link rel="canonical" href="https://www.canales.pe/" />
 
   <!-- JSON-LD estructurado -->
 <script type="application/ld+json">
@@ -178,10 +177,11 @@
         min-height: 100vh;
         font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         color: var(--text);
-        background: 
-          radial-gradient(circle at 18% 18%, rgba(245, 133, 41, 0.08), transparent 24%),
-          radial-gradient(circle at 82% 20%, rgba(129, 52, 175, 0.08), transparent 24%),
-          linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+        background:
+          radial-gradient(circle at 16% 18%, rgba(245, 133, 41, 0.18) 0%, rgba(245, 133, 41, 0.08) 16%, transparent 42%),
+          radial-gradient(circle at 82% 18%, rgba(221, 42, 123, 0.14) 0%, transparent 28%),
+          radial-gradient(circle at 68% 82%, rgba(81, 91, 212, 0.12) 0%, transparent 28%),
+          linear-gradient(180deg, #130a14 0%, #050505 100%);
         overflow-x: hidden;
         position: relative;
       }
@@ -190,8 +190,6 @@
         color: inherit;
       }
 
-      
-      
       .ig-bg {
         position: fixed;
         inset: 0;
@@ -201,104 +199,170 @@
         isolation: isolate;
       }
 
-      .ig-pattern {
+      .ig-bg::before,
+      .ig-bg::after {
+        content: "";
         position: absolute;
-        inset: -10vh -10vw;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: clamp(32px, 6vw, 92px) clamp(26px, 5vw, 82px);
-        align-content: space-evenly;
-        justify-items: center;
-        mix-blend-mode: screen;
+        inset: -8%;
+        pointer-events: none;
       }
 
-      .ig-pattern-a {
-        opacity: 0.07;
-        filter: blur(16px);
-        transform: rotate(-14deg) scale(1.08);
-        animation: igPatternDriftA 28s ease-in-out infinite alternate;
+      .ig-bg::before {
+        background: radial-gradient(circle at 18% 24%, rgba(245, 133, 41, 0.2) 0%, transparent 34%), radial-gradient(circle at 80% 20%, rgba(221, 42, 123, 0.16) 0%, transparent 28%), radial-gradient(circle at 64% 80%, rgba(81, 91, 212, 0.14) 0%, transparent 30%);
+        filter: blur(36px);
+        opacity: 0.92;
+        animation: igGradientDriftA 18s ease-in-out infinite alternate;
       }
 
-      .ig-pattern-b {
-        opacity: 0.045;
-        filter: blur(22px);
-        transform: rotate(-10deg) translate3d(6vw, 7vh, 0) scale(1.03);
-        animation: igPatternDriftB 34s ease-in-out infinite alternate;
+      .ig-bg::after {
+        background: linear-gradient(135deg, rgba(129, 52, 175, 0.08) 0%, transparent 42%, rgba(245, 133, 41, 0.04) 76%, transparent 100%);
+        filter: blur(54px);
+        opacity: 0.88;
+        animation: igGradientDriftB 24s ease-in-out infinite alternate;
       }
 
-      .ig-mark {
+      .ig-watermark {
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        color: rgba(221, 42, 123, 0.14);
+        mix-blend-mode: screen;
+        will-change: transform, opacity, filter;
       }
 
-      .ig-mark .ig-wordmark,
-      .ig-mark .ig-separator,
-      .ig-mark .ig-canales-logo {
+      .ig-watermark--a {
+        top: 50%;
+        left: 58%;
+        width: clamp(340px, 54vw, 860px);
+        transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1);
+        opacity: 0.09;
+        filter: blur(14px);
+        animation: igLogoFloatA 18s ease-in-out infinite alternate,
+                   igLogoPulse 9s ease-in-out infinite;
+      }
+
+      .ig-watermark--b {
+        top: 16%;
+        right: -4%;
+        width: clamp(180px, 24vw, 360px);
+        transform: rotate(-8deg) scale(0.96);
+        opacity: 0.038;
+        filter: blur(19px);
+        animation: igLogoFloatB 22s ease-in-out infinite alternate,
+                   igLogoPulse 11s ease-in-out infinite reverse;
+      }
+
+      .ig-logo-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ig-logo-wrap .ig-wordmark,
+      .ig-logo-wrap .ig-separator,
+      .ig-logo-wrap .ig-canales-logo {
         display: none !important;
       }
 
-      .ig-mark .ig-logo,
-      .ig-mark .ig-giphy-logo,
-      .ig-mark .ig-instagram-logo,
-      .ig-mark .ig-tiktok-logo,
-      .ig-mark img,
-      .ig-mark svg {
+      .ig-logo-wrap .ig-logo,
+      .ig-logo-wrap .ig-giphy-logo,
+      .ig-logo-wrap .ig-instagram-logo,
+      .ig-logo-wrap .ig-tiktok-logo,
+      .ig-logo-wrap img,
+      .ig-logo-wrap svg {
         display: block;
-        width: clamp(92px, 10vw, 150px) !important;
+        width: 100% !important;
         height: auto !important;
         max-width: none;
         object-fit: contain;
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(221, 42, 123, 0.14);
       }
 
-      @keyframes igPatternDriftA {
-        0% { transform: rotate(-14deg) translate3d(0, 0, 0) scale(1.08); }
-        100% { transform: rotate(-11deg) translate3d(2vw, -1.6vh, 0) scale(1.11); }
+      .ig-bg .ig-logo-wrap svg,
+      .ig-bg .ig-logo-wrap img {
+        opacity: 1;
       }
 
-      @keyframes igPatternDriftB {
-        0% { transform: rotate(-10deg) translate3d(6vw, 7vh, 0) scale(1.03); }
-        100% { transform: rotate(-14deg) translate3d(4vw, 9vh, 0) scale(1.06); }
+      .ig-bg .ig-logo-wrap path,
+      .ig-bg .ig-logo-wrap rect,
+      .ig-bg .ig-logo-wrap circle {
+        vector-effect: non-scaling-stroke;
+      }
+      @keyframes igGradientDriftA {
+        0% { transform: translate3d(0, 0, 0) scale(1); }
+        100% { transform: translate3d(-2.2%, 2.8%, 0) scale(1.04); }
+      }
+
+      @keyframes igGradientDriftB {
+        0% { transform: translate3d(0, 0, 0) scale(1); }
+        100% { transform: translate3d(2.6%, -2.4%, 0) scale(1.06); }
+      }
+
+      @keyframes igLogoFloatA {
+        0% { transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1); }
+        100% { transform: translate3d(-48%, -52%, 0) rotate(-8deg) scale(1.05); }
+      }
+
+      @keyframes igLogoFloatB {
+        0% { transform: translate3d(0, 0, 0) rotate(-8deg) scale(0.96); }
+        100% { transform: translate3d(-1.4vw, 2.2vh, 0) rotate(-12deg) scale(1.02); }
+      }
+
+      @keyframes igLogoPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.86; }
       }
 
       @media (max-width: 900px) {
-        .ig-pattern {
-          inset: -6vh -16vw;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: clamp(24px, 8vw, 58px) clamp(18px, 7vw, 42px);
+        .ig-watermark--a {
+          left: 50%;
+          width: clamp(280px, 68vw, 620px);
+          opacity: 0.074;
+          filter: blur(10px);
         }
-        .ig-pattern-a { opacity: 0.06; filter: blur(14px); }
-        .ig-pattern-b { opacity: 0.04; filter: blur(18px); }
-        .ig-mark .ig-logo,
-        .ig-mark .ig-giphy-logo,
-        .ig-mark .ig-instagram-logo,
-        .ig-mark .ig-tiktok-logo,
-        .ig-mark img,
-        .ig-mark svg { width: clamp(80px, 18vw, 120px) !important; }
+
+        .ig-watermark--b {
+          top: 11%;
+          right: auto;
+          left: 74%;
+          width: clamp(150px, 24vw, 240px);
+          opacity: 0.03;
+          filter: blur(13px);
+        }
       }
 
       @media (max-width: 520px) {
-        .ig-pattern {
-          inset: -3vh -22vw;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 30px 20px;
+        .ig-watermark--a {
+          left: 50%;
+          top: 47%;
+          width: min(92vw, 460px);
+          opacity: 0.094;
+          filter: blur(11px);
         }
-        .ig-pattern-a { opacity: 0.055; filter: blur(12px); }
-        .ig-pattern-b { opacity: 0.035; filter: blur(16px); }
-        .ig-mark .ig-logo,
-        .ig-mark .ig-giphy-logo,
-        .ig-mark .ig-instagram-logo,
-        .ig-mark .ig-tiktok-logo,
-        .ig-mark img,
-        .ig-mark svg { width: 88px !important; }
+
+        .ig-watermark--b {
+          top: 8%;
+          left: 72%;
+          width: min(40vw, 170px);
+          opacity: 0.042;
+          filter: blur(15px);
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .ig-pattern-a,
-        .ig-pattern-b { animation: none !important; }
+        .ig-watermark--a,
+        .ig-watermark--b {
+          animation: none !important;
+        }
+
+        .ig-bg::before,
+        .ig-bg::after {
+          animation: none !important;
+        }
       }
+
 
       @keyframes floatOne {
         0% { transform: translate3d(0, 0, 0) scale(1); }
@@ -489,6 +553,33 @@
         transform: translateY(-2px);
         filter: brightness(1.04);
         box-shadow: 0 20px 40px rgba(129, 52, 175, 0.3);
+      }
+
+      .ig-cta-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 58px;
+        margin-top: 12px;
+        padding: 14px 22px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(221, 42, 123, 0.42);
+        background: rgba(255, 255, 255, 0.02);
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 800;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+      }
+
+      .ig-cta-outline:hover {
+        transform: translateY(-2px);
+        background: rgba(221, 42, 123, 0.12);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
       }
 
       .ig-note {
@@ -935,89 +1026,11 @@
 
   <body>
         <div class="ig-bg" aria-hidden="true">
-      <div class="ig-pattern ig-pattern-a">
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
+      <div class="ig-watermark ig-watermark--a">
+        <div class="ig-logo-wrap"><img alt="Instagram" class="ig-instagram-logo" src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=f537c7&amp;_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&amp;_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&amp;_nc_zt=14&amp;_nc_ht=scontent.flim17-1.fna&amp;_nc_gid=iIUONjNkNhSuFez3mSosCQ&amp;_nc_ss=7a389&amp;oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&amp;oe=69D7B1E5"/></div>
       </div>
-      <div class="ig-pattern ig-pattern-b">
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
-        <div class="ig-mark" aria-hidden="true"><img
-              src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&_nc_zt=14&_nc_ht=scontent.flim17-1.fna&_nc_gid=iIUONjNkNhSuFez3mSosCQ&_nc_ss=7a389&oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&oe=69D7B1E5"
-              alt="Instagram"
-              class="ig-instagram-logo"
-            /></div>
+      <div class="ig-watermark ig-watermark--b">
+        <div class="ig-logo-wrap"><img alt="Instagram" class="ig-instagram-logo" src="https://scontent.flim17-1.fna.fbcdn.net/v/t39.8562-6/274515697_681782982854519_7664659647335778659_n.svg?_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=f537c7&amp;_nc_ohc=uCodx-edSZ4Q7kNvwHVVS7F&amp;_nc_oc=AdpSluhYRqoQ5kzrCeRx9kfae9CYetpA3Mt2twpgCr1smKxUqX-c4n9Q3mZX2B_oNXs&amp;_nc_zt=14&amp;_nc_ht=scontent.flim17-1.fna&amp;_nc_gid=iIUONjNkNhSuFez3mSosCQ&amp;_nc_ss=7a389&amp;oh=00_Af3kAm91LFw9x3in0gtzhvqfxefJsEM5wc9-E_boolQgXA&amp;oe=69D7B1E5"/></div>
       </div>
     </div>
 
@@ -1076,6 +1089,14 @@
               id="igCta"
             >
               Seguir en Instagram
+            </a>
+
+            <a
+              href="https://www.canales.pe/"
+              target="_self"
+              class="ig-cta-outline"
+            >
+              Volver a canales.pe
             </a>
 
          
