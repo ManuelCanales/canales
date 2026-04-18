@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>QR | Manuel Canales Q.</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.mcq.cl/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.mcq.cl/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="194x194" href="https://cdn.mcq.cl/favicon-194x194.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://cdn.mcq.cl/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.mcq.cl/favicon-16x16.png">
+<link rel="manifest" href="https://www.canales.pe/site.webmanifest">
+<link rel="mask-icon" href="https://cdn.mcq.cl/safari-pinned-tab.svg" color="#0572cd">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<meta name="apple-mobile-web-app-title" content="Manuel Canales Q.">
+<meta name="application-name" content="Manuel Canales Q.">
+<meta name="msapplication-TileColor" content="#0572cd">
+<meta name="msapplication-TileImage" content="https://cdn.mcq.cl/mstile-144x144.png">
+<meta name="theme-color" content="#0572cd">
+<meta name="robots" content="noindex, nofollow">
+
+<style>
+/* ========= RESET + BLOQUEO TOTAL DE SCROLL ========= */
+html,body{
+  height:100%;
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:Inter,system-ui,sans-serif;
+
+  /* Bloqueo fuerte de scroll (desktop/móvil) */
+  overflow:hidden;
+  overscroll-behavior:none;
+  touch-action:none;
+  -webkit-overflow-scrolling:auto;
+  scrollbar-width:none;
+}
+html::-webkit-scrollbar{ display:none; }
+
+/* ========= CONTENEDOR ========= */
+#cana404{
+  position:relative;
+  height:100dvh;
+  overflow:hidden;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(16px,3vw,32px);
+  box-sizing:border-box;
+}
+
+/* ========= FONDO BASE + BLOBS DINÁMICOS ========= */
+#cana404 .bg{ position:fixed; inset:0; z-index:0; overflow:hidden; }
+#cana404 .bg .base{
+  position:absolute; inset:-15%;
+  background:
+    radial-gradient(120% 80% at 65% 30%, #121318 0%, #0a0c12 56%, #05070b 72%, #000 88%),
+    radial-gradient(60% 55% at 18% 78%, #0a0d14 0%, #000 70%);
+  filter:contrast(1.05) saturate(1.02);
+}
+#cana404 .gblob{
+  position:absolute; border-radius:50%;
+  filter:blur(var(--blur,80px)); mix-blend-mode:screen; opacity:var(--op,.25);
+  will-change:transform,opacity,background;
+  background:radial-gradient(circle at 30% 30%,
+              hsla(var(--h,200) var(--s,85%) var(--l,60%) / .85) 0%,
+              transparent 60%);
+  animation:floaty var(--dur,22s) ease-in-out infinite alternate;
+}
+@keyframes floaty{
+  from{ transform:translate3d(0,0,0) }
+  to  { transform:translate3d(var(--dx,6vw),var(--dy,4vh),0) }
+}
+
+/* ========= LLUVIA DE EMOJIS (detrás de la tarjeta) ========= */
+#cana404 .rain{ position:fixed; inset:0; z-index:2; pointer-events:none; overflow:hidden; }
+#cana404 .emoji{
+  position:absolute; will-change:transform,opacity;
+  filter:drop-shadow(0 8px 16px rgba(0,0,0,.55));
+  font-size:clamp(30px,6vw,60px); opacity:.95;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  0%{ transform:translateY(-12vh) rotate(0deg); opacity:1 }
+  100%{ transform:translateY(112vh) rotate(360deg); opacity:.6 }
+}
+
+/* ========= CARD GLASS ========= */
+#cana404 .card{
+  position:relative; z-index:5; width:min(560px,94vw);
+  background:linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:0 28px 70px rgba(0,0,0,.62);
+  padding:clamp(28px,6vw,52px);
+  text-align:center;
+}
+#cana404 .card::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:radial-gradient(80% 50% at 50% 0%, rgba(255,255,255,.12), transparent 60%);
+}
+
+/* Marca */
+#cana404 .brand{ width:clamp(150px,36vw,230px); height:auto; margin-bottom:.8rem }
+
+/* Título dinámico */
+#cana404 .title{
+  margin:.2rem 0 .6rem; line-height:1.06; max-width:22ch;
+  font-size:clamp(34px,7.6vw,48px);
+  font-weight:900; font-style:italic;
+  font-variation-settings:"wght" 900, "slnt" -6;
+  text-wrap:balance;
+  text-shadow:0 2px 24px rgba(255,255,255,.16);
+  transition:opacity .6s ease;
+}
+#cana404 .title .nowrap{ white-space:nowrap }
+
+#cana404 .desc{ color:#bbc1c8; margin:.4rem 0 1.0rem; font-size:clamp(14px,3.6vw,16px) }
+#cana404 .btn{
+  display:inline-grid; place-items:center;
+  padding:12px 22px; border-radius:14px; color:#fff; text-decoration:none;
+  background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 28px rgba(0,0,0,.28); transition:.22s ease;
+}
+#cana404 .btn:hover{ background:rgba(255,255,255,.16); transform:translateY(-2px) }
+
+/* ======= INPUT (mismo lenguaje visual del botón) ======= */
+#cana404 .qrf-row{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:.2rem 0 1rem }
+#cana404 .qrf-input{
+  min-width:min(520px,86vw);
+  padding:12px 14px; border-radius:14px;
+  background:transparent; color:#fff;
+  border:1px solid rgba(255,255,255,.14); outline:none;
+}
+#cana404 .qrf-input:focus{ border-color:rgba(138,180,255,.35); box-shadow:0 0 0 2px rgba(138,180,255,.15) }
+
+/* Resultado QR */
+#cana404 #qrcode{ margin-top:.4rem; display:grid; place-items:center; min-height:270px }
+#cana404 #qrcode canvas, 
+#cana404 #qrcode img{ width:256px; height:256px; image-rendering:pixelated }
+
+/* ========= Responsive ========= */
+@media (max-width:768px){
+  #cana404 .card{ width:min(94vw,560px); padding:clamp(24px,6vw,44px) }
+  #cana404 .title{ font-size:clamp(30px,9vw,42px); max-width:24ch }
+}
+@media (max-width:420px){
+  #cana404 .card{ border-radius:20px }
+  #cana404 .brand{ width:clamp(118px,46vw,170px) }
+  #cana404 .title{ font-size:clamp(28px,10.2vw,38px); max-width:26ch }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion:reduce){
+  #cana404 .gblob{ animation:none }
+  #cana404 .emoji{ animation-duration:6s }
+}
+</style>
+</head>
+<body>
+<section id="cana404" aria-labelledby="t404">
+  <!-- Fondo -->
+  <div class="bg">
+    <div class="base"></div>
+    <!-- Blobs dinámicos vía JS -->
+  </div>
+
+  <!-- Emojis lluviendo -->
+  <div class="rain" id="rain"></div>
+
+  <!-- CONTENIDO (misma CARD, ahora con el generador) -->
+  <article class="card" role="group" aria-label="Generador de QR">
+    <img class="brand" src="https://cdn.mcq.cl/logo/canales-white.svg" alt="CANALES">
+
+    <h1 id="t404" class="title">Generar código <span class="nowrap">QR</span></h1>
+    <p class="desc">Pega una URL. El QR no caduca mientras el enlace exista.</p>
+
+    <form class="qrf-row" onsubmit="return false;">
+      <input id="qr-url" class="qrf-input" type="url" inputmode="url"
+             placeholder="https://www.tu-dominio.pe/ruta-permanente" required>
+      <button id="qr-gen" class="btn" type="button">
+        <i class="bi bi-qr-code"></i><br>Generar
+      </button>
+    </form>
+
+    <div id="qrcode" aria-live="polite"></div>
+
+    <a href="/" class="btn" style="margin-top:12px">
+      <i class="bi bi-arrow-return-left"></i><br>Volver a <b>canales.pe</b>
+    </a>
+  </article>
+</section>
+
+<!-- Librería QR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+(() => {
+  /* ===== Lluvia de emojis (igual que 404) ===== */
+  const EMOJIS = ["🤔","😟","😶‍🌫️","🫥"];
+  const rain = document.getElementById('rain');
+  const isMobile = matchMedia("(max-width:768px)").matches;
+  const dropEvery = isMobile ? 900 : 620;
+  function drop(){
+    const el = document.createElement('span');
+    el.className = 'emoji';
+    el.textContent = EMOJIS[(Math.random()*EMOJIS.length)|0];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.animationDuration = (5 + Math.random()*6) + 's';
+    el.style.fontSize = (28 + Math.random()*40) + 'px';
+    rain.appendChild(el);
+    el.addEventListener('animationend', ()=> el.remove());
+  }
+  let rainTimer = setInterval(drop, dropEvery);
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden){ clearInterval(rainTimer); } else { rainTimer = setInterval(drop, dropEvery); } });
+
+  /* ===== Blobs multicolor (igual que 404) ===== */
+  const bg = document.querySelector('#cana404 .bg');
+  const BLOB_COUNT = 6;
+  const rand = (min,max)=> Math.random()*(max-min)+min;
+  const rInt = (min,max)=> Math.floor(rand(min,max));
+  function spawnBlob(){
+    const b = document.createElement('div');
+    b.className = 'gblob';
+    resetBlob(b, true);
+    bg.appendChild(b);
+    const beat = rInt(6,12)*1000;
+    setInterval(()=> resetBlob(b, false), beat);
+  }
+  function resetBlob(b, first){
+    const size = rand(28, 52), blur = rand(70,110);
+    const left = rand(-10,85), top = rand(-12,70);
+    const h = rInt(0,360), s = rInt(70,98), l = rInt(52,68);
+    const dur = rand(18,34)+'s';
+    const dx = (Math.random()<.5?-1:1)*rand(4,10)+'vw';
+    const dy = (Math.random()<.5?-1:1)*rand(3,8)+'vh';
+    const op = rand(.18,.30);
+    b.style.width=size+'vw'; b.style.height=size+'vw';
+    b.style.left=left+'vw'; b.style.top=top+'vh';
+    b.style.setProperty('--blur', blur+'px');
+    b.style.setProperty('--h', h);
+    b.style.setProperty('--s', s+'%');
+    b.style.setProperty('--l', l+'%');
+    b.style.setProperty('--dur', dur);
+    b.style.setProperty('--dx', dx);
+    b.style.setProperty('--dy', dy);
+    b.style.setProperty('--op', op);
+    if(first) b.style.opacity = op;
+  }
+  for(let i=0;i<BLOB_COUNT;i++) spawnBlob();
+
+  /* ===== Generador QR (ultra simple) ===== */
+  const input = document.getElementById('qr-url');
+  const out   = document.getElementById('qrcode');
+  const btn   = document.getElementById('qr-gen');
+
+  function makeQR(){
+    const url = (input.value || '').trim();
+    if(!url){ input.focus(); return; }
+    out.innerHTML = '';
+    new QRCode(out, { text: url, width: 256, height: 256, correctLevel: QRCode.CorrectLevel.M });
+  }
+  btn.addEventListener('click', makeQR);
+  input.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); makeQR(); }});
+})();
+</script>
+</body>
+</html>
