@@ -1,0 +1,11 @@
+<!doctype html>
+<script>
+  const path = location.pathname.replace(/^\/manuel\/?/, "/");
+
+  location.replace(
+    "https://manuelcanales.com" +
+    path +
+    location.search +
+    location.hash
+  );
+</script>
