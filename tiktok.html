@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -139,1090 +140,1326 @@
   <link rel="manifest" href="https://www.canales.pe/site.webmanifest">
   <link rel="mask-icon" href="https://cdn.mcq.cl/safari-pinned-tab.svg" color="#0572cd">
 <link href="https://cdn.mcq.cl/assets/vendor/bootstrap-icons-2/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: rgba(14, 14, 16, .78);
+      --panel-2: rgba(255,255,255,.045);
+      --border: rgba(255,255,255,.10);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,.70);
+      --soft-white: rgba(255,255,255,.90);
+      --glint: #2DCCD3;
+      --blaze: #F1204A;
+      --thrive: #033624;
+      --shimmer: #BAF6F0;
+      --dawn: #EDBBE8;
+      --pink: var(--blaze);
+      --cyan: var(--glint);
+      --max: 1160px;
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+      --display: "TikTok Sans", "TikTokSans", "Inter", system-ui, sans-serif;
+      --body: "TikTok Sans", "TikTokSans", "Inter", system-ui, sans-serif;
+      --mx: 0;
+      --my: 0;
+      --scroll: 0;
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      min-height: 100svh;
+      color: var(--text);
+      background: var(--bg);
+      font-family: var(--body);
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .tt-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      isolation: isolate;
+      will-change: filter, transform;
+      transition: filter .42s var(--ease), transform .42s var(--ease);
+      background:
+        radial-gradient(circle at 50% 14%, rgba(255,255,255,.028), transparent 0 28%),
+        radial-gradient(circle at 18% 18%, rgba(45,204,211,.042), transparent 0 19%),
+        radial-gradient(circle at 84% 24%, rgba(241,32,74,.04), transparent 0 19%),
+        radial-gradient(circle at 50% 66%, rgba(186,246,240,.012), transparent 0 16%),
+        linear-gradient(180deg, #121316 0%, #0a0b0d 48%, #000000 100%);
+    }
+
+    body[data-bg-blur="primary"] .tt-bg {
+      filter: blur(10px);
+      transform: scale(1.018);
+    }
+
+    .tt-bg::before {
+      content: "";
+      position: absolute;
+      inset: -12%;
+      background:
+        radial-gradient(circle at 24% 24%, rgba(45,204,211,.07), transparent 0 13%),
+        radial-gradient(circle at 78% 24%, rgba(241,32,74,.07), transparent 0 13%),
+        radial-gradient(circle at 56% 70%, rgba(255,255,255,.012), transparent 0 15%),
+        linear-gradient(180deg, transparent 0%, rgba(255,255,255,.008) 54%, transparent 100%);
+      filter: blur(96px);
+      transform: scale(1.03);
+      animation: ambient 24s var(--ease) infinite alternate;
+      opacity: .15;
+    }
+
+    .tt-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(140deg, rgba(45,204,211,.012), transparent 34%, transparent 66%, rgba(241,32,74,.014)),
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,.010), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(0,0,0,.30), transparent 40%);
+      background-size: auto, auto, auto;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.58), rgba(0,0,0,.42) 78%, transparent 98%);
+      opacity: .10;
+      transform: none;
+    }
+
+    /* Curved-notch motif from TikTok's graphic system; kept atmospheric, not container-like. */
+    .tt-notch {
+      position: absolute;
+      right: clamp(-104px, -5vw, -34px);
+      bottom: clamp(18px, 5vh, 74px);
+      width: clamp(190px, 24vw, 360px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 69% 12%, transparent 0 15%, rgba(186,246,240,.06) 15.5% 29%, transparent 29.5%),
+        radial-gradient(circle at 48% 52%, rgba(237,187,232,.034), transparent 66%);
+      transform: translate3d(calc(var(--mx) * -7px), calc(var(--my) * -7px), 0);
+      filter: blur(.25px);
+      opacity: .24;
+      z-index: 0;
+    }
+
+    .tt-sweeps {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent 2%, #000 18%, #000 84%, transparent 98%);
+      perspective: 1400px;
+      transform-style: preserve-3d;
+      transform: none;
+    }
+
+    .tt-sweeps::before {
+      content: "";
+      position: absolute;
+      inset: -8%;
+      background:
+        linear-gradient(125deg, rgba(45,204,211,.018), transparent 24%),
+        linear-gradient(300deg, rgba(241,32,74,.018), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.014), transparent 26%, transparent 74%, rgba(0,0,0,.10)),
+        radial-gradient(circle at 50% 48%, rgba(255,255,255,.016), transparent 34%),
+        radial-gradient(circle at 50% 72%, rgba(0,0,0,.15), transparent 32%);
+      filter: blur(70px);
+      opacity: .30;
+      transform: none;
+    }
+
+    .tt-sweeps::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.010) 20%, rgba(45,204,211,.036) 44%, rgba(241,32,74,.034) 68%, rgba(255,255,255,.010) 82%, rgba(255,255,255,0) 100%),
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,.022), transparent 0 18%),
+        radial-gradient(circle at 50% 46%, transparent 0 20%, rgba(4,4,5,.18) 72%, rgba(4,4,5,.56) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.008), transparent 18%, transparent 82%, rgba(0,0,0,.22));
+      mix-blend-mode: screen, screen, multiply, normal;
+      pointer-events: none;
+    }
+
+    .tt-sweep {
+      position: absolute;
+      left: -24%;
+      width: 150%;
+      display: flex;
+      transform: rotate(-11deg);
+      transform-origin: center center;
+      white-space: nowrap;
+      opacity: .10;
+      filter: blur(.2px);
+      will-change: transform, opacity, filter;
+    }
+
+    .tt-sweep[data-depth="far"] {
+      filter: blur(1.6px);
+      mix-blend-mode: screen;
+    }
+
+    .tt-sweep[data-depth="mid"] {
+      filter: blur(.65px);
+    }
+
+    .tt-sweep[data-depth="near"] {
+      filter: blur(.15px);
+    }
+
+    .tt-sweep--a { top: 4%;  transform: rotate(-10deg) scale(1.56) translate3d(0,0,-220px); opacity: .08; }
+    .tt-sweep--b { top: 12%; transform: rotate(-12deg) scale(.84) translate3d(0,0,80px); opacity: .26; }
+    .tt-sweep--c { top: 20%; transform: rotate(-9deg)  scale(1.06) translate3d(0,0,-40px); opacity: .19; }
+    .tt-sweep--d { top: 29%; transform: rotate(-13deg) scale(.74) translate3d(0,0,120px); opacity: .29; }
+    .tt-sweep--e { top: 37%; transform: rotate(-11deg) scale(1.32) translate3d(0,0,-180px); opacity: .11; }
+    .tt-sweep--f { top: 45%; transform: rotate(-8deg)  scale(.94) translate3d(0,0,30px); opacity: .22; }
+    .tt-sweep--g { top: 53%; transform: rotate(-14deg) scale(.68) translate3d(0,0,140px); opacity: .31; }
+    .tt-sweep--h { top: 61%; transform: rotate(-9deg)  scale(1.42) translate3d(0,0,-200px); opacity: .09; }
+    .tt-sweep--i { top: 69%; transform: rotate(-12deg) scale(.88) translate3d(0,0,60px); opacity: .24; }
+    .tt-sweep--j { top: 77%; transform: rotate(-10deg) scale(1.12) translate3d(0,0,-60px); opacity: .18; }
+    .tt-sweep--k { top: 86%; transform: rotate(-8deg)  scale(.76) translate3d(0,0,110px); opacity: .27; }
+    .tt-sweep--l { top: -2%; transform: rotate(-7deg)  scale(1.82) translate3d(0,0,-280px); opacity: .06; }
+    .tt-sweep--m { top: 24%; transform: rotate(-15deg) scale(1.18) translate3d(0,0,-100px); opacity: .14; }
+    .tt-sweep--n { top: 57%; transform: rotate(-11deg) scale(.82) translate3d(0,0,95px); opacity: .26; }
+    .tt-sweep--o { top: 92%; transform: rotate(-9deg)  scale(1.62) translate3d(0,0,-240px); opacity: .07; }
+
+    .tt-sweep-track {
+      flex: 0 0 auto;
+      display: flex;
+      gap: clamp(28px, 4vw, 56px);
+      padding-right: clamp(28px, 4vw, 56px);
+      min-width: max-content;
+      animation: sweep-left 34s linear infinite;
+    }
+
+    .tt-sweep--a .tt-sweep-track { animation-duration: 78s; }
+    .tt-sweep--b .tt-sweep-track { animation-name: sweep-right; animation-duration: 34s; }
+    .tt-sweep--c .tt-sweep-track { animation-duration: 52s; }
+    .tt-sweep--d .tt-sweep-track { animation-name: sweep-right; animation-duration: 24s; }
+    .tt-sweep--e .tt-sweep-track { animation-duration: 88s; }
+    .tt-sweep--f .tt-sweep-track { animation-name: sweep-right; animation-duration: 40s; }
+    .tt-sweep--g .tt-sweep-track { animation-name: sweep-right; animation-duration: 20s; }
+    .tt-sweep--h .tt-sweep-track { animation-duration: 96s; }
+    .tt-sweep--i .tt-sweep-track { animation-duration: 46s; }
+    .tt-sweep--j .tt-sweep-track { animation-name: sweep-right; animation-duration: 56s; }
+    .tt-sweep--k .tt-sweep-track { animation-name: sweep-right; animation-duration: 28s; }
+    .tt-sweep--l .tt-sweep-track { animation-duration: 108s; }
+    .tt-sweep--m .tt-sweep-track { animation-duration: 66s; }
+    .tt-sweep--n .tt-sweep-track { animation-name: sweep-right; animation-duration: 32s; }
+    .tt-sweep--o .tt-sweep-track { animation-duration: 118s; }
+
+    .tt-sweep span {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 5.2vw, 5.5rem);
+      font-weight: 600;
+      line-height: .9;
+      letter-spacing: -.075em;
+      color: rgba(255,255,255,.032);
+      text-shadow: 0 0 10px rgba(255,255,255,.008);
+    }
+
+    .tt-sweep--a span { font-size: clamp(6.4rem, 12vw, 12rem); }
+    .tt-sweep--b span { font-size: clamp(2.2rem, 4.2vw, 4.4rem); }
+    .tt-sweep--c span { font-size: clamp(3.2rem, 6vw, 6.2rem); }
+    .tt-sweep--d span { font-size: clamp(1.9rem, 3.5vw, 3.8rem); }
+    .tt-sweep--e span { font-size: clamp(5.2rem, 9.5vw, 9.8rem); }
+    .tt-sweep--f span { font-size: clamp(2.8rem, 5vw, 5.1rem); }
+    .tt-sweep--g span { font-size: clamp(1.7rem, 3.2vw, 3.3rem); }
+    .tt-sweep--c,
+    .tt-sweep--d,
+    .tt-sweep--f,
+    .tt-sweep--h,
+    .tt-sweep--i,
+    .tt-sweep--j,
+    .tt-sweep--l,
+    .tt-sweep--m,
+    .tt-sweep--n { display: none; }
+    .tt-sweep--h span { font-size: clamp(6rem, 11vw, 11.2rem); }
+    .tt-sweep--i span { font-size: clamp(2.5rem, 4.8vw, 4.8rem); }
+    .tt-sweep--j span { font-size: clamp(3.7rem, 6.8vw, 6.9rem); }
+    .tt-sweep--k span { font-size: clamp(2rem, 3.8vw, 4rem); }
+    .tt-sweep--l span { font-size: clamp(7rem, 13vw, 13rem); }
+    .tt-sweep--m span { font-size: clamp(4.2rem, 7.8vw, 7.8rem); }
+    .tt-sweep--n span { font-size: clamp(2.3rem, 4.2vw, 4.4rem); }
+    .tt-sweep--o span { font-size: clamp(6.8rem, 12.5vw, 12.8rem); }
+
+
+    .tt-shell {
+      position: relative;
+      z-index: 1;
+      width: min(100%, var(--max));
+      min-height: 100svh;
+      margin: 0 auto;
+      padding:
+        max(28px, env(safe-area-inset-top))
+        max(20px, env(safe-area-inset-right))
+        max(28px, env(safe-area-inset-bottom))
+        max(20px, env(safe-area-inset-left));
+      display: flex;
+      align-items: center;
+    }
+
+    .tt-layout {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .tt-left {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .tt-lockup {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 32px;
+      max-width: 100%;
+      min-width: 0;
+      padding: 0;
+      margin-bottom: clamp(24px, 3vw, 34px);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+      animation: reveal .7s .05s both;
+    }
+
+    .tt-tiktok-logo,
+    .tt-canales-logo {
+      display: block;
+      width: auto;
+      height: 22px;
+      flex: 0 0 auto;
+      object-fit: contain;
+      max-width: min(40vw, 118px);
+    }
+
+    .tt-canales-logo { max-width: min(40vw, 118px); }
+
+    .tt-separator {
+      font-family: var(--display);
+      font-size: .9rem;
+      line-height: 1;
+      font-weight: 800;
+      color: rgba(255,255,255,.48);
+    }
+
+    .tt-name {
+      margin: 0 0 10px;
+      font-family: var(--body);
+      font-size: clamp(1.02rem, 1.6vw, 1.24rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -.016em;
+      color: rgba(255,255,255,.82);
+      animation: reveal .7s .12s both;
+    }
+
+    .tt-username-wrap {
+      width: 100%;
+      min-width: 0;
+      overflow: visible;
+      container-type: inline-size;
+    }
+
+    .tt-username {
+      display: inline-block;
+      margin: -.08em -.11em -.12em;
+      padding: .08em .11em .12em;
+      max-width: none;
+      font-family: var(--display);
+      font-size: clamp(3.3rem, 8.3vw, 6.1rem);
+      line-height: .92;
+      font-weight: 900;
+      letter-spacing: -.062em;
+      white-space: nowrap;
+      color: #ffffff;
+      text-shadow:
+        -.018em 0 0 rgba(45,204,211,.94),
+         .018em 0 0 rgba(241,32,74,.94),
+         0 0 22px rgba(255,255,255,.05);
+      animation: reveal .78s .18s both;
+    }
+
+    @supports (font-size: 1cqw) {
+      .tt-username {
+        font-size: clamp(3.1rem, 14.2cqw, 6.1rem);
+      }
+    }
+
+    .tt-right {
+      min-width: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .tt-right-card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+      overflow: visible;
+      animation: reveal-card .8s .22s both;
+    }
+
+    .tt-right-card::before { content: none; }
+    .tt-actions {
+      display: grid;
+      gap: 14px;
+    }
+
+    .tt-cta,
+    .tt-cta-outline {
+      --shadow-lift: 0 22px 46px rgba(0,0,0,.18);
+      --px: 50%;
+      --py: 50%;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 74px;
+      padding: 20px 88px 20px 54px;
+      border-radius: 0;
+      border: 0;
+      -webkit-clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+      clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+      font-family: var(--display);
+      font-size: 1rem;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      text-align: center;
+      overflow: hidden;
+      overflow-wrap: anywhere;
+      word-break: normal;
+      text-decoration: none;
+      isolation: isolate;
+      transition:
+        transform .32s cubic-bezier(.2,.8,.2,1),
+        opacity .28s ease,
+        filter .28s ease,
+        box-shadow .32s ease,
+        background-color .28s ease,
+        border-color .28s ease;
+    }
+
+    /* TikTok Spark geometry — clip-path supplied from Brand Hub asset CSS.
+       Kept verbatim so the responsive button uses the same silhouette. */
+    .tt-cta::before,
+    .tt-cta-outline::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      border-radius: 0;
+      background: var(--glint);
+      transition: transform .38s var(--ease), filter .28s var(--ease), opacity .28s var(--ease);
+      -webkit-clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+      clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+    }
+
+    .tt-cta::after,
+    .tt-cta-outline::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      z-index: -3;
+      background: #060607;
+      -webkit-clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+      clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+      transition: inset .28s var(--ease), transform .34s var(--ease), background-color .28s ease;
+      pointer-events: none;
+    }
+
+    .tt-shape {
+      position: absolute;
+      pointer-events: none;
+      -webkit-clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+      clip-path: polygon(1.3101754386px 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.7256140351px) 1.1733333333px,calc(100% - 19.3882540351px) 4.2181592982px,calc(100% - 18.6134287719px) 7.1173726316px,calc(100% - 17.4355466667px) 9.8338659649px,calc(100% - 15.8890161404px) 12.3305319298px,calc(100% - 14.008245614px) 14.5702631579px,calc(100% - 11.8276435088px) 16.5159522807px,calc(100% - 9.3816182456px) 18.1304919298px,calc(100% - 6.7045782456px) 19.3767747368px,calc(100% - 3.8309319298px) 20.2176933333px,calc(100% - .7950877193px) 20.6161403509px,calc(100% - .7950877193px) calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),14.6435087719px calc(100% - .9319298246px),12.480842807px calc(100% - 1.1064484211px),10.4292547368px calc(100% - 1.6116996491px),8.5162014035px calc(100% - 2.4202266667px),6.7691396491px calc(100% - 3.5045726316px),5.2155263158px calc(100% - 4.8372807018px),3.8828182456px calc(100% - 6.3908940351px),2.7984722807px calc(100% - 8.1379557895px),1.9899452632px calc(100% - 10.0510091228px),1.4846940351px calc(100% - 12.102597193px),1.3101754386px calc(100% - 14.2652631579px),1.3101754386px 1.1733333333px);
+      transition: inset .34s var(--ease), transform .34s var(--ease), opacity .28s ease, filter .28s ease;
+    }
+
+    .tt-shape-pink {
+      inset: 10px 9px 9px 10px;
+      z-index: -2;
+      background: var(--blaze);
+      opacity: .96;
+    }
+
+    .tt-shape-cutout {
+      inset: 14px 13px 13px 14px;
+      z-index: -1;
+      background: rgba(5,5,6,.96);
+    }
+
+    .tt-cta .label,
+    .tt-cta-outline .label {
+      position: relative;
+      z-index: 1;
+      transition: transform .24s var(--ease), letter-spacing .24s var(--ease), filter .24s var(--ease), text-shadow .24s var(--ease);
+    }
+
+    .tt-cta .label::before,
+    .tt-cta-outline .label::before {
+      content: "";
+      position: absolute;
+      inset: -14px -22px;
+      z-index: -1;
+      background:
+        radial-gradient(circle at var(--px) var(--py), rgba(255,255,255,.22), transparent 30%),
+        radial-gradient(circle at calc(var(--px) + 18%) calc(var(--py) - 14%), rgba(45,204,211,.18), transparent 28%),
+        radial-gradient(circle at calc(var(--px) - 16%) calc(var(--py) + 16%), rgba(241,32,74,.18), transparent 28%);
+      opacity: 0;
+      transition: opacity .26s ease, transform .32s var(--ease);
+      transform: scale(.84);
+      pointer-events: none;
+      filter: blur(10px);
+    }
+
+    .tt-cta-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      transform: translateY(-50%);
+      border-radius: 0 14px 0 14px;
+      font-family: var(--body);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
+      transition: transform .28s var(--ease), box-shadow .28s var(--ease), background-color .28s var(--ease), color .28s var(--ease), border-radius .35s var(--ease);
+      pointer-events: none;
+    }
+
+    .tt-cta,
+    .tt-cta-outline {
+      color: #fff;
+      border: 0;
+      background: transparent;
+      box-shadow: 0 16px 34px rgba(0,0,0,.18);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .tt-cta-outline {
+      min-height: 66px;
+      margin-top: 14px;
+    }
+
+    .tt-cta .tt-cta-icon,
+    .tt-cta-outline .tt-cta-icon {
+      color: #fff;
+      background: rgba(255,255,255,.055);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+    }
+
+
+    .tt-cta .tt-hover-sheen {
+      position: absolute;
+      inset: -24% -16%;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(112deg, transparent 36%, rgba(255,255,255,.18) 47%, rgba(255,255,255,.05) 52%, transparent 64%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transform: translateX(-62%) skewX(-14deg);
+      filter: blur(10px);
+      transition: transform .72s cubic-bezier(.19,1,.22,1), opacity .24s ease;
+    }
+
+    .tt-cta-outline::before { opacity: .66; }
+    .tt-cta-outline .tt-shape-pink { opacity: .66; }
+    .tt-cta-outline::after,
+    .tt-cta-outline .tt-shape-cutout { background: rgba(5,5,6,.97); }
+
+    @media (hover: hover) and (pointer: fine) {
+      .tt-right-card[data-cta-focus="primary"] .tt-cta,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline {
+        transform: translateY(-5px) scale(1.018);
+        opacity: 1;
+        box-shadow: 0 24px 52px rgba(0,0,0,.28);
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta {
+        box-shadow:
+          0 26px 56px rgba(0,0,0,.34),
+          0 0 30px rgba(45,204,211,.08),
+          0 0 24px rgba(241,32,74,.07);
+        filter: saturate(1.06);
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta-outline,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta {
+        transform: scale(.98);
+        opacity: .76;
+        filter: brightness(.90);
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::before,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline::before {
+        transform: translate(-6px, 4px);
+        filter: drop-shadow(0 0 14px rgba(45,204,211,.18));
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-pink,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .tt-shape-pink {
+        transform: translate(7px, -4px);
+        filter: drop-shadow(0 0 14px rgba(241,32,74,.18));
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::after,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline::after {
+        inset: 5px;
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::after {
+        background: linear-gradient(135deg, rgba(11,11,13,.98), rgba(6,6,8,.98));
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-cutout,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .tt-shape-cutout {
+        inset: 15px 14px 14px 15px;
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-hover-sheen {
+        opacity: .9;
+        transform: translateX(46%) skewX(-14deg);
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-cta-icon,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .tt-cta-icon {
+        transform: translateY(-50%) translateX(-3px) scale(1.07);
+        box-shadow:
+          0 0 0 6px rgba(255,255,255,.028),
+          0 0 18px rgba(45,204,211,.12),
+          0 0 16px rgba(241,32,74,.12);
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .label,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .label {
+        transform: translateY(-1px) scale(1.02);
+        text-shadow: -1px 0 0 rgba(45,204,211,.42), 1px 0 0 rgba(241,32,74,.38);
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .label {
+        letter-spacing: -.016em;
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .label::before,
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .label::before {
+        opacity: .62;
+        transform: scale(1);
+      }
+    }
+
+    .tt-cta:active,
+    .tt-cta-outline:active {
+      transform: translateY(0) scale(.985) !important;
+    }
+
+    .tt-cta:active::before,
+    .tt-cta-outline:active::before {
+      transform: scale(.99);
+      filter: brightness(.96) saturate(1.08);
+    }
+
+    .tt-cta:active .label,
+    .tt-cta-outline:active .label {
+      transform: scale(.985);
+    }
+
+    .tt-cta:focus-visible,
+    .tt-cta-outline:focus-visible {
+      outline: 3px solid rgba(45,204,211,.66);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .tt-shell {
+        min-height: 100svh;
+        align-items: center;
+        padding-top: max(24px, env(safe-area-inset-top));
+        padding-bottom: max(28px, env(safe-area-inset-bottom));
+      }
+
+      .tt-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(22px, 5vw, 34px);
+        justify-items: center;
+      }
+
+      .tt-left,
+      .tt-right {
+        width: min(100%, 680px);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .tt-lockup { margin-inline: auto; }
+      .tt-username-wrap { display: flex; justify-content: center; }
+      .tt-username { font-size: clamp(3rem, 11.8vw, 5.35rem); }
+      .tt-right-card { width: min(100%, 460px); max-width: none; }
+    }
+
+    @media (max-width: 560px) {
+
+      .tt-shell {
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+      }
+
+      .tt-layout { gap: 18px; }
+      .tt-lockup { min-height: 46px; padding: 0 14px; gap: 9px; margin-bottom: 20px; }
+      .tt-tiktok-logo, .tt-canales-logo { height: 19px; }
+      .tt-name { font-size: 1rem; margin-bottom: 8px; }
+      .tt-username { font-size: clamp(2.45rem, 13.9vw, 4.1rem); letter-spacing: -.05em; line-height: .94; }
+      .tt-right-card { padding: 0; border-radius: 0; }
+      .tt-cta { min-height: 62px; padding: 18px 74px 18px 40px; }
+      .tt-cta-outline { min-height: 60px; padding: 18px 74px 18px 40px; }
+      .tt-cta-icon { right: 12px; width: 40px; height: 40px; }
+
+      .tt-sweep { left: -44%; width: 188%; transform: rotate(-13deg); }
+      .tt-sweep--a { top: 10%; }
+      .tt-sweep--b { top: 30%; }
+      .tt-sweep--c { top: 58%; }
+      .tt-sweep--d { top: 84%; }
+      .tt-sweep--e { top: 44%; }
+      .tt-sweep--f { top: 92%; }
+      .tt-sweep--g { top: 20%; }
+      .tt-sweep--h { top: 70%; }
+      .tt-sweep--i { top: 8%; }
+      .tt-sweep--j { top: 50%; }
+      .tt-sweep span { font-size: clamp(2.3rem, 10vw, 3.8rem); }
+      .tt-sweep-track { animation-duration: 29s; }
+      .tt-sweep--a .tt-sweep-track { animation-duration: 48s; }
+      .tt-sweep--b .tt-sweep-track { animation-duration: 33s; }
+      .tt-sweep--c .tt-sweep-track { animation-duration: 26s; }
+      .tt-sweep--d .tt-sweep-track { animation-duration: 52s; }
+      .tt-sweep--e .tt-sweep-track { animation-duration: 66s; }
+      .tt-sweep--f .tt-sweep-track { animation-duration: 32s; }
+      .tt-sweep--g .tt-sweep-track { animation-duration: 24s; }
+      .tt-sweep--h .tt-sweep-track { animation-duration: 72s; }
+      .tt-sweep--i .tt-sweep-track { animation-duration: 86s; }
+      .tt-sweep--j .tt-sweep-track { animation-duration: 21s; }
+    }
+
+    @media (max-width: 430px) {
+      .tt-shell {
+        padding-left: max(10px, env(safe-area-inset-left));
+        padding-right: max(10px, env(safe-area-inset-right));
+      }
+
+      .tt-lockup {
+        width: fit-content;
+        max-width: 100%;
+        padding-inline: 12px;
+      }
+
+      .tt-tiktok-logo,
+      .tt-canales-logo {
+        height: 18px;
+        max-width: 37vw;
+      }
+
+      .tt-right-card { padding: 0; }
+      .tt-username { font-size: clamp(2.18rem, 13.1vw, 3.65rem); letter-spacing: -.045em; }
+      .tt-cta, .tt-cta-outline { padding: 18px 66px 18px 34px; }
+    }
+    @media (max-height: 700px) and (min-width: 901px) {
+      .tt-shell {
+        padding-top: max(18px, env(safe-area-inset-top));
+        padding-bottom: max(18px, env(safe-area-inset-bottom));
+      }
+      .tt-lockup { margin-bottom: 18px; }
+      .tt-right-card { padding: 0; }
+    }
+
+    @supports (height: 100dvh) {
+
+      body, .tt-shell { min-height: 100dvh; }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .tt-cta:hover,
+      .tt-cta-outline:hover {
+        transform: none;
+      }
+
+      .tt-right-card[data-cta-focus] .tt-cta,
+      .tt-right-card[data-cta-focus] .tt-cta-outline {
+        opacity: 1;
+        filter: none;
+      }
+
+      .tt-cta:active,
+      .tt-cta-outline:active {
+        transform: scale(.985) !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @keyframes ambient {
+      from { transform: translate3d(-1%, -1%, 0) scale(1); }
+      to { transform: translate3d(1.3%, 1.1%, 0) scale(1.035); }
+    }
+
+    @keyframes sweep-left {
+      from { transform: translate3d(0,0,0); }
+      to { transform: translate3d(-50%,0,0); }
+    }
+
+    @keyframes sweep-right {
+      from { transform: translate3d(-50%,0,0); }
+      to { transform: translate3d(0,0,0); }
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes reveal-card {
+      from { opacity: 0; transform: translateY(14px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
   
-    <style>
-      :root {
-        --bg: #050505;
-        --bg-2: #0a0a0a;
-        --panel: rgba(14, 14, 14, 0.72);
-        --panel-2: rgba(255, 255, 255, 0.03);
-        --border: rgba(255, 255, 255, 0.08);
-        --muted: rgba(255, 255, 255, 0.68);
-        --muted-2: rgba(255, 255, 255, 0.44);
-        --text: #ffffff;
-        --pink: #fe2c55;
-        --pink-2: #ff4b77;
-        --cyan: #25f4ee;
-        --radius-xl: 34px;
-        --radius-lg: 24px;
-        --radius-md: 18px;
-        --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
-        --max: 1160px;
-        --transition: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at 16% 18%, rgba(37, 244, 238, 0.12) 0%, rgba(37, 244, 238, 0.05) 18%, transparent 42%),
-          radial-gradient(circle at 82% 18%, rgba(254, 44, 85, 0.16) 0%, transparent 28%),
-          radial-gradient(circle at 68% 82%, rgba(254, 44, 85, 0.1) 0%, transparent 28%),
-          linear-gradient(180deg, #0f0e11 0%, #050505 100%);
-        overflow-x: hidden;
-        position: relative;
-      }
-      a {
-        color: inherit;
+
+    /* V32 — TikTok Glint + Blaze dual outline belongs only to the primary CTA. */
+    .tt-cta-outline {
+      color: rgba(255,255,255,.88);
+      box-shadow: none;
+      opacity: .86;
+    }
+
+    .tt-cta-outline::before {
+      background: rgba(255,255,255,.30);
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    .tt-cta-outline::after {
+      inset: 1px;
+      background: rgba(5,5,6,.98);
+    }
+
+    .tt-cta-outline .tt-shape {
+      display: none;
+    }
+
+    .tt-cta-outline .tt-cta-icon {
+      color: rgba(255,255,255,.88);
+      background: rgba(255,255,255,.045);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline {
+        transform: translateY(-3px);
+        opacity: 1;
+        filter: none;
+        box-shadow: none;
       }
 
-      .tt-bg {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-        isolation: isolate;
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline::before {
+        transform: none;
+        filter: none;
+        background: rgba(255,255,255,.58);
       }
 
-      .tt-bg::before,
-      .tt-bg::after {
-        content: "";
-        position: absolute;
-        inset: -8%;
-        pointer-events: none;
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline::after {
+        inset: 1px;
       }
 
-      .tt-bg::before {
-        background: radial-gradient(circle at 18% 24%, rgba(37, 244, 238, 0.16) 0%, transparent 34%), radial-gradient(circle at 80% 20%, rgba(254, 44, 85, 0.18) 0%, transparent 28%), radial-gradient(circle at 64% 80%, rgba(37, 244, 238, 0.08) 0%, transparent 30%);
-        filter: blur(36px);
-        opacity: 0.92;
-        animation: ttGradientDriftA 18s ease-in-out infinite alternate;
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .tt-cta-icon {
+        transform: translateY(-50%) translateX(-2px);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+        background: rgba(255,255,255,.075);
       }
 
-      .tt-bg::after {
-        background: linear-gradient(135deg, rgba(254, 44, 85, 0.06) 0%, transparent 42%, rgba(37, 244, 238, 0.04) 76%, transparent 100%);
-        filter: blur(54px);
-        opacity: 0.88;
-        animation: ttGradientDriftB 24s ease-in-out infinite alternate;
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .label {
+        transform: translateY(-1px);
+        text-shadow: none;
       }
 
-      .tt-watermark {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(254, 44, 85, 0.14);
-        mix-blend-mode: screen;
-        will-change: transform, opacity, filter;
+      .tt-right-card[data-cta-focus="secondary"] .tt-cta-outline .label::before {
+        opacity: 0;
+        transform: scale(.84);
+      }
+    }
+
+
+    /* V35 — Primary CTA hover: premium, restrained, chromatic tension. */
+    @media (hover: hover) and (pointer: fine) {
+      /* Keep the background completely stable while interacting with the CTA. */
+      body[data-bg-blur="primary"] .tt-bg {
+        filter: none;
+        transform: none;
       }
 
-      .tt-watermark--a {
-        top: 50%;
-        left: 58%;
-        width: clamp(340px, 54vw, 860px);
-        transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1);
-        opacity: 0.085;
-        filter: blur(14px);
-        animation: ttLogoFloatA 18s ease-in-out infinite alternate,
-                   ttLogoPulse 9s ease-in-out infinite;
+      /* Do not de-emphasize the secondary action when the primary is hovered. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta-outline {
+        transform: none;
+        opacity: .86;
+        filter: none;
       }
 
-      .tt-watermark--b {
-        top: 16%;
-        right: -4%;
-        width: clamp(180px, 24vw, 360px);
-        transform: rotate(-8deg) scale(0.96);
-        opacity: 0.034;
-        filter: blur(18px);
-        animation: ttLogoFloatB 22s ease-in-out infinite alternate,
-                   ttLogoPulse 11s ease-in-out infinite reverse;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta {
+        transform: translateY(-2px);
+        opacity: 1;
+        filter: none;
+        box-shadow: 0 12px 24px rgba(0,0,0,.22);
       }
 
-      .tt-logo-wrap {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .tt-logo-wrap .tt-wordmark,
-      .tt-logo-wrap .tt-separator,
-      .tt-logo-wrap .tt-canales-logo {
-        display: none !important;
-      }
-
-      .tt-logo-wrap .tt-logo,
-      .tt-logo-wrap .tt-giphy-logo,
-      .tt-logo-wrap .tt-instagram-logo,
-      .tt-logo-wrap .tt-tiktok-logo,
-      .tt-logo-wrap img,
-      .tt-logo-wrap svg {
-        display: block;
-        width: 100% !important;
-        height: auto !important;
-        max-width: none;
-        object-fit: contain;
-        color: rgba(254, 44, 85, 0.14);
-      }
-
-      .tt-bg .tt-logo-wrap svg,
-      .tt-bg .tt-logo-wrap img {
+      /* Glint and Blaze keep identical stroke weight; only their registration shifts. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::before {
+        transform: translate(-1.5px,-1px);
+        filter: none;
         opacity: 1;
       }
 
-      .tt-bg .tt-logo-wrap path,
-      .tt-bg .tt-logo-wrap rect,
-      .tt-bg .tt-logo-wrap circle {
-        vector-effect: non-scaling-stroke;
-      }
-      @keyframes ttGradientDriftA {
-        0% { transform: translate3d(0, 0, 0) scale(1); }
-        100% { transform: translate3d(-2.2%, 2.8%, 0) scale(1.04); }
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-pink {
+        transform: translate(1.5px,1px);
+        filter: none;
+        opacity: .96;
       }
 
-      @keyframes ttGradientDriftB {
-        0% { transform: translate3d(0, 0, 0) scale(1); }
-        100% { transform: translate3d(2.6%, -2.4%, 0) scale(1.06); }
+      /* Preserve stroke thickness instead of widening the cutouts on hover. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::after {
+        inset: 4px;
+        background: #060607;
       }
 
-      @keyframes ttLogoFloatA {
-        0% { transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1); }
-        100% { transform: translate3d(-48%, -52%, 0) rotate(-8deg) scale(1.05); }
-      }
-
-      @keyframes ttLogoFloatB {
-        0% { transform: translate3d(0, 0, 0) rotate(-8deg) scale(0.96); }
-        100% { transform: translate3d(-1.4vw, 2.2vh, 0) rotate(-12deg) scale(1.02); }
-      }
-
-      @keyframes ttLogoPulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.86; }
-      }
-
-      @media (max-width: 900px) {
-        .tt-watermark--a {
-          left: 50%;
-          width: clamp(280px, 68vw, 620px);
-          opacity: 0.07;
-          filter: blur(10px);
-        }
-
-        .tt-watermark--b {
-          top: 11%;
-          right: auto;
-          left: 74%;
-          width: clamp(150px, 24vw, 240px);
-          opacity: 0.028;
-          filter: blur(13px);
-        }
-      }
-
-      @media (max-width: 520px) {
-        .tt-watermark--a {
-          left: 50%;
-          top: 47%;
-          width: min(92vw, 460px);
-          opacity: 0.094;
-          filter: blur(11px);
-        }
-
-        .tt-watermark--b {
-          top: 8%;
-          left: 72%;
-          width: min(40vw, 170px);
-          opacity: 0.042;
-          filter: blur(15px);
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .tt-watermark--a,
-        .tt-watermark--b {
-          animation: none !important;
-        }
-
-        .tt-bg::before,
-        .tt-bg::after {
-          animation: none !important;
-        }
-      }
-
-
-      @keyframes floatOne {
-        0% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-        100% {
-          transform: translate3d(70px, 40px, 0) scale(1.08);
-        }
-      }
-      @keyframes floatTwo {
-        0% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-        100% {
-          transform: translate3d(-70px, 46px, 0) scale(1.08);
-        }
-      }
-      @keyframes floatThree {
-        0% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-        100% {
-          transform: translate3d(28px, -34px, 0) scale(1.08);
-        }
-      }
-      .tt-shell {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: var(--max);
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: 34px 20px;
-        display: flex;
-        align-items: center;
-      }
-      .tt-layout {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 28px;
-        align-items: center;
-      }
-      .tt-left {
-        padding-right: 8px;
-      }
-      .tt-lockup {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: nowrap;
-        min-height: 54px;
-        padding: 0 18px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        margin-bottom: 26px;
-      }
-      .tt-tiktok-logo,
-      .tt-canales-logo {
-        display: block;
-        width: auto;
-        height: 22px;
-        flex: 0 0 auto;
-      }
-      .tt-separator {
-        font-size: 0.92rem;
-        font-weight: 900;
-        color: rgba(255, 255, 255, 0.72);
-        line-height: 1;
-        flex: 0 0 auto;
-      }
-      .tt-kicker {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 14px;
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: var(--muted-2);
-      }
-      .tt-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--pink);
-        flex: 0 0 auto;
-      }
-      .tt-name {
-        margin: 0 0 10px;
-        font-size: clamp(1.1rem, 1.9vw, 1.5rem);
-        line-height: 1.15;
-        letter-spacing: -0.03em;
-        font-weight: 800;
-      }
-      .tt-username-wrap {
-        width: 100%;
-        max-width: 760px;
-        overflow: hidden;
-        margin-bottom: 14px;
-      }
-      .tt-username {
-        margin: 0;
-        display: block;
-        width: 100%;
-        line-height: 0.92;
-        letter-spacing: -0.08em;
-        font-weight: 900;
-        white-space: nowrap;
-        font-size: 108px;
-      }
-      .tt-copy {
-        margin: 0;
-        max-width: 620px;
-        font-size: 1.02rem;
-        line-height: 1.72;
-        color: var(--muted);
-      }
-      .tt-right-card {
-        border-radius: var(--radius-xl);
-        padding: 24px;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-cutout {
+        inset: 14px 13px 13px 14px;
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.02)
-          ),
-          rgba(12, 12, 12, 0.72);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
+          linear-gradient(115deg, rgba(255,255,255,.038), rgba(255,255,255,.012) 42%, rgba(255,255,255,.026)),
+          rgba(5,5,6,.97);
       }
-      .tt-right-head {
-        margin-bottom: 18px;
+
+      /* No sweeping flare: the response comes from shape, separation and micro-motion. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-hover-sheen {
+        opacity: 0;
+        transform: translateX(-62%) skewX(-14deg);
       }
-      .tt-right-title {
-        margin: 0 0 8px;
-        font-size: 1.08rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-cta-icon {
+        transform: translateY(-50%) translateX(2px);
+        background: rgba(255,255,255,.075);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.13);
       }
-      .tt-right-copy {
-        margin: 0;
-        font-size: 0.92rem;
-        line-height: 1.6;
-        color: var(--muted);
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .label {
+        transform: translateY(-1px);
+        letter-spacing: -.01em;
+        filter: brightness(1.06);
+        text-shadow: none;
       }
-      .tt-stats {
-        display: grid;
-        gap: 12px;
-        margin-bottom: 18px;
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .label::before {
+        opacity: 0;
+        transform: scale(.84);
       }
-      .tt-stat {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 14px;
-        padding: 18px 18px;
-        border-radius: var(--radius-lg);
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.025),
-            rgba(255, 255, 255, 0.01)
-          ),
-          var(--panel-2);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        transition:
-          transform var(--transition),
-          border-color var(--transition);
-      }
-      .tt-stat:hover {
+    }
+
+
+    /* V37 — CTA interaction: thin cyan stroke + black gap + magenta fill. */
+    .tt-cta,
+    .tt-cta-outline {
+      padding-left: 42px;
+      padding-right: 42px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .tt-right-card[data-cta-focus="primary"] .tt-cta {
         transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.1);
+        filter: none;
+        box-shadow: 0 14px 28px rgba(0,0,0,.22);
       }
-      .tt-stat-label {
-        display: block;
-        font-size: 0.76rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--muted-2);
-        margin-bottom: 6px;
+
+      /* 1) Thin cyan outer stroke. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::before {
+        transform: none;
+        filter: none;
+        opacity: 1;
+        background: var(--glint);
       }
-      .tt-stat-value {
-        display: block;
-        font-size: clamp(1.25rem, 2.4vw, 1.6rem);
-        line-height: 1.05;
-        letter-spacing: -0.03em;
-        font-weight: 900;
+
+      /* 2) Black separation channel between cyan and magenta. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::after {
+        inset: 2px;
+        transform: none;
+        background: #050506;
       }
-      .tt-stat-accent {
-        width: 10px;
-        height: 44px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--cyan), var(--pink));
-        opacity: 0.9;
+
+      /* 3) Magenta inner fill, leaving an even black gap. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-pink {
+        inset: 4px;
+        transform: none;
+        opacity: 1;
+        filter: none;
+        background: var(--blaze);
       }
-      .tt-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 64px;
-        padding: 16px 22px;
-        border-radius: var(--radius-md);
-        background: linear-gradient(135deg, var(--pink-2) 0%, var(--pink) 100%);
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-cutout {
+        opacity: 0;
+        transform: none;
+        filter: none;
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-hover-sheen {
+        opacity: 0;
+        transform: translateX(-62%) skewX(-14deg);
+      }
+
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .label {
+        transform: translateY(-1px);
         color: #fff;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 900;
-        box-shadow: 0 16px 34px rgba(254, 44, 85, 0.22);
-        transition:
-          transform var(--transition),
-          filter var(--transition),
-          box-shadow var(--transition);
-      }
-      .tt-cta:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.04);
-        box-shadow: 0 20px 40px rgba(254, 44, 85, 0.28);
+        filter: none;
+        text-shadow: none;
+        letter-spacing: -.01em;
       }
 
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .label::before {
+        opacity: 0;
+        transform: scale(.84);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .tt-cta,
       .tt-cta-outline {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 58px;
-        margin-top: 12px;
-        padding: 14px 22px;
-        border-radius: var(--radius-md);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        background: rgba(255, 255, 255, 0.02);
-        color: #ffffff;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 800;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    }
+
+
+    /* V38 — stronger cyan stroke + wider black separation before magenta fill. */
+    @media (hover: hover) and (pointer: fine) {
+      .tt-right-card[data-cta-focus="primary"] .tt-cta {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 30px rgba(0,0,0,.24);
       }
 
-      .tt-cta-outline:hover {
-        transform: translateY(-2px);
-        background: rgba(37, 244, 238, 0.08);
-        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
-      }
-      .tt-note {
-        margin-top: 12px;
-        text-align: center;
-        font-size: 0.83rem;
-        color: var(--muted-2);
-      }
-      @media (max-width: 900px) {
-        .tt-shell {
-          padding: 22px 14px;
-          align-items: flex-start;
-        }
-        .tt-layout {
-          grid-template-columns: 1fr;
-          gap: 18px;
-        }
-        .tt-left {
-          padding-right: 0;
-          text-align: center;
-        }
-        .tt-copy {
-          margin: 0 auto;
-        }
-        .tt-username-wrap {
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 100%;
-        }
-      }
-      @media (max-width: 520px) {
-        .tt-shell {
-          padding: 16px 12px;
-        }
-        .tt-right-card {
-          padding: 16px;
-          border-radius: 22px;
-        }
-        .tt-lockup {
-          gap: 10px;
-          min-height: 46px;
-          padding: 0 14px;
-        }
-        .tt-tiktok-logo,
-        .tt-canales-logo {
-          height: 19px;
-        }
-        .tt-name {
-          margin-bottom: 8px;
-          font-size: 1rem;
-        }
-        .tt-copy {
-          font-size: 0.95rem;
-          line-height: 1.6;
-        }
-        .tt-stat {
-          grid-template-columns: 1fr;
-          text-align: left;
-          padding: 16px;
-        }
-        .tt-stat-accent {
-          display: none;
-        }
-        .tt-right-title {
-          font-size: 1rem;
-        }
-        .tt-right-copy {
-          font-size: 0.88rem;
-        }
-        .tt-cta {
-          min-height: 58px;
-          font-size: 0.92rem;
-          padding: 14px 18px;
-        }
-      }
-    
-
-      /* Alignment normalization patch */
-      .tt-shell {
-        padding-inline: clamp(14px, 2.2vw, 24px);
+      /* Cyan stroke: intentionally bolder and fully saturated. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::before {
+        inset: 0;
+        background: var(--glint);
+        transform: none;
+        filter: none;
+        opacity: 1;
       }
 
-      .tt-layout {
-        grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-        gap: clamp(20px, 2.6vw, 34px);
+      /* Black channel: wider so cyan and magenta do not visually merge. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::after {
+        inset: 4px;
+        background: #020203;
+        transform: none;
       }
 
-      .tt-left,
-      .tt-right {
-        min-width: 0;
+      /* Magenta fill begins deeper inside, preserving a strong black gap. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-pink {
+        inset: 10px;
+        background: var(--blaze);
+        transform: none;
+        opacity: 1;
+        filter: none;
       }
 
-      .tt-left {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-cutout,
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-hover-sheen {
+        opacity: 0;
+      }
+    }
+
+
+
+    /* V39 — keep the primary CTA calmer at rest; aggressive stroke appears only on hover. */
+    .tt-cta {
+      box-shadow: 0 10px 18px rgba(0,0,0,.18);
+    }
+
+    /* Rest state: cyan outline + black gap + magenta inner outline + black core. */
+    .tt-cta::before {
+      background: rgba(45,204,211,.92);
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    .tt-cta::after {
+      inset: 2px;
+      background: #020203;
+      transform: none;
+    }
+
+    .tt-cta .tt-shape-pink {
+      inset: 5px;
+      background: var(--blaze);
+      opacity: .96;
+      transform: none;
+      filter: none;
+    }
+
+    .tt-cta .tt-shape-cutout {
+      inset: 8px;
+      background: #060607;
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .tt-right-card[data-cta-focus="primary"] .tt-cta {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 30px rgba(0,0,0,.24);
       }
 
-      .tt-right {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+      /* Hover: thicker cyan stroke. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::before {
+        inset: 0;
+        background: var(--glint);
+        opacity: 1;
+        transform: none;
+        filter: none;
       }
 
-      .tt-right-card {
-        width: 100%;
-        max-width: 420px;
-        margin-left: auto;
+      /* Hover: wider black channel between cyan and magenta. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::after {
+        inset: 4px;
+        background: #020203;
+        transform: none;
       }
 
-      .tt-lockup {
-        width: fit-content;
-        max-width: 100%;
-        justify-content: flex-start;
+      /* Hover: magenta expands to become the filled body. */
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-pink {
+        inset: 10px;
+        background: var(--blaze);
+        opacity: 1;
+        transform: none;
+        filter: none;
       }
 
-      .tt-name {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        gap: 6px;
-        flex-wrap: wrap;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-cutout {
+        opacity: 0;
+        transform: none;
+        filter: none;
+      }
+    }
+
+
+
+    /* V40 — hover con stroke más agresivo, sin miedo. */
+    @media (hover: hover) and (pointer: fine) {
+      .tt-right-card[data-cta-focus="primary"] .tt-cta {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 18px 34px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.03);
       }
 
-      .tt-name > span {
-        flex: 0 0 auto;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::before {
+        inset: 0;
+        background: var(--glint);
+        opacity: 1;
       }
 
-      .tt-username-wrap {
-        display: flex;
-        justify-content: flex-start;
-        min-width: 0;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta::after {
+        inset: 6px;
+        background: #020203;
       }
 
-      .tt-username {
-        max-width: 100%;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-pink {
+        inset: 14px;
+        background: var(--blaze);
+        opacity: 1;
       }
 
-      .tt-copy {
-        text-wrap: pretty;
+      .tt-right-card[data-cta-focus="primary"] .tt-cta .tt-shape-cutout {
+        opacity: 0;
       }
+    }
 
-      .tt-canales-logo {
-        width: auto !important;
-        max-width: 100%;
-        object-fit: contain;
-        flex: 0 0 auto;
-      }
-
-      .tt-tiktok-logo {
-        flex: 0 0 auto;
-        object-fit: contain;
-      }
-
-      @media (max-width: 900px) {
-        .tt-shell {
-          min-height: auto;
-        }
-
-        .tt-left {
-          align-items: center;
-        }
-
-        .tt-right {
-          justify-content: stretch;
-        }
-
-        .tt-right-card {
-          max-width: none;
-          margin-left: 0;
-        }
-
-        .tt-lockup {
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .tt-name,
-        .tt-username-wrap {
-          justify-content: center;
-        }
-      }
-
-      @media (max-width: 520px) {
-        .tt-layout {
-          gap: 16px;
-        }
-
-        .tt-lockup {
-          max-width: 100%;
-        }
-
-        .tt-tiktok-logo {
-          height: 19px;
-          width: auto;
-        }
-
-        .tt-canales-logo {
-          height: 19px;
-          width: auto !important;
-        }
-      }
-
-    
-      /* Responsive hardening patch */
-      .tt-shell {
-        width: min(100%, var(--max));
-        padding-inline: clamp(12px, 3vw, 24px);
-      }
-
-      .tt-layout {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-        gap: clamp(18px, 2.5vw, 32px);
-      }
-
-      .tt-left,
-      .tt-right,
-      .tt-username-wrap,
-      .tt-right-card,
-      .tt-brand,
-      .tt-lockup {
-        min-width: 0;
-      }
-
-      .tt-left {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-      }
-
-      .tt-right {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-      }
-
-      .tt-right-card {
-        width: 100%;
-        max-width: 420px;
-        margin-left: auto;
-      }
-
-      .tt-lockup {
-        width: fit-content;
-        max-width: 100%;
-      }
-
-      .tt-username-wrap {
-        display: flex;
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-      }
-
-      .tt-username {
-        display: block;
-        max-width: 100%;
-        white-space: nowrap;
-      }
-
-      .tt-copy {
-        max-width: 100%;
-        text-wrap: pretty;
-      }
-
-      .tt-name {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-
-      .tt-name > * {
-        flex: 0 0 auto;
-      }
-
-      .tt-tiktok-logo,
-      .tt-canales-logo {
-        max-width: 100%;
-        width: auto !important;
-        object-fit: contain;
-        flex: 0 0 auto;
-      }
-
-      @media (max-width: 900px) {
-        .tt-shell {
-          min-height: auto;
-          padding: 20px 14px 24px;
-          align-items: flex-start;
-        }
-
-        .tt-layout {
-          grid-template-columns: minmax(0, 1fr);
-          gap: 16px;
-        }
-
-        .tt-left,
-        .tt-right {
-          width: 100%;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding-right: 0;
-        }
-
-        .tt-right-card {
-          max-width: 100%;
-          margin-left: 0;
-        }
-
-        .tt-lockup {
-          width: 100%;
-          max-width: 420px;
-          margin-inline: auto;
-          justify-content: center;
-          flex-wrap: wrap;
-          row-gap: 8px;
-          column-gap: 10px;
-          padding: 10px 14px;
-          min-height: auto;
-          text-align: center;
-        }
-
-        .tt-brand,
-        .tt-name,
-        .tt-username-wrap {
-          justify-content: center;
-        }
-
-        .tt-copy {
-          margin-inline: auto;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .tt-shell {
-          padding: 16px 12px 24px;
-        }
-
-        .tt-lockup {
-          border-radius: 20px;
-          padding: 10px 12px;
-        }
-
-        .tt-right-card {
-          padding: 16px;
-          border-radius: 22px;
-        }
-
-        .tt-name {
-          justify-content: center;
-          margin-bottom: 8px;
-          font-size: 1rem;
-        }
-
-        .tt-copy {
-          font-size: 0.94rem;
-          line-height: 1.58;
-        }
-
-        .tt-stat {
-          grid-template-columns: 1fr;
-          text-align: left;
-          padding: 15px;
-        }
-
-        .tt-stat-accent {
-          display: none;
-        }
-
-        .tt-tiktok-logo,
-        .tt-canales-logo {
-          height: 18px;
-        }
-
-        .tt-logo,
-        .tt-wordmark {
-          max-width: 100%;
-        }
-      }
-
-
-      /* Mobile centering final patch */
-      @media (max-width: 900px) {
-        .tt-shell {
-          align-items: center !important;
-          justify-content: center;
-          min-height: 100vh;
-          padding: 20px 14px 28px;
-        }
-        .tt-layout { justify-items: center; }
-        .tt-left,
-        .tt-right {
-          width: 100%;
-          max-width: 680px;
-          margin-inline: auto;
-          align-items: center !important;
-          justify-content: center !important;
-          text-align: center !important;
-        }
-        .tt-lockup {
-          width: auto !important;
-          max-width: min(100%, 420px);
-          margin-inline: auto;
-          justify-content: center !important;
-        }
-        .tt-name,
-        .tt-username-wrap,
-        .tt-copy {
-          justify-content: center !important;
-          text-align: center !important;
-          margin-inline: auto;
-        }
-        .tt-right-card {
-          width: min(100%, 420px);
-          margin-inline: auto;
-          text-align: center;
-        }
-        .tt-stats { justify-items: center; }
-        .tt-stat { width: 100%; text-align: center !important; }
-        .tt-stat-label,
-        .tt-stat-value,
-        .tt-note { text-align: center !important; }
-      }
-      @media (max-width: 640px) {
-        .tt-username { margin-inline: auto; }
-        .tt-copy { max-width: 34ch; }
-      }
-
-
-    </style>
-  </head>
-  <body>
-        <div class="tt-bg" aria-hidden="true">
-      <div class="tt-watermark tt-watermark--a">
-        <div class="tt-logo-wrap"><svg aria-label="TikTok" class="tt-tiktok-logo" fill="none" viewbox="0 0 105 28" xmlns="http://www.w3.org/2000/svg">
-<path d="M73.6292 19.4778C73.6292 15.5478 76.5273 12.4649 80.4333 12.1743C80.2328 12.1596 80.0305 12.1513 79.8263 12.1513C75.6177 12.1513 72.4161 15.3473 72.4161 19.4768C72.4161 23.6064 75.6177 26.8051 79.8263 26.8051C80.0305 26.8051 80.2328 26.7969 80.4333 26.7821C76.5282 26.4915 73.6292 23.4068 73.6292 19.4768V19.4778ZM24.0277 7.46994V6.64955C22.7751 6.56126 21.4635 6.16762 20.3102 5.40885C21.3716 6.50147 22.6941 7.16643 24.0277 7.46994ZM12.6452 0V18.3401C12.6452 20.7433 10.9153 22.2884 8.81185 22.2884C8.11378 22.2884 7.45158 22.1256 6.87584 21.8249C7.60702 22.7565 8.76035 23.2918 10.0259 23.2918C12.1293 23.2918 13.8593 21.7467 13.8593 19.3416V1.00157H17.1933C17.1022 0.682429 17.0277 0.348572 16.9707 0H12.6462H12.6452ZM9.91 10.6623V9.75359C9.48877 9.68369 9.06753 9.6607 8.71896 9.6607C3.9732 9.6607 0 13.4628 0 18.1773C0 21.2721 1.50926 23.9181 3.80213 25.4844C2.20457 23.9016 1.21403 21.6869 1.21403 19.1788C1.21403 14.4717 5.17527 10.6724 9.91092 10.6623H9.91Z" fill="#2DCCD3"></path>
-<path d="M82.2534 12.1524C82.0492 12.1524 81.8469 12.1606 81.6464 12.1753C85.5497 12.466 88.4477 15.5507 88.4477 19.4788C88.4477 23.4069 85.5497 26.4935 81.6464 26.7841C81.8469 26.7988 82.0492 26.8071 82.2534 26.8071C86.4602 26.8071 89.6617 23.6093 89.6617 19.4788C89.6617 15.3484 86.4602 12.1533 82.2534 12.1533V12.1524ZM20.3092 5.40991C19.2837 4.35683 18.5011 2.90644 18.1828 1.00171H17.1923C17.7579 3.06003 18.9223 4.49663 20.3092 5.40991ZM24.0267 10.9429C22.1008 10.9429 20.278 10.576 18.6721 9.49621C20.5419 11.3632 22.8109 11.9463 25.2408 11.9463V7.65218C24.8407 7.62551 24.4314 7.56572 24.0267 7.47099V10.9429ZM6.87486 21.8259C6.35889 21.1748 6.05078 20.3323 6.05078 19.3427C6.05078 16.567 8.22409 15.1 11.1221 15.4045V10.7553C10.7009 10.6854 10.2797 10.6624 9.92925 10.6624H9.90902V14.4001C7.01098 14.0976 4.83767 15.5627 4.83767 18.3402C4.83767 19.9644 5.6691 21.1959 6.87486 21.825V21.8259ZM17.4581 18.0385C17.4581 23.8953 12.9708 26.9984 8.74097 26.9984C6.9098 26.9984 5.20924 26.4466 3.80115 25.4855C5.38215 27.0518 7.55821 28 9.955 28C14.1848 28 18.6721 24.8969 18.6721 19.0401V9.49713C18.2509 9.21294 17.8462 8.88092 17.4581 8.49372V18.0385Z" fill="#F1204A"></path>
-<path d="M63.745 13.7278H58.5559L54.6278 17.9622V7.8352H50.2573V26.5018H54.6278V23.0482L56.3578 21.2281L58.9992 26.4779H64.0945L59.5832 18.194L63.7459 13.726L63.745 13.7278ZM28.5233 11.9473H33.0585V26.5027H37.7095V11.9473H40.7648L42.3661 7.83612H28.5243V11.9473H28.5233ZM43.4182 26.5027H47.7887V13.7278H43.4182V26.5027ZM45.5915 7.60251C44.166 7.60251 43.1607 8.58293 43.1607 9.93583C43.1607 11.2887 44.166 12.2692 45.5915 12.2692C47.0171 12.2692 48.0224 11.2657 48.0224 9.93583C48.0224 8.60592 47.0171 7.60251 45.5915 7.60251ZM100.125 18.1958L104.287 13.7278H99.0982L95.17 17.9622V7.8352H90.7995V26.5018H95.17V23.0482L96.9 21.2281L99.5415 26.4779H104.637L100.125 18.194L100.125 18.1958ZM76.1539 7.83612H61.7326V11.9473H66.2669V26.5027H70.9179V11.9473H74.5517L76.1539 7.83612ZM81.6474 12.1753C81.4469 12.1606 81.2445 12.1524 81.0403 12.1524C80.8362 12.1524 80.6338 12.1606 80.4333 12.1753C76.5282 12.466 73.6292 15.5489 73.6292 19.4788C73.6292 23.4088 76.5273 26.4935 80.4333 26.7841C80.6338 26.7988 80.8362 26.8071 81.0403 26.8071C81.2445 26.8071 81.4469 26.7988 81.6474 26.7841C85.5507 26.4935 88.4487 23.4069 88.4487 19.4788C88.4487 15.5507 85.5507 12.466 81.6474 12.1753ZM81.6474 22.7631C81.4533 22.7981 81.251 22.8146 81.0403 22.8146C80.8297 22.8146 80.6274 22.7981 80.4333 22.7631C78.8974 22.4973 77.8839 21.218 77.8839 19.4779C77.8839 17.7378 78.8974 16.4594 80.4333 16.1927C80.6274 16.1577 80.8297 16.1412 81.0403 16.1412C81.251 16.1412 81.4533 16.1577 81.6474 16.1927C83.1815 16.4585 84.195 17.7378 84.195 19.4779C84.195 21.218 83.1815 22.4964 81.6474 22.7631ZM17.1933 1.00171H13.8593V19.3418C13.8593 21.7468 12.1293 23.292 10.0259 23.292C8.76037 23.292 7.60704 22.7558 6.87586 21.825C5.6701 21.1968 4.83868 19.9644 4.83868 18.3402C4.83868 15.5627 7.01198 14.0976 9.91002 14.4001V10.6624C5.17437 10.6725 1.21313 14.4728 1.21313 19.179C1.21313 21.687 2.20367 23.9017 3.80123 25.4846C5.20932 26.4447 6.90989 26.9975 8.74105 26.9975C12.9709 26.9975 17.4582 23.8944 17.4582 18.0376V8.4928C17.8463 8.88 18.251 9.21202 18.6722 9.49621C20.278 10.576 22.1009 10.9429 24.0268 10.9429V7.47099C22.6932 7.16841 21.3697 6.50253 20.3093 5.40991C18.9224 4.49663 17.758 3.06095 17.1924 1.00171H17.1933Z" fill="#FFFFFF"></path>
-</svg></div>
+</style>
+</head>
+<body>
+  <div class="tt-bg" aria-hidden="true">
+    <div class="tt-notch"></div>
+    <div class="tt-sweeps">
+      <div class="tt-sweep tt-sweep--a" data-depth="far">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
       </div>
-      <div class="tt-watermark tt-watermark--b">
-        <div class="tt-logo-wrap"><svg aria-label="TikTok" class="tt-tiktok-logo" fill="none" viewbox="0 0 105 28" xmlns="http://www.w3.org/2000/svg">
-<path d="M73.6292 19.4778C73.6292 15.5478 76.5273 12.4649 80.4333 12.1743C80.2328 12.1596 80.0305 12.1513 79.8263 12.1513C75.6177 12.1513 72.4161 15.3473 72.4161 19.4768C72.4161 23.6064 75.6177 26.8051 79.8263 26.8051C80.0305 26.8051 80.2328 26.7969 80.4333 26.7821C76.5282 26.4915 73.6292 23.4068 73.6292 19.4768V19.4778ZM24.0277 7.46994V6.64955C22.7751 6.56126 21.4635 6.16762 20.3102 5.40885C21.3716 6.50147 22.6941 7.16643 24.0277 7.46994ZM12.6452 0V18.3401C12.6452 20.7433 10.9153 22.2884 8.81185 22.2884C8.11378 22.2884 7.45158 22.1256 6.87584 21.8249C7.60702 22.7565 8.76035 23.2918 10.0259 23.2918C12.1293 23.2918 13.8593 21.7467 13.8593 19.3416V1.00157H17.1933C17.1022 0.682429 17.0277 0.348572 16.9707 0H12.6462H12.6452ZM9.91 10.6623V9.75359C9.48877 9.68369 9.06753 9.6607 8.71896 9.6607C3.9732 9.6607 0 13.4628 0 18.1773C0 21.2721 1.50926 23.9181 3.80213 25.4844C2.20457 23.9016 1.21403 21.6869 1.21403 19.1788C1.21403 14.4717 5.17527 10.6724 9.91092 10.6623H9.91Z" fill="#2DCCD3"></path>
-<path d="M82.2534 12.1524C82.0492 12.1524 81.8469 12.1606 81.6464 12.1753C85.5497 12.466 88.4477 15.5507 88.4477 19.4788C88.4477 23.4069 85.5497 26.4935 81.6464 26.7841C81.8469 26.7988 82.0492 26.8071 82.2534 26.8071C86.4602 26.8071 89.6617 23.6093 89.6617 19.4788C89.6617 15.3484 86.4602 12.1533 82.2534 12.1533V12.1524ZM20.3092 5.40991C19.2837 4.35683 18.5011 2.90644 18.1828 1.00171H17.1923C17.7579 3.06003 18.9223 4.49663 20.3092 5.40991ZM24.0267 10.9429C22.1008 10.9429 20.278 10.576 18.6721 9.49621C20.5419 11.3632 22.8109 11.9463 25.2408 11.9463V7.65218C24.8407 7.62551 24.4314 7.56572 24.0267 7.47099V10.9429ZM6.87486 21.8259C6.35889 21.1748 6.05078 20.3323 6.05078 19.3427C6.05078 16.567 8.22409 15.1 11.1221 15.4045V10.7553C10.7009 10.6854 10.2797 10.6624 9.92925 10.6624H9.90902V14.4001C7.01098 14.0976 4.83767 15.5627 4.83767 18.3402C4.83767 19.9644 5.6691 21.1959 6.87486 21.825V21.8259ZM17.4581 18.0385C17.4581 23.8953 12.9708 26.9984 8.74097 26.9984C6.9098 26.9984 5.20924 26.4466 3.80115 25.4855C5.38215 27.0518 7.55821 28 9.955 28C14.1848 28 18.6721 24.8969 18.6721 19.0401V9.49713C18.2509 9.21294 17.8462 8.88092 17.4581 8.49372V18.0385Z" fill="#F1204A"></path>
-<path d="M63.745 13.7278H58.5559L54.6278 17.9622V7.8352H50.2573V26.5018H54.6278V23.0482L56.3578 21.2281L58.9992 26.4779H64.0945L59.5832 18.194L63.7459 13.726L63.745 13.7278ZM28.5233 11.9473H33.0585V26.5027H37.7095V11.9473H40.7648L42.3661 7.83612H28.5243V11.9473H28.5233ZM43.4182 26.5027H47.7887V13.7278H43.4182V26.5027ZM45.5915 7.60251C44.166 7.60251 43.1607 8.58293 43.1607 9.93583C43.1607 11.2887 44.166 12.2692 45.5915 12.2692C47.0171 12.2692 48.0224 11.2657 48.0224 9.93583C48.0224 8.60592 47.0171 7.60251 45.5915 7.60251ZM100.125 18.1958L104.287 13.7278H99.0982L95.17 17.9622V7.8352H90.7995V26.5018H95.17V23.0482L96.9 21.2281L99.5415 26.4779H104.637L100.125 18.194L100.125 18.1958ZM76.1539 7.83612H61.7326V11.9473H66.2669V26.5027H70.9179V11.9473H74.5517L76.1539 7.83612ZM81.6474 12.1753C81.4469 12.1606 81.2445 12.1524 81.0403 12.1524C80.8362 12.1524 80.6338 12.1606 80.4333 12.1753C76.5282 12.466 73.6292 15.5489 73.6292 19.4788C73.6292 23.4088 76.5273 26.4935 80.4333 26.7841C80.6338 26.7988 80.8362 26.8071 81.0403 26.8071C81.2445 26.8071 81.4469 26.7988 81.6474 26.7841C85.5507 26.4935 88.4487 23.4069 88.4487 19.4788C88.4487 15.5507 85.5507 12.466 81.6474 12.1753ZM81.6474 22.7631C81.4533 22.7981 81.251 22.8146 81.0403 22.8146C80.8297 22.8146 80.6274 22.7981 80.4333 22.7631C78.8974 22.4973 77.8839 21.218 77.8839 19.4779C77.8839 17.7378 78.8974 16.4594 80.4333 16.1927C80.6274 16.1577 80.8297 16.1412 81.0403 16.1412C81.251 16.1412 81.4533 16.1577 81.6474 16.1927C83.1815 16.4585 84.195 17.7378 84.195 19.4779C84.195 21.218 83.1815 22.4964 81.6474 22.7631ZM17.1933 1.00171H13.8593V19.3418C13.8593 21.7468 12.1293 23.292 10.0259 23.292C8.76037 23.292 7.60704 22.7558 6.87586 21.825C5.6701 21.1968 4.83868 19.9644 4.83868 18.3402C4.83868 15.5627 7.01198 14.0976 9.91002 14.4001V10.6624C5.17437 10.6725 1.21313 14.4728 1.21313 19.179C1.21313 21.687 2.20367 23.9017 3.80123 25.4846C5.20932 26.4447 6.90989 26.9975 8.74105 26.9975C12.9709 26.9975 17.4582 23.8944 17.4582 18.0376V8.4928C17.8463 8.88 18.251 9.21202 18.6722 9.49621C20.278 10.576 22.1009 10.9429 24.0268 10.9429V7.47099C22.6932 7.16841 21.3697 6.50253 20.3093 5.40991C18.9224 4.49663 17.758 3.06095 17.1924 1.00171H17.1933Z" fill="#FFFFFF"></path>
-</svg></div>
+      <div class="tt-sweep tt-sweep--b" data-depth="near">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--c" data-depth="mid">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--d" data-depth="near">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--e" data-depth="far">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--f" data-depth="mid">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--g" data-depth="near">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--h" data-depth="far">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--i" data-depth="mid">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--j" data-depth="mid">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--k" data-depth="near">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--l" data-depth="far">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--m" data-depth="mid">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--n" data-depth="near">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+      </div>
+      <div class="tt-sweep tt-sweep--o" data-depth="far">
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
+        <div class="tt-sweep-track"><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span><span>@canales</span></div>
       </div>
     </div>
+  </div>
 
-    <main class="tt-shell">
-      <section class="tt-layout">
-        <div class="tt-left">
-          <div class="tt-lockup">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 105 28"
-              fill="none"
-              class="tt-tiktok-logo"
-              aria-label="TikTok"
-            >
-              <path
-                d="M73.6292 19.4778C73.6292 15.5478 76.5273 12.4649 80.4333 12.1743C80.2328 12.1596 80.0305 12.1513 79.8263 12.1513C75.6177 12.1513 72.4161 15.3473 72.4161 19.4768C72.4161 23.6064 75.6177 26.8051 79.8263 26.8051C80.0305 26.8051 80.2328 26.7969 80.4333 26.7821C76.5282 26.4915 73.6292 23.4068 73.6292 19.4768V19.4778ZM24.0277 7.46994V6.64955C22.7751 6.56126 21.4635 6.16762 20.3102 5.40885C21.3716 6.50147 22.6941 7.16643 24.0277 7.46994ZM12.6452 0V18.3401C12.6452 20.7433 10.9153 22.2884 8.81185 22.2884C8.11378 22.2884 7.45158 22.1256 6.87584 21.8249C7.60702 22.7565 8.76035 23.2918 10.0259 23.2918C12.1293 23.2918 13.8593 21.7467 13.8593 19.3416V1.00157H17.1933C17.1022 0.682429 17.0277 0.348572 16.9707 0H12.6462H12.6452ZM9.91 10.6623V9.75359C9.48877 9.68369 9.06753 9.6607 8.71896 9.6607C3.9732 9.6607 0 13.4628 0 18.1773C0 21.2721 1.50926 23.9181 3.80213 25.4844C2.20457 23.9016 1.21403 21.6869 1.21403 19.1788C1.21403 14.4717 5.17527 10.6724 9.91092 10.6623H9.91Z"
-                fill="#2DCCD3"
-              />
-              <path
-                d="M82.2534 12.1524C82.0492 12.1524 81.8469 12.1606 81.6464 12.1753C85.5497 12.466 88.4477 15.5507 88.4477 19.4788C88.4477 23.4069 85.5497 26.4935 81.6464 26.7841C81.8469 26.7988 82.0492 26.8071 82.2534 26.8071C86.4602 26.8071 89.6617 23.6093 89.6617 19.4788C89.6617 15.3484 86.4602 12.1533 82.2534 12.1533V12.1524ZM20.3092 5.40991C19.2837 4.35683 18.5011 2.90644 18.1828 1.00171H17.1923C17.7579 3.06003 18.9223 4.49663 20.3092 5.40991ZM24.0267 10.9429C22.1008 10.9429 20.278 10.576 18.6721 9.49621C20.5419 11.3632 22.8109 11.9463 25.2408 11.9463V7.65218C24.8407 7.62551 24.4314 7.56572 24.0267 7.47099V10.9429ZM6.87486 21.8259C6.35889 21.1748 6.05078 20.3323 6.05078 19.3427C6.05078 16.567 8.22409 15.1 11.1221 15.4045V10.7553C10.7009 10.6854 10.2797 10.6624 9.92925 10.6624H9.90902V14.4001C7.01098 14.0976 4.83767 15.5627 4.83767 18.3402C4.83767 19.9644 5.6691 21.1959 6.87486 21.825V21.8259ZM17.4581 18.0385C17.4581 23.8953 12.9708 26.9984 8.74097 26.9984C6.9098 26.9984 5.20924 26.4466 3.80115 25.4855C5.38215 27.0518 7.55821 28 9.955 28C14.1848 28 18.6721 24.8969 18.6721 19.0401V9.49713C18.2509 9.21294 17.8462 8.88092 17.4581 8.49372V18.0385Z"
-                fill="#F1204A"
-              />
-              <path
-                d="M63.745 13.7278H58.5559L54.6278 17.9622V7.8352H50.2573V26.5018H54.6278V23.0482L56.3578 21.2281L58.9992 26.4779H64.0945L59.5832 18.194L63.7459 13.726L63.745 13.7278ZM28.5233 11.9473H33.0585V26.5027H37.7095V11.9473H40.7648L42.3661 7.83612H28.5243V11.9473H28.5233ZM43.4182 26.5027H47.7887V13.7278H43.4182V26.5027ZM45.5915 7.60251C44.166 7.60251 43.1607 8.58293 43.1607 9.93583C43.1607 11.2887 44.166 12.2692 45.5915 12.2692C47.0171 12.2692 48.0224 11.2657 48.0224 9.93583C48.0224 8.60592 47.0171 7.60251 45.5915 7.60251ZM100.125 18.1958L104.287 13.7278H99.0982L95.17 17.9622V7.8352H90.7995V26.5018H95.17V23.0482L96.9 21.2281L99.5415 26.4779H104.637L100.125 18.194L100.125 18.1958ZM76.1539 7.83612H61.7326V11.9473H66.2669V26.5027H70.9179V11.9473H74.5517L76.1539 7.83612ZM81.6474 12.1753C81.4469 12.1606 81.2445 12.1524 81.0403 12.1524C80.8362 12.1524 80.6338 12.1606 80.4333 12.1753C76.5282 12.466 73.6292 15.5489 73.6292 19.4788C73.6292 23.4088 76.5273 26.4935 80.4333 26.7841C80.6338 26.7988 80.8362 26.8071 81.0403 26.8071C81.2445 26.8071 81.4469 26.7988 81.6474 26.7841C85.5507 26.4935 88.4487 23.4069 88.4487 19.4788C88.4487 15.5507 85.5507 12.466 81.6474 12.1753ZM81.6474 22.7631C81.4533 22.7981 81.251 22.8146 81.0403 22.8146C80.8297 22.8146 80.6274 22.7981 80.4333 22.7631C78.8974 22.4973 77.8839 21.218 77.8839 19.4779C77.8839 17.7378 78.8974 16.4594 80.4333 16.1927C80.6274 16.1577 80.8297 16.1412 81.0403 16.1412C81.251 16.1412 81.4533 16.1577 81.6474 16.1927C83.1815 16.4585 84.195 17.7378 84.195 19.4779C84.195 21.218 83.1815 22.4964 81.6474 22.7631ZM17.1933 1.00171H13.8593V19.3418C13.8593 21.7468 12.1293 23.292 10.0259 23.292C8.76037 23.292 7.60704 22.7558 6.87586 21.825C5.6701 21.1968 4.83868 19.9644 4.83868 18.3402C4.83868 15.5627 7.01198 14.0976 9.91002 14.4001V10.6624C5.17437 10.6725 1.21313 14.4728 1.21313 19.179C1.21313 21.687 2.20367 23.9017 3.80123 25.4846C5.20932 26.4447 6.90989 26.9975 8.74105 26.9975C12.9709 26.9975 17.4582 23.8944 17.4582 18.0376V8.4928C17.8463 8.88 18.251 9.21202 18.6722 9.49621C20.278 10.576 22.1009 10.9429 24.0268 10.9429V7.47099C22.6932 7.16841 21.3697 6.50253 20.3093 5.40991C18.9224 4.49663 17.758 3.06095 17.1924 1.00171H17.1933Z"
-                fill="#FFFFFF"
-              />
-            </svg>
-            <span class="tt-separator">×</span>
-            <img
-              src="https://cdn.mcq.cl/logo/canales-white.svg"
-              alt="CANALES"
-              class="tt-canales-logo"
-            />
-          </div>
-    
-          <p class="tt-name">Manuel Canales Q.</p>
-          <div class="tt-username-wrap">
-            <h1 class="tt-username" id="ttUsername">@canales</h1>
+  <main class="tt-shell">
+    <section class="tt-layout">
+      <div class="tt-left">
+        <div class="tt-lockup">
+          <svg class="tt-tiktok-logo" viewBox="0 0 105 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TikTok">
+            <path d="M73.6292 19.4778C73.6292 15.5478 76.5273 12.4649 80.4333 12.1743C80.2328 12.1596 80.0305 12.1513 79.8263 12.1513C75.6177 12.1513 72.4161 15.3473 72.4161 19.4768C72.4161 23.6064 75.6177 26.8051 79.8263 26.8051C80.0305 26.8051 80.2328 26.7969 80.4333 26.7821C76.5282 26.4915 73.6292 23.4068 73.6292 19.4768V19.4778ZM24.0277 7.46994V6.64955C22.7751 6.56126 21.4635 6.16762 20.3102 5.40885C21.3716 6.50147 22.6941 7.16643 24.0277 7.46994ZM12.6452 0V18.3401C12.6452 20.7433 10.9153 22.2884 8.81185 22.2884C8.11378 22.2884 7.45158 22.1256 6.87584 21.8249C7.60702 22.7565 8.76035 23.2918 10.0259 23.2918C12.1293 23.2918 13.8593 21.7467 13.8593 19.3416V1.00157H17.1933C17.1022 0.682429 17.0277 0.348572 16.9707 0H12.6462H12.6452ZM9.91 10.6623V9.75359C9.48877 9.68369 9.06753 9.6607 8.71896 9.6607C3.9732 9.6607 0 13.4628 0 18.1773C0 21.2721 1.50926 23.9181 3.80213 25.4844C2.20457 23.9016 1.21403 21.6869 1.21403 19.1788C1.21403 14.4717 5.17527 10.6724 9.91092 10.6623H9.91Z" fill="#2DCCD3"/>
+            <path d="M82.2534 12.1524C82.0492 12.1524 81.8469 12.1606 81.6464 12.1753C85.5497 12.466 88.4477 15.5507 88.4477 19.4788C88.4477 23.4069 85.5497 26.4935 81.6464 26.7841C81.8469 26.7988 82.0492 26.8071 82.2534 26.8071C86.4602 26.8071 89.6617 23.6093 89.6617 19.4788C89.6617 15.3484 86.4602 12.1533 82.2534 12.1533V12.1524ZM20.3092 5.40991C19.2837 4.35683 18.5011 2.90644 18.1828 1.00171H17.1923C17.7579 3.06003 18.9223 4.49663 20.3092 5.40991ZM24.0267 10.9429C22.1008 10.9429 20.278 10.576 18.6721 9.49621C20.5419 11.3632 22.8109 11.9463 25.2408 11.9463V7.65218C24.8407 7.62551 24.4314 7.56572 24.0267 7.47099V10.9429ZM6.87486 21.8259C6.35889 21.1748 6.05078 20.3323 6.05078 19.3427C6.05078 16.567 8.22409 15.1 11.1221 15.4045V10.7553C10.7009 10.6854 10.2797 10.6624 9.92925 10.6624H9.90902V14.4001C7.01098 14.0976 4.83767 15.5627 4.83767 18.3402C4.83767 19.9644 5.6691 21.1959 6.87486 21.825V21.8259ZM17.4581 18.0385C17.4581 23.8953 12.9708 26.9984 8.74097 26.9984C6.9098 26.9984 5.20924 26.4466 3.80115 25.4855C5.38215 27.0518 7.55821 28 9.955 28C14.1848 28 18.6721 24.8969 18.6721 19.0401V9.49713C18.2509 9.21294 17.8462 8.88092 17.4581 8.49372V18.0385Z" fill="#F1204A"/>
+            <path d="M63.745 13.7278H58.5559L54.6278 17.9622V7.8352H50.2573V26.5018H54.6278V23.0482L56.3578 21.2281L58.9992 26.4779H64.0945L59.5832 18.194L63.7459 13.726L63.745 13.7278ZM28.5233 11.9473H33.0585V26.5027H37.7095V11.9473H40.7648L42.3661 7.83612H28.5243V11.9473H28.5233ZM43.4182 26.5027H47.7887V13.7278H43.4182V26.5027ZM45.5915 7.60251C44.166 7.60251 43.1607 8.58293 43.1607 9.93583C43.1607 11.2887 44.166 12.2692 45.5915 12.2692C47.0171 12.2692 48.0224 11.2657 48.0224 9.93583C48.0224 8.60592 47.0171 7.60251 45.5915 7.60251ZM100.125 18.1958L104.287 13.7278H99.0982L95.17 17.9622V7.8352H90.7995V26.5018H95.17V23.0482L96.9 21.2281L99.5415 26.4779H104.637L100.125 18.194L100.125 18.1958ZM76.1539 7.83612H61.7326V11.9473H66.2669V26.5027H70.9179V11.9473H74.5517L76.1539 7.83612ZM81.6474 12.1753C81.4469 12.1606 81.2445 12.1524 81.0403 12.1524C80.8362 12.1524 80.6338 12.1606 80.4333 12.1753C76.5282 12.466 73.6292 15.5489 73.6292 19.4788C73.6292 23.4088 76.5273 26.4935 80.4333 26.7841C80.6338 26.7988 80.8362 26.8071 81.0403 26.8071C81.2445 26.8071 81.4469 26.7988 81.6474 26.7841C85.5507 26.4935 88.4487 23.4069 88.4487 19.4788C88.4487 15.5507 85.5507 12.466 81.6474 12.1753ZM81.6474 22.7631C81.4533 22.7981 81.251 22.8146 81.0403 22.8146C80.8297 22.8146 80.6274 22.7981 80.4333 22.7631C78.8974 22.4973 77.8839 21.218 77.8839 19.4779C77.8839 17.7378 78.8974 16.4594 80.4333 16.1927C80.6274 16.1577 80.8297 16.1412 81.0403 16.1412C81.251 16.1412 81.4533 16.1577 81.6474 16.1927C83.1815 16.4585 84.195 17.7378 84.195 19.4779C84.195 21.218 83.1815 22.4964 81.6474 22.7631ZM17.1933 1.00171H13.8593V19.3418C13.8593 21.7468 12.1293 23.292 10.0259 23.292C8.76037 23.292 7.60704 22.7558 6.87586 21.825C5.6701 21.1968 4.83868 19.9644 4.83868 18.3402C4.83868 15.5627 7.01198 14.0976 9.91002 14.4001V10.6624C5.17437 10.6725 1.21313 14.4728 1.21313 19.179C1.21313 21.687 2.20367 23.9017 3.80123 25.4846C5.20932 26.4447 6.90989 26.9975 8.74105 26.9975C12.9709 26.9975 17.4582 23.8944 17.4582 18.0376V8.4928C17.8463 8.88 18.251 9.21202 18.6722 9.49621C20.278 10.576 22.1009 10.9429 24.0268 10.9429V7.47099C22.6932 7.16841 21.3697 6.50253 20.3093 5.40991C18.9224 4.49663 17.758 3.06095 17.1924 1.00171H17.1933Z" fill="#FFFFFF"/>
+          </svg>
+          <span class="tt-separator">×</span>
+          <img src="https://cdn.mcq.cl/logo/canales-white.svg" alt="CANALES" class="tt-canales-logo">
+        </div>
+
+        <p class="tt-name">Manuel Canales Q.</p>
+        <div class="tt-username-wrap">
+          <h1 class="tt-username" id="ttUsername">@canales</h1>
+        </div>
+      </div>
+
+      <div class="tt-right">
+        <div class="tt-right-card">
+          <div class="tt-actions">
+            <a href="https://www.tiktok.com/@canales" target="_blank" rel="noopener noreferrer" class="tt-cta"><span class="tt-shape tt-shape-pink" aria-hidden="true"></span><span class="tt-shape tt-shape-cutout" aria-hidden="true"></span><span class="tt-hover-sheen" aria-hidden="true"></span><span class="label">Seguir en TikTok</span></a>
+            <a href="https://www.canales.pe/" class="tt-cta-outline"><span class="label">Volver a canales.pe</span></a>
           </div>
         </div>
-        <div class="tt-right">
-          <div class="tt-right-card">
+      </div>
+    </section>
+  </main>
 
-            <div class="tt-stats">
-              
-              <div class="tt-stat">
-                <div>
-                  <span class="tt-stat-label">Seguidores</span>
-                  <span class="tt-stat-value">205</span>
-                </div>
-                <span class="tt-stat-accent"></span>
-              </div>
-              <div class="tt-stat">
-                <div>
-                  <span class="tt-stat-label">Me gusta</span>
-                  <span class="tt-stat-value">3078</span>
-                </div>
-                <span class="tt-stat-accent"></span>
-              </div>
-            </div>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="tt-cta"
-              id="ttCta"
-            >
-              Seguir en TikTok
-            </a>
+  <script>
+    (() => {
+      const card = document.querySelector('.tt-right-card');
+      const primary = document.querySelector('.tt-cta');
+      const secondary = document.querySelector('.tt-cta-outline');
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-            <a
-              href="https://www.canales.pe/"
-              target="_self"
-              class="tt-cta-outline"
-            >
-              Volver a canales.pe
-            </a>
-    
-          </div>
-        </div>
-      </section>
-    </main>
-    
-    <script>
-      const usernameEl = document.getElementById("ttUsername");
-      const handleInlineEl = document.getElementById("ttHandleInline");
-      const ctaEl = document.getElementById("ttCta");
+      if (!card || !primary || !secondary || !finePointer.matches) return;
 
-      function normalizeHandle(text) {
-        return text.trim().replace(/^@+/, "");
-      }
+      const setFocus = (value) => {
+        if (value) card.dataset.ctaFocus = value;
+        else delete card.dataset.ctaFocus;
 
-      function getBaseFontSize(len, compact) {
-        const desktopRules = [
-          { max: 8, size: 108 },
-          { max: 10, size: 94 },
-          { max: 12, size: 82 },
-          { max: 14, size: 72 },
-          { max: 16, size: 64 },
-          { max: 18, size: 58 },
-          { max: 99, size: 52 }
-        ];
+      };
 
-        const mobileRules = [
-          { max: 8, size: 52 },
-          { max: 10, size: 46 },
-          { max: 12, size: 40 },
-          { max: 14, size: 35 },
-          { max: 16, size: 31 },
-          { max: 18, size: 28 },
-          { max: 99, size: 26 }
-        ];
-
-        const rules = compact ? mobileRules : desktopRules;
-        return rules.find(rule => len <= rule.max).size;
-      }
-
-      function fitUsernameToWidth() {
-        if (!usernameEl) return;
-
-        const wrap = usernameEl.parentElement;
-        if (!wrap) return;
-
-        const rawText = usernameEl.textContent.trim();
-        const compact = window.innerWidth <= 900;
-        let size = getBaseFontSize(rawText.length, compact);
-        const min = compact ? 24 : 40;
-        const available = Math.max(0, wrap.clientWidth - 2);
-
-        usernameEl.style.fontSize = size + "px";
-        usernameEl.style.maxWidth = "100%";
-        usernameEl.style.whiteSpace = "nowrap";
-
-        while (usernameEl.scrollWidth > available && size > min) {
-          size -= 1;
-          usernameEl.style.fontSize = size + "px";
-        }
-      }
-
-      function syncProfileData() {
-        if (!usernameEl || !ctaEl) return;
-
-        const rawText = usernameEl.textContent.trim();
-        const handle = normalizeHandle(rawText);
-
-        if (handleInlineEl) {
-          handleInlineEl.textContent = handle;
-        }
-
-        ctaEl.href = "https://www.tiktok.com/@" + handle;
-        fitUsernameToWidth();
-      }
-
-      syncProfileData();
-      window.addEventListener("resize", () => window.requestAnimationFrame(syncProfileData));
-
-      if (usernameEl) {
-        const observer = new MutationObserver(() => window.requestAnimationFrame(syncProfileData));
-        observer.observe(usernameEl, {
-          childList: true,
-          characterData: true,
-          subtree: true
+      const bindPointerFX = (element, key) => {
+        element.addEventListener('mouseenter', () => setFocus(key));
+        element.addEventListener('mouseleave', () => {
+          setFocus(null);
+          element.style.removeProperty('--px');
+          element.style.removeProperty('--py');
         });
-      }
-    </script>
+        element.addEventListener('mousemove', (event) => {
+          const rect = element.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+          element.style.setProperty('--px', `${x.toFixed(2)}%`);
+          element.style.setProperty('--py', `${y.toFixed(2)}%`);
+        });
+        element.addEventListener('focus', () => setFocus(key));
+        element.addEventListener('blur', () => setFocus(null));
+      };
 
-  </body>
+      bindPointerFX(primary, 'primary');
+      bindPointerFX(secondary, 'secondary');
+    })();
+
+  </script>
+
+</body>
 </html>
