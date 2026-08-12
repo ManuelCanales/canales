@@ -140,992 +140,730 @@
   <link rel="mask-icon" href="https://cdn.mcq.cl/safari-pinned-tab.svg" color="#0572cd">
 
   <link href="https://cdn.mcq.cl/assets/vendor/bootstrap-icons-2/bootstrap-icons.css" rel="stylesheet">
+  <script>
+    (() => {
+      const brand = new URLSearchParams(location.search).get('brand');
+      if (brand && brand.toLowerCase() === 'x') {
+        document.documentElement.dataset.brand = 'x';
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --twitter-blue: #1DA1F2;
+      --twitter-blue-hover: #198FD9;
+      --twitter-black: #14171A;
+      --twitter-dark-gray: #657786;
+      --twitter-light-gray: #AAB8C2;
+      --twitter-extra-light-gray: #E1E8ED;
+      --twitter-extra-extra-light-gray: #F5F8FA;
+      --white: #FFFFFF;
+      --max: 1160px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+      --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
 
-    <style>
-      :root {
-        --bg: #050505;
-        --bg-2: #0a0a0a;
-        --panel: rgba(14, 14, 14, 0.72);
-        --panel-2: rgba(255, 255, 255, 0.03);
-        --border: rgba(255, 255, 255, 0.08);
-        --muted: rgba(255, 255, 255, 0.68);
-        --muted-2: rgba(255, 255, 255, 0.44);
-        --text: #ffffff;
-        --tw: #1d9bf0;
-        --radius-xl: 34px;
-        --radius-lg: 24px;
-        --radius-md: 18px;
-        --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
-        --max: 1160px;
-        --transition: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    * { box-sizing: border-box; }
+    html { color-scheme: light; }
+    body {
+      margin: 0;
+      min-width: 0;
+      min-height: 100svh;
+      overflow-x: hidden;
+      background: var(--white);
+      color: var(--twitter-black);
+      font-family: var(--font);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* =========================================================
+       REGIONALIZACIÓN SIN PARTIR EL FONDO
+       ========================================================= */
+    .tw-stage {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: var(--white);
+      pointer-events: none;
+    }
+
+    .tw-half {
+      display: none;
+    }
+
+    .tw-stage::before {
+      content: "";
+      position: absolute;
+      top: clamp(46px, 8vh, 86px);
+      bottom: clamp(46px, 8vh, 86px);
+      left: 50%;
+      width: 1px;
+      background: var(--twitter-extra-light-gray);
+      transform: translateX(-.5px);
+    }
+
+    .tw-stage::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 3px;
+      height: 58px;
+      border-radius: 999px;
+      background: var(--twitter-blue);
+      transform: translate(-1.5px, -50%);
+      opacity: .88;
+      transition:
+        height .35s var(--ease),
+        opacity .35s var(--ease);
+    }
+
+    body[data-twitter-focus="true"] .tw-stage::after {
+      height: 104px;
+      opacity: 1;
+    }
+
+    .tw-shell {
+      position: relative;
+      z-index: 2;
+      width: min(100%, var(--max));
+      min-height: 100svh;
+      margin: 0 auto;
+      padding:
+        max(28px, env(safe-area-inset-top))
+        max(20px, env(safe-area-inset-right))
+        max(28px, env(safe-area-inset-bottom))
+        max(20px, env(safe-area-inset-left));
+      display: flex;
+      align-items: center;
+    }
+
+    .tw-layout {
+      width: 100%;
+      min-height: calc(100svh - 56px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .tw-left {
+      position: relative;
+      min-width: 0;
+      height: 100%;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: var(--twitter-blue);
+      padding-bottom: 78px;
+      animation: reveal .7s .06s both;
+    }
+
+    .tw-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .tw-logo {
+      display: block;
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      flex: 0 0 auto;
+      filter:
+        brightness(0)
+        saturate(100%)
+        invert(53%)
+        sepia(94%)
+        saturate(1923%)
+        hue-rotate(176deg)
+        brightness(98%)
+        contrast(94%);
+    }
+
+    .tw-lockup-handle {
+      max-width: 100%;
+      white-space: nowrap;
+      color: var(--twitter-blue);
+      font-size: clamp(1.95rem, 3.55vw, 3.15rem);
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -.04em;
+    }
+
+    .tw-canales {
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      opacity: .92;
+    }
+
+    .tw-canales img {
+      display: block;
+      width: auto;
+      height: 34px;
+      max-width: min(240px, 58vw);
+      filter: brightness(0);
+    }
+
+    .tw-right {
+      min-width: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .tw-actions {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      display: grid;
+      gap: 14px;
+      animation: reveal-card .8s .18s both;
+    }
+
+    .tw-btn {
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 72px;
+      padding: 20px 42px;
+      border: 0;
+      border-radius: 999px;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -.018em;
+      transition:
+        transform .34s var(--ease),
+        box-shadow .34s var(--ease),
+        background-color .28s ease,
+        color .28s ease;
+    }
+
+    .tw-btn .label {
+      position: relative;
+      z-index: 4;
+    }
+
+    .tw-btn--primary {
+      color: var(--white);
+      background: var(--twitter-blue);
+      box-shadow: 0 12px 28px rgba(29,161,242,.16);
+      overflow: visible;
+    }
+
+    .tw-btn--secondary {
+      min-height: 64px;
+      color: var(--twitter-dark-gray);
+      background: var(--white);
+      box-shadow: inset 0 0 0 1px var(--twitter-extra-light-gray);
+    }
+
+    .tw-bird-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .tw-bird {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: var(--size, 22px);
+      height: var(--size, 22px);
+      opacity: 0;
+      transform:
+        translate(-50%, -50%)
+        translate3d(0,0,0)
+        scale(.72)
+        rotate(var(--rot-start, 0deg));
+      filter: drop-shadow(0 6px 12px rgba(20,23,26,.10));
+      animation: bird-burst var(--dur, 900ms) cubic-bezier(.16,.72,.18,1) var(--delay,0ms) forwards;
+    }
+
+    .tw-bird img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @keyframes bird-burst {
+      0% {
+        opacity: 0;
+        transform:
+          translate(-50%, -50%)
+          translate3d(0,0,0)
+          scale(.7)
+          rotate(var(--rot-start, 0deg));
       }
 
-      * {
-        box-sizing: border-box;
+      14% { opacity: .98; }
+      68% { opacity: .86; }
+
+      100% {
+        opacity: 0;
+        transform:
+          translate(-50%, -50%)
+          translate3d(var(--tx), var(--ty), 0)
+          scale(var(--scale,1))
+          rotate(var(--rot-end, 0deg));
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .tw-btn--primary:hover,
+      .tw-btn--primary:focus-visible {
+        transform: translateY(-3px);
+        background: var(--twitter-blue-hover);
+        box-shadow: 0 18px 38px rgba(29,161,242,.20);
       }
 
-      html {
-        scroll-behavior: smooth;
+      .tw-btn--secondary:hover,
+      .tw-btn--secondary:focus-visible {
+        transform: translateY(-2px);
+        background: var(--twitter-extra-extra-light-gray);
+        box-shadow: inset 0 0 0 1px var(--twitter-light-gray);
       }
+    }
 
+    .tw-btn:active { transform: translateY(0) scale(.985) !important; }
+
+    .tw-btn:focus-visible {
+      outline: 3px solid rgba(29,161,242,.24);
+      outline-offset: 4px;
+    }
+
+    .tw-legal {
+      position: fixed;
+      right: max(18px, env(safe-area-inset-right));
+      bottom: max(16px, env(safe-area-inset-bottom));
+      z-index: 3;
+      max-width: min(42vw, 460px);
+      margin: 0;
+      color: var(--twitter-light-gray);
+      font-size: 9px;
+      line-height: 1.35;
+      text-align: right;
+      opacity: .72;
+    }
+
+    @media (max-width: 900px) {
       body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at 18% 20%, rgba(29, 155, 240, 0.18) 0%, rgba(29, 155, 240, 0.08) 18%, transparent 42%),
-          radial-gradient(circle at 82% 18%, rgba(112, 204, 255, 0.1) 0%, transparent 28%),
-          radial-gradient(circle at 68% 82%, rgba(29, 155, 240, 0.12) 0%, transparent 26%),
-          linear-gradient(180deg, #08131d 0%, #050505 100%);
-        overflow-x: hidden;
-        position: relative;
+        background: var(--white);
       }
 
-      a {
-        color: inherit;
+      .tw-stage {
+        display: block;
+        background: var(--white);
       }
 
-      .tw-bg {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-        isolation: isolate;
-      }
-
-      .tw-bg::before,
-      .tw-bg::after {
-        content: "";
-        position: absolute;
-        inset: -8%;
-        pointer-events: none;
-      }
-
-      .tw-bg::before {
-        background: radial-gradient(circle at 14% 26%, rgba(29, 155, 240, 0.22) 0%, transparent 34%), radial-gradient(circle at 82% 22%, rgba(112, 204, 255, 0.12) 0%, transparent 28%), radial-gradient(circle at 62% 78%, rgba(29, 155, 240, 0.14) 0%, transparent 30%);
-        filter: blur(36px);
-        opacity: 0.92;
-        animation: twGradientDriftA 18s ease-in-out infinite alternate;
-      }
-
-      .tw-bg::after {
-        background: linear-gradient(135deg, rgba(29, 155, 240, 0.05) 0%, transparent 42%, rgba(138, 207, 255, 0.04) 76%, transparent 100%);
-        filter: blur(54px);
-        opacity: 0.88;
-        animation: twGradientDriftB 24s ease-in-out infinite alternate;
-      }
-
-      .tw-watermark {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(29, 155, 240, 0.16);
-        mix-blend-mode: screen;
-        will-change: transform, opacity, filter;
-      }
-
-      .tw-watermark--a {
+      .tw-stage::before {
         top: 50%;
-        left: 58%;
-        width: clamp(340px, 54vw, 860px);
-        transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1);
-        opacity: 0.085;
-        filter: blur(13px);
-        animation: twLogoFloatA 18s ease-in-out infinite alternate,
-                   twLogoPulse 9s ease-in-out infinite;
-      }
-
-      .tw-watermark--b {
-        top: 16%;
-        right: -4%;
-        width: clamp(180px, 24vw, 360px);
-        transform: rotate(-8deg) scale(0.96);
-        opacity: 0.036;
-        filter: blur(18px);
-        animation: twLogoFloatB 22s ease-in-out infinite alternate,
-                   twLogoPulse 11s ease-in-out infinite reverse;
-      }
-
-      .tw-logo-wrap {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .tw-logo-wrap .tw-wordmark,
-      .tw-logo-wrap .tw-separator,
-      .tw-logo-wrap .tw-canales-logo {
-        display: none !important;
-      }
-
-      .tw-logo-wrap .tw-logo,
-      .tw-logo-wrap .tw-giphy-logo,
-      .tw-logo-wrap .tw-instagram-logo,
-      .tw-logo-wrap .tw-tiktok-logo,
-      .tw-logo-wrap img,
-      .tw-logo-wrap svg {
-        display: block;
-        width: 100% !important;
-        height: auto !important;
-        max-width: none;
-        object-fit: contain;
-        color: rgba(29, 155, 240, 0.16);
-      }
-
-      .tw-bg .tw-logo-wrap svg,
-      .tw-bg .tw-logo-wrap img {
-        opacity: 1;
-      }
-
-      .tw-bg .tw-logo-wrap path,
-      .tw-bg .tw-logo-wrap rect,
-      .tw-bg .tw-logo-wrap circle {
-        vector-effect: non-scaling-stroke;
-      }
-      @keyframes twGradientDriftA {
-        0% { transform: translate3d(0, 0, 0) scale(1); }
-        100% { transform: translate3d(-2.2%, 2.8%, 0) scale(1.04); }
-      }
-
-      @keyframes twGradientDriftB {
-        0% { transform: translate3d(0, 0, 0) scale(1); }
-        100% { transform: translate3d(2.6%, -2.4%, 0) scale(1.06); }
-      }
-
-      @keyframes twLogoFloatA {
-        0% { transform: translate3d(-50%, -50%, 0) rotate(-12deg) scale(1); }
-        100% { transform: translate3d(-48%, -52%, 0) rotate(-8deg) scale(1.05); }
-      }
-
-      @keyframes twLogoFloatB {
-        0% { transform: translate3d(0, 0, 0) rotate(-8deg) scale(0.96); }
-        100% { transform: translate3d(-1.4vw, 2.2vh, 0) rotate(-12deg) scale(1.02); }
-      }
-
-      @keyframes twLogoPulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.86; }
-      }
-
-      @media (max-width: 900px) {
-        .tw-watermark--a {
-          left: 50%;
-          width: clamp(280px, 68vw, 620px);
-          opacity: 0.07;
-          filter: blur(10px);
-        }
-
-        .tw-watermark--b {
-          top: 11%;
-          right: auto;
-          left: 74%;
-          width: clamp(150px, 24vw, 240px);
-          opacity: 0.03;
-          filter: blur(13px);
-        }
-      }
-
-      @media (max-width: 520px) {
-        .tw-watermark--a {
-          left: 50%;
-          top: 47%;
-          width: min(92vw, 460px);
-          opacity: 0.094;
-          filter: blur(11px);
-        }
-
-        .tw-watermark--b {
-          top: 8%;
-          left: 72%;
-          width: min(40vw, 170px);
-          opacity: 0.042;
-          filter: blur(15px);
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .tw-watermark--a,
-        .tw-watermark--b {
-          animation: none !important;
-        }
-
-        .tw-bg::before,
-        .tw-bg::after {
-          animation: none !important;
-        }
-      }
-
-
-      @keyframes floatOne {
-        0% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-
-        100% {
-          transform: translate3d(70px, 40px, 0) scale(1.08);
-        }
-      }
-
-      @keyframes floatTwo {
-        0% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-
-        100% {
-          transform: translate3d(-70px, 46px, 0) scale(1.08);
-        }
-      }
-
-      @keyframes floatThree {
-        0% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-
-        100% {
-          transform: translate3d(28px, -34px, 0) scale(1.08);
-        }
-      }
-
-      .tw-shell {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: var(--max);
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: 34px 20px;
-        display: flex;
-        align-items: center;
-      }
-
-      .tw-layout {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 28px;
-        align-items: center;
-      }
-
-      .tw-left {
-        padding-right: 8px;
-      }
-
-      .tw-lockup {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: nowrap;
-        min-height: 54px;
-        padding: 0 18px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        margin-bottom: 26px;
-      }
-
-      .tw-brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        flex: 0 0 auto;
-      }
-
-      .tw-logo {
-        width: 22px;
-        height: 22px;
-        display: block;
-        fill: var(--tw);
-        flex: 0 0 auto;
-      }
-
-      .tw-wordmark {
-        font-size: 1rem;
-        line-height: 1;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        color: #ffffff;
-        white-space: nowrap;
-      }
-
-      .tw-canales-logo {
-        display: block;
+        bottom: auto;
+        left: max(28px, env(safe-area-inset-left));
+        right: max(28px, env(safe-area-inset-right));
         width: auto;
-        height: 22px;
-        flex: 0 0 auto;
+        height: 1px;
+        background: var(--twitter-extra-light-gray);
+        transform: translateY(-.5px);
       }
 
-      .tw-separator {
-        font-size: 0.92rem;
-        font-weight: 900;
-        color: rgba(255, 255, 255, 0.72);
-        line-height: 1;
-        flex: 0 0 auto;
+      .tw-stage::after {
+        left: 50%;
+        top: 50%;
+        width: 58px;
+        height: 3px;
+        transform: translate(-50%, -1.5px);
       }
 
-      .tw-name {
-        margin: 0 0 10px;
-        font-size: clamp(1.1rem, 1.9vw, 1.5rem);
-        line-height: 1.15;
-        letter-spacing: -0.03em;
-        font-weight: 800;
+      body[data-twitter-focus="true"] .tw-stage::after {
+        width: 104px;
+        height: 3px;
       }
 
-      .tw-username-wrap {
-        width: 100%;
-        max-width: 760px;
-        overflow: hidden;
-        margin-bottom: 14px;
-      }
-
-      .tw-username {
-        margin: 0;
-        display: block;
-        width: 100%;
-        line-height: 0.92;
-        letter-spacing: -0.08em;
-        font-weight: 900;
-        white-space: nowrap;
-        font-size: 108px;
-      }
-
-      .tw-copy {
-        margin: 0;
-        max-width: 620px;
-        font-size: 1.02rem;
-        line-height: 1.72;
-        color: var(--muted);
-      }
-
-      .tw-right-card {
-        border-radius: var(--radius-xl);
-        padding: 24px;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.02)
-          ),
-          rgba(12, 12, 12, 0.72);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-      }
-
-      .tw-stats {
-        display: grid;
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-
-      .tw-stat {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 14px;
-        padding: 18px 18px;
-        border-radius: var(--radius-lg);
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.025),
-            rgba(255, 255, 255, 0.01)
-          ),
-          var(--panel-2);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        transition:
-          transform var(--transition),
-          border-color var(--transition);
-      }
-
-      .tw-stat:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .tw-stat-label {
-        display: block;
-        font-size: 0.76rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--muted-2);
-        margin-bottom: 6px;
-      }
-
-      .tw-stat-value {
-        display: block;
-        font-size: clamp(1.25rem, 2.4vw, 1.6rem);
-        line-height: 1.05;
-        letter-spacing: -0.03em;
-        font-weight: 900;
-      }
-
-      .tw-stat-accent {
-        width: 10px;
-        height: 44px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--tw), #8acfff);
-        opacity: 0.95;
-      }
-
-      .tw-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 64px;
-        padding: 16px 22px;
-        border-radius: var(--radius-md);
-        background: linear-gradient(135deg, #27a7ff 0%, var(--tw) 100%);
-        color: #fff;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 900;
-        box-shadow: 0 16px 34px rgba(29, 155, 240, 0.24);
-        transition:
-          transform var(--transition),
-          filter var(--transition),
-          box-shadow var(--transition);
-      }
-
-      .tw-cta:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.03);
-        box-shadow: 0 20px 40px rgba(29, 155, 240, 0.3);
-      }
-
-      .tw-cta-outline {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 58px;
-        margin-top: 12px;
-        padding: 14px 22px;
-        border-radius: var(--radius-md);
-        border: 1px solid rgba(29, 155, 240, 0.42);
-        background: rgba(255, 255, 255, 0.02);
-        color: #ffffff;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 800;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
-      }
-
-      .tw-cta-outline:hover {
-        transform: translateY(-2px);
-        background: rgba(29, 155, 240, 0.12);
-        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
-      }
-
-      .tw-note {
-        margin-top: 12px;
-        text-align: center;
-        font-size: 0.83rem;
-        color: var(--muted-2);
-      }
-
-      @media (max-width: 900px) {
-        .tw-shell {
-          padding: 22px 14px;
-          align-items: flex-start;
-        }
-
-        .tw-layout {
-          grid-template-columns: 1fr;
-          gap: 18px;
-        }
-
-        .tw-left {
-          padding-right: 0;
-          text-align: center;
-        }
-
-        .tw-copy {
-          margin: 0 auto;
-        }
-
-        .tw-username-wrap {
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 100%;
-        }
-      }
-
-      @media (max-width: 520px) {
-        .tw-shell {
-          padding: 16px 12px;
-        }
-
-        .tw-right-card {
-          padding: 16px;
-          border-radius: 22px;
-        }
-
-        .tw-lockup {
-          gap: 10px;
-          min-height: 46px;
-          padding: 0 14px;
-        }
-
-        .tw-logo {
-          width: 19px;
-          height: 19px;
-        }
-
-        .tw-canales-logo {
-          height: 19px;
-          width: auto;
-        }
-
-        .tw-wordmark {
-          font-size: 0.92rem;
-        }
-
-        .tw-name {
-          margin-bottom: 8px;
-          font-size: 1rem;
-        }
-
-        .tw-copy {
-          font-size: 0.95rem;
-          line-height: 1.6;
-        }
-
-        .tw-stat {
-          grid-template-columns: 1fr;
-          text-align: left;
-          padding: 16px;
-        }
-
-        .tw-stat-accent {
-          display: none;
-        }
-
-        .tw-cta {
-          min-height: 58px;
-          font-size: 0.92rem;
-          padding: 14px 18px;
-        }
-      }
-    
-
-      /* Alignment normalization patch */
       .tw-shell {
-        padding-inline: clamp(14px, 2.2vw, 24px);
+        min-height: 100svh;
+        align-items: center;
+        padding:
+          max(28px, env(safe-area-inset-top))
+          max(18px, env(safe-area-inset-right))
+          max(28px, env(safe-area-inset-bottom))
+          max(18px, env(safe-area-inset-left));
       }
 
       .tw-layout {
-        grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-        gap: clamp(20px, 2.6vw, 34px);
+        width: 100%;
+        min-height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: clamp(28px, 7vh, 48px);
+        align-items: center;
       }
 
       .tw-left,
       .tw-right {
-        min-width: 0;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
       }
 
       .tw-left {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-      }
-
-      .tw-right {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-      }
-
-      .tw-right-card {
-        width: 100%;
-        max-width: 420px;
-        margin-left: auto;
+        position: static;
+        height: auto;
+        min-height: auto;
+        padding: 0;
+        color: var(--twitter-blue);
       }
 
       .tw-lockup {
-        width: fit-content;
-        max-width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
+        gap: 14px;
+        margin: 0;
       }
 
-      .tw-name {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        gap: 6px;
-        flex-wrap: wrap;
+      /* El SVG principal es blanco en desktop.
+         En mobile lo convertimos al azul Twitter. */
+      .tw-logo {
+        width: 48px;
+        height: 48px;
+        filter:
+          brightness(0)
+          saturate(100%)
+          invert(53%)
+          sepia(94%)
+          saturate(1923%)
+          hue-rotate(176deg)
+          brightness(98%)
+          contrast(94%);
       }
 
-      .tw-name > span {
-        flex: 0 0 auto;
+      .tw-lockup-handle {
+        max-width: calc(100vw - 96px);
+        color: var(--twitter-blue);
+        font-size: clamp(1.7rem, 7.2vw, 2.55rem);
+        line-height: 1;
+        letter-spacing: -.04em;
+        overflow: hidden;
+        text-overflow: clip;
       }
 
-      .tw-username-wrap {
-        display: flex;
-        justify-content: flex-start;
-        min-width: 0;
+      .tw-canales {
+        position: static;
+        left: auto;
+        bottom: auto;
+        margin-top: 22px;
+        justify-content: center;
+        opacity: .88;
       }
 
-      .tw-username {
-        max-width: 100%;
+      .tw-canales img {
+        height: 30px;
+        max-width: min(190px, 52vw);
       }
 
-      .tw-copy {
-        text-wrap: pretty;
+      .tw-right {
+        padding: 0;
       }
 
-      .tw-canales-logo {
-        width: auto !important;
-        max-width: 100%;
-        object-fit: contain;
-        flex: 0 0 auto;
+      .tw-actions {
+        width: min(100%, 440px);
+        max-width: 440px;
+        gap: 13px;
+      }
+
+      .tw-btn {
+        min-height: 64px;
+        padding: 18px 28px;
+      }
+
+      .tw-btn--secondary {
+        min-height: 58px;
+      }
+
+      .tw-legal {
+        position: fixed;
+        left: max(16px, env(safe-area-inset-left));
+        right: max(16px, env(safe-area-inset-right));
+        bottom: max(10px, env(safe-area-inset-bottom));
+        max-width: none;
+        margin: 0;
+        text-align: center;
+        font-size: 8px;
+        line-height: 1.35;
+        color: var(--twitter-light-gray);
+        opacity: .62;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .tw-shell {
+        padding-left: max(14px, env(safe-area-inset-left));
+        padding-right: max(14px, env(safe-area-inset-right));
+      }
+
+      .tw-layout {
+        gap: 28px;
+      }
+
+      .tw-lockup {
+        gap: 10px;
       }
 
       .tw-logo {
-        flex: 0 0 auto;
-        object-fit: contain;
+        width: 40px;
+        height: 40px;
       }
-      .tw-brand {
-        min-width: 0;
+
+      .tw-lockup-handle {
+        max-width: calc(100vw - 76px);
+        font-size: clamp(1.42rem, 7.1vw, 2rem);
       }
-      .tw-wordmark {
+
+      .tw-canales {
+        margin-top: 18px;
+      }
+
+      .tw-canales img {
+        height: 25px;
+        max-width: 155px;
+      }
+
+      .tw-actions {
+        gap: 11px;
+      }
+
+      .tw-btn {
+        min-height: 60px;
+        padding: 16px 20px;
+        font-size: .96rem;
+      }
+
+      .tw-btn--secondary {
+        min-height: 56px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes reveal-card {
+      from { opacity: 0; transform: translateY(14px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* =========================================================
+       ?brand=x — X BRAND MODE
+       ========================================================= */
+    html[data-brand="x"] {
+      --twitter-blue: #000000;
+      --twitter-blue-hover: #1A1A1A;
+      --twitter-black: #000000;
+      --twitter-dark-gray: #536471;
+      --twitter-light-gray: #8B98A5;
+      --twitter-extra-light-gray: #EFF3F4;
+      --twitter-extra-extra-light-gray: #F7F9F9;
+    }
+
+    .tw-logo--x {
+      display: none;
+      width: 46px;
+      height: 46px;
+      flex: 0 0 auto;
+      color: #000;
+    }
+
+    html[data-brand="x"] .tw-logo--twitter {
+      display: none;
+    }
+
+    html[data-brand="x"] .tw-logo--x {
+      display: block;
+    }
+
+    html[data-brand="x"] .tw-logo {
+      filter: none;
+    }
+
+    html[data-brand="x"] .tw-lockup-handle {
+      color: #000;
+    }
+
+    html[data-brand="x"] .tw-stage::after {
+      background: #000;
+    }
+
+    html[data-brand="x"] .tw-btn--primary {
+      background: #000;
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      html[data-brand="x"] .tw-btn--primary:hover,
+      html[data-brand="x"] .tw-btn--primary:focus-visible {
+        background: #1A1A1A;
+        box-shadow: 0 18px 38px rgba(0,0,0,.16);
+      }
+    }
+
+    html[data-brand="x"] .tw-bird {
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.08));
+    }
+
+    @media (max-width: 900px) {
+      html[data-brand="x"] .tw-logo--x {
+        width: 42px;
+        height: 42px;
+      }
+
+      html[data-brand="x"] .tw-lockup-handle {
+        color: #000;
+      }
+    }
+
+    @media (max-width: 560px) {
+      html[data-brand="x"] .tw-logo--x {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+
+    /* =========================================================
+       BRAND SWITCH BANNER
+       ========================================================= */
+    .brand-switch {
+      position: fixed;
+      top: max(18px, env(safe-area-inset-top));
+      right: max(18px, env(safe-area-inset-right));
+      z-index: 30;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: min(360px, calc(100vw - 36px));
+      padding: 10px 14px;
+      border: 1px solid var(--twitter-extra-light-gray);
+      border-radius: 999px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 10px 28px rgba(20,23,26,.08);
+      color: var(--twitter-dark-gray);
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      opacity: 0;
+      transform: translateY(-14px);
+      animation: brand-switch-in .48s var(--ease) .65s forwards;
+    }
+
+    .brand-switch a {
+      color: var(--twitter-blue);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .brand-switch a:hover,
+    .brand-switch a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    html[data-brand="x"] .brand-switch a {
+      color: #000;
+    }
+
+    @keyframes brand-switch-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .brand-switch {
+        top: max(12px, env(safe-area-inset-top));
+        right: 50%;
+        transform: translate(50%, -14px);
+        max-width: calc(100vw - 28px);
+        padding: 9px 13px;
+        font-size: 11px;
         white-space: nowrap;
       }
 
-      @media (max-width: 900px) {
-        .tw-shell {
-          min-height: auto;
-        }
-
-        .tw-left {
-          align-items: center;
-        }
-
-        .tw-right {
-          justify-content: stretch;
-        }
-
-        .tw-right-card {
-          max-width: none;
-          margin-left: 0;
-        }
-
-        .tw-lockup {
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .tw-name,
-        .tw-username-wrap {
-          justify-content: center;
+      @keyframes brand-switch-in {
+        to {
+          opacity: 1;
+          transform: translate(50%, 0);
         }
       }
+    }
 
-      @media (max-width: 520px) {
-        .tw-layout {
-          gap: 16px;
-        }
-
-        .tw-lockup {
-          max-width: 100%;
-        }
-
-        .tw-logo {
-          height: 19px;
-          width: auto;
-        }
-
-        .tw-canales-logo {
-          height: 19px;
-          width: auto !important;
-        }
-      }
-
-    
-      /* Responsive hardening patch */
-      .tw-shell {
-        width: min(100%, var(--max));
-        padding-inline: clamp(12px, 3vw, 24px);
-      }
-
-      .tw-layout {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-        gap: clamp(18px, 2.5vw, 32px);
-      }
-
-      .tw-left,
-      .tw-right,
-      .tw-username-wrap,
-      .tw-right-card,
-      .tw-brand,
-      .tw-lockup {
-        min-width: 0;
-      }
-
-      .tw-left {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 420px) {
+      .brand-switch {
+        white-space: normal;
+        text-align: center;
         justify-content: center;
       }
+    }
 
-      .tw-right {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-      }
+  </style>
+</head>
+<body>
+  <aside class="brand-switch" aria-label="Cambiar branding">
+    <span>¿No es la marca correcta?</span>
+    <a href="?brand=x" id="brandSwitchLink">Haz clic aquí</a>
+  </aside>
+  <div class="tw-stage" aria-hidden="true">
+    <div class="tw-half tw-half--blue"></div>
+    <div class="tw-half tw-half--white"></div>
+  </div>
 
-      .tw-right-card {
-        width: 100%;
-        max-width: 420px;
-        margin-left: auto;
-      }
-
-      .tw-lockup {
-        width: fit-content;
-        max-width: 100%;
-      }
-
-      .tw-username-wrap {
-        display: flex;
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-      }
-
-      .tw-username {
-        display: block;
-        max-width: 100%;
-        white-space: nowrap;
-      }
-
-      .tw-copy {
-        max-width: 100%;
-        text-wrap: pretty;
-      }
-
-      .tw-name {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-
-      .tw-name > * {
-        flex: 0 0 auto;
-      }
-
-      .tw-logo,
-      .tw-canales-logo {
-        max-width: 100%;
-        width: auto !important;
-        object-fit: contain;
-        flex: 0 0 auto;
-      }
-
-      @media (max-width: 900px) {
-        .tw-shell {
-          min-height: auto;
-          padding: 20px 14px 24px;
-          align-items: flex-start;
-        }
-
-        .tw-layout {
-          grid-template-columns: minmax(0, 1fr);
-          gap: 16px;
-        }
-
-        .tw-left,
-        .tw-right {
-          width: 100%;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding-right: 0;
-        }
-
-        .tw-right-card {
-          max-width: 100%;
-          margin-left: 0;
-        }
-
-        .tw-lockup {
-          width: 100%;
-          max-width: 420px;
-          margin-inline: auto;
-          justify-content: center;
-          flex-wrap: wrap;
-          row-gap: 8px;
-          column-gap: 10px;
-          padding: 10px 14px;
-          min-height: auto;
-          text-align: center;
-        }
-
-        .tw-brand,
-        .tw-name,
-        .tw-username-wrap {
-          justify-content: center;
-        }
-
-        .tw-copy {
-          margin-inline: auto;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .tw-shell {
-          padding: 16px 12px 24px;
-        }
-
-        .tw-lockup {
-          border-radius: 20px;
-          padding: 10px 12px;
-        }
-
-        .tw-right-card {
-          padding: 16px;
-          border-radius: 22px;
-        }
-
-        .tw-name {
-          justify-content: center;
-          margin-bottom: 8px;
-          font-size: 1rem;
-        }
-
-        .tw-copy {
-          font-size: 0.94rem;
-          line-height: 1.58;
-        }
-
-        .tw-stat {
-          grid-template-columns: 1fr;
-          text-align: left;
-          padding: 15px;
-        }
-
-        .tw-stat-accent {
-          display: none;
-        }
-
-        .tw-logo,
-        .tw-canales-logo {
-          height: 18px;
-        }
-
-        .tw-logo,
-        .tw-wordmark {
-          max-width: 100%;
-        }
-      }
-
-
-      /* Mobile centering final patch */
-      @media (max-width: 900px) {
-        .tw-shell {
-          align-items: center !important;
-          justify-content: center;
-          min-height: 100vh;
-          padding: 20px 14px 28px;
-        }
-        .tw-layout { justify-items: center; }
-        .tw-left,
-        .tw-right {
-          width: 100%;
-          max-width: 680px;
-          margin-inline: auto;
-          align-items: center !important;
-          justify-content: center !important;
-          text-align: center !important;
-        }
-        .tw-lockup {
-          width: auto !important;
-          max-width: min(100%, 420px);
-          margin-inline: auto;
-          justify-content: center !important;
-        }
-        .tw-name,
-        .tw-username-wrap,
-        .tw-copy {
-          justify-content: center !important;
-          text-align: center !important;
-          margin-inline: auto;
-        }
-        .tw-right-card {
-          width: min(100%, 420px);
-          margin-inline: auto;
-          text-align: center;
-        }
-        .tw-stats { justify-items: center; }
-        .tw-stat { width: 100%; text-align: center !important; }
-        .tw-stat-label,
-        .tw-stat-value,
-        .tw-note { text-align: center !important; }
-      }
-      @media (max-width: 640px) {
-        .tw-username { margin-inline: auto; }
-        .tw-copy { max-width: 34ch; }
-      }
-
-
-    </style>
-  </head>
-
-  <body>
-        <div class="tw-bg" aria-hidden="true">
-      <div class="tw-watermark tw-watermark--a">
-        <div class="tw-logo-wrap"><div aria-label="Twitter" class="tw-brand">
-<svg aria-hidden="true" class="tw-logo" viewbox="0 0 24 24">
-<path d="M23.643 4.937a9.545 9.545 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724 9.864 9.864 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.38 4.482A13.944 13.944 0 0 1 1.671 3.149 4.916 4.916 0 0 0 3.195 9.72a4.897 4.897 0 0 1-2.229-.616v.061a4.917 4.917 0 0 0 3.946 4.817 4.902 4.902 0 0 1-2.224.084 4.919 4.919 0 0 0 4.591 3.417A9.867 9.867 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646a9.936 9.936 0 0 0 2.1-2.169z"></path>
-</svg>
-<span class="tw-wordmark">Twitter</span>
-</div></div>
-      </div>
-      <div class="tw-watermark tw-watermark--b">
-        <div class="tw-logo-wrap"><div aria-label="Twitter" class="tw-brand">
-<svg aria-hidden="true" class="tw-logo" viewbox="0 0 24 24">
-<path d="M23.643 4.937a9.545 9.545 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724 9.864 9.864 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.38 4.482A13.944 13.944 0 0 1 1.671 3.149 4.916 4.916 0 0 0 3.195 9.72a4.897 4.897 0 0 1-2.229-.616v.061a4.917 4.917 0 0 0 3.946 4.817 4.902 4.902 0 0 1-2.224.084 4.919 4.919 0 0 0 4.591 3.417A9.867 9.867 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646a9.936 9.936 0 0 0 2.1-2.169z"></path>
-</svg>
-<span class="tw-wordmark">Twitter</span>
-</div></div>
-      </div>
-    </div>
-
-    <main class="tw-shell">
-      <section class="tw-layout">
-        <div class="tw-left">
-          <div class="tw-lockup">
-            <div class="tw-brand" aria-label="Twitter">
-              <svg viewBox="0 0 24 24" class="tw-logo" aria-hidden="true">
-                <path
-                  d="M23.643 4.937a9.545 9.545 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724 9.864 9.864 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.38 4.482A13.944 13.944 0 0 1 1.671 3.149 4.916 4.916 0 0 0 3.195 9.72a4.897 4.897 0 0 1-2.229-.616v.061a4.917 4.917 0 0 0 3.946 4.817 4.902 4.902 0 0 1-2.224.084 4.919 4.919 0 0 0 4.591 3.417A9.867 9.867 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646a9.936 9.936 0 0 0 2.1-2.169z"
-                />
-              </svg>
-              <span class="tw-wordmark">Twitter</span>
-            </div>
-            <span class="tw-separator">×</span>
-            <img
-              src="https://cdn.mcq.cl/logo/canales-white.svg"
-              alt="CANALES"
-              class="tw-canales-logo"
-            />
-          </div>
-          <p class="tw-name">Manuel Canales Q. <span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; line-height:1; vertical-align:middle; cursor:help;" title="Cuenta verificada" aria-label="Cuenta verificada">
+  <main class="tw-shell">
+    <section class="tw-layout">
+      <div class="tw-left">
+        <div class="tw-lockup">
+          <img class="tw-logo tw-logo--twitter" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgaWQ9InR3aXR0ZXIiCiAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIKICAgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHZlcnNpb249IjEuMSIKICAgd2lkdGg9IjMwMCIKICAgaGVpZ2h0PSIzMDAiCiAgIHZpZXdCb3g9IjAgMCAzMDAgMzAwIgogICB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGRlZnMgaWQ9ImRlZnMiIC8+CjxwYXRoIGlkPSJiaXJkIgogICAgIGQ9Im0gMjUwLDg3Ljk3NCBjIC03LjM1OCwzLjI2NCAtMTUuMjY3LDUuNDY5IC0yMy41NjYsNi40NjEgOC40NzEsLTUuMDc4IDE0Ljk3OCwtMTMuMTE5IDE4LjA0MSwtMjIuNzAxIC03LjkyOSw0LjcwMyAtMTYuNzEsOC4xMTcgLTI2LjA1Nyw5Ljk1NyAtNy40ODQtNy45NzUgLTE4LjE0OCwtMTIuOTU3IC0yOS45NSwtMTIuOTU3IC0yMi42NiwwIC00MS4wMzMsMTguMzcxIC00MS4wMzMsNDEuMDMxIDAsMy4yMTYgMC4zNjMsNi4zNDggMS4wNjIsOS4zNTEgLTM0LjEwMiwtMS43MTEgLTY0LjMzNiwtMTguMDQ3IC04NC41NzQsLTQyLjg3MiAtMy41MzIsNi4wNiAtNS41NTYsMTMuMTA4IC01LjU1NiwyMC42MjggMCwxNC4yMzYgNy4yNDQsMjYuNzk1IDE4LjI1NCwzNC4xNTMgLTYuNzI2LC0wLjIxMyAtMTMuMDUzLC0yLjA1OSAtMTguNTg1LC01LjEzMiAtMC4wMDQsMC4xNzEgLTAuMDA0LDAuMzQzIC0wLjAwNCwwLjUxNiAwLDE5Ljg4IDE0LjE0NCwzNi40NjQgMzIuOTE1LDQwLjIzNCAtMy40NDMsMC45MzggLTcuMDY4LDEuNDM5IC0xMC44MSwxLjQzOSAtMi42NDQsMCAtNS4yMTQtMC4yNTggLTcuNzIsLTAuNzM2IDUuMjIyLDE2LjMwMSAyMC4zNzUsMjguMTY1IDM4LjMzMSwyOC40OTUgLTE0LjA0MywxMS4wMDYgLTMxLjczNSwxNy41NjUgLTUwLjk2LDE3LjU2NSAtMy4zMTIsMCAtNi41NzgtMC4xOTQgLTkuNzg4LC0wLjU3NCAxOC4xNTksMTEuNjQzIDM5LjcyNywxOC40MzcgNjIuODk5LDE4LjQzNyA3NS40NzMsMCAxMTYuNzQ2LC02Mi41MjQgMTE2Ljc0NiwtMTE2Ljc0NyAwLC0xLjc3OSAtMC4wNCwtMy41NDggLTAuMTE5LC01LjMwOSA4LjAxNywtNS43ODQgMTQuOTczLC0xMy4wMTEgMjAuNDc0LC0yMS4yMzkgeiIKICAgICBzdHlsZT0iZmlsbDojRkZGRkZGIiAvPgo8L3N2Zz4=" alt="Twitter">
+          <svg class="tw-logo--x" viewBox="0 0 24 24" aria-label="X" role="img">
+            <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+          </svg>
+          <span class="tw-lockup-handle">@manuelcanales <span style="display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; line-height:1; vertical-align:middle; cursor:help;" title="Cuenta verificada" aria-label="Cuenta verificada">
   <svg viewBox="0 0 22 22" width="18" height="18" role="img" xmlns="http://www.w3.org/2000/svg">
     <title>Cuenta verificada</title>
     <g>
@@ -1141,128 +879,148 @@
       <path fill="#ffffff" d="M11.75 12.23L10.5 17.5l-2-1.5v-3.5L7.5 9 5.03 7.59c1.42-2.24 3.89-3.75 6.72-3.84L11 6l-2 .5L8.5 9l5 1.5-1.75 1.73zM17 14v-3l-1.5-3 2.88-1.23c1.17 1.42 1.87 3.24 1.87 5.23 0 1.3-.3 2.52-.83 3.61L17 14z"></path>
     </g>
   </svg>
-</span></p>
-          <div class="tw-username-wrap">
-            <h1 class="tw-username" id="twUsername">@manuelcanales</h1>
-          </div>
+</span></span>
         </div>
-        <div class="tw-right">
-          <div class="tw-right-card">
-            <div class="tw-stats">
-              
-              <div class="tw-stat">
-                <div>
-                  <span class="tw-stat-label">Seguidores</span>
-                  <span class="tw-stat-value">17k</span>
-                </div>
-                <span class="tw-stat-accent"></span>
-              </div>
-              
-            </div>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="tw-cta"
-              id="twCta"
-            >
-              Ver en Twitter
-            </a>
 
-            <a
-              href="https://www.canales.pe/"
-              target="_self"
-              class="tw-cta-outline"
-            >
-              Volver a canales.pe
-            </a>
-          </div>
+        <div class="tw-canales" aria-hidden="true">
+          <img src="https://cdn.mcq.cl/logo/canales-white.svg" alt="">
         </div>
-      </section>
-    </main>
-    
-    <script>
-      const usernameEl = document.getElementById("twUsername");
-      const handleInlineEl = document.getElementById("twHandleInline");
-      const ctaEl = document.getElementById("twCta");
+      </div>
 
-      function normalizeHandle(text) {
-        return text.trim().replace(/^@+/, "");
+      <div class="tw-right">
+        <div class="tw-actions">
+          <a
+            href="https://twitter.com/manuelcanales"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="tw-btn tw-btn--primary"
+            id="twPrimary">
+            <span class="tw-bird-layer" aria-hidden="true"></span>
+            <span class="label" id="brandPrimaryLabel">Seguir en Twitter</span>
+          </a>
+
+          <a href="https://www.canales.pe/" class="tw-btn tw-btn--secondary">
+            <span class="label">Volver a canales.pe</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <p class="tw-legal" id="brandLegal">
+    TWITTER, TWEET, RETWEET and the Twitter logo are trademarks of Twitter, Inc. or its affiliates.
+  </p>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const isX = (params.get('brand') || '').toLowerCase() === 'x';
+      const brandSwitchLink = document.getElementById('brandSwitchLink');
+
+      if (brandSwitchLink) {
+        const nextParams = new URLSearchParams(location.search);
+        nextParams.set('brand', isX ? 'twitter' : 'x');
+
+        const query = nextParams.toString();
+        brandSwitchLink.href = query ? `?${query}${location.hash}` : `.${location.hash}`;
+        brandSwitchLink.setAttribute(
+          'aria-label',
+          isX ? 'Cambiar al branding clásico de Twitter' : 'Cambiar al branding de X'
+        );
       }
 
-      function getBaseFontSize(len, compact) {
-        const desktopRules = [
-          { max: 8, size: 108 },
-          { max: 10, size: 94 },
-          { max: 12, size: 82 },
-          { max: 14, size: 72 },
-          { max: 16, size: 64 },
-          { max: 18, size: 58 },
-          { max: 99, size: 52 }
-        ];
+      const primary = document.getElementById('twPrimary');
+      const layer = primary?.querySelector('.tw-bird-layer');
+      const label = document.getElementById('brandPrimaryLabel');
+      const legal = document.getElementById('brandLegal');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-        const mobileRules = [
-          { max: 8, size: 52 },
-          { max: 10, size: 46 },
-          { max: 12, size: 40 },
-          { max: 14, size: 35 },
-          { max: 16, size: 31 },
-          { max: 18, size: 28 },
-          { max: 99, size: 26 }
-        ];
+      const birdSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><path fill='%231DA1F2' d='m 250,87.974 c -7.358,3.264 -15.267,5.469 -23.566,6.461 8.471,-5.078 14.978,-13.119 18.041,-22.701 -7.929,4.703 -16.71,8.117 -26.057,9.957 -7.484,-7.975 -18.148,-12.957 -29.95,-12.957 -22.66,0 -41.033,18.371 -41.033,41.031 0,3.216 0.363,6.348 1.062,9.351 -34.102,-1.711 -64.336,-18.047 -84.574,-42.872 -3.532,6.06 -5.556,13.108 -5.556,20.628 0,14.236 7.244,26.795 18.254,34.153 -6.726,-0.213 -13.053,-2.059 -18.585,-5.132 -0.004,0.171 -0.004,0.343 -0.004,0.516 0,19.88 14.144,36.464 32.915,40.234 -3.443,0.938 -7.068,1.439 -10.81,1.439 -2.644,0 -5.214,-0.258 -7.72,-0.736 5.222,16.301 20.375,28.165 38.331,28.495 -14.043,11.006 -31.735,17.565 -50.96,17.565 -3.312,0 -6.578,-0.194 -9.788,-0.574 18.159,11.643 39.727,18.437 62.899,18.437 75.473,0 116.746,-62.524 116.746,-116.747 0,-1.779 -0.04,-3.548 -0.119,-5.309 8.017,-5.784 14.973,-13.011 20.474,-21.239 z'/></svg>";
+      const xSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000000' d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z'/></svg>";
 
-        const rules = compact ? mobileRules : desktopRules;
-        return rules.find(rule => len <= rule.max).size;
-      }
+      if (isX) {
+        document.title = 'X | CANALES®';
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000');
 
-      function fitUsernameToWidth() {
-        if (!usernameEl) return;
+        if (primary) {
+          primary.href = 'https://x.com/manuelcanales';
+          primary.setAttribute('aria-label', 'Seguir a @manuelcanales en X');
+        }
 
-        const wrap = usernameEl.parentElement;
-        if (!wrap) return;
+        if (label) label.textContent = 'Seguir en X';
 
-        const rawText = usernameEl.textContent.trim();
-        const compact = window.innerWidth <= 900;
-        let size = getBaseFontSize(rawText.length, compact);
-        const min = compact ? 24 : 40;
-        const available = Math.max(0, wrap.clientWidth - 2);
-
-        usernameEl.style.fontSize = size + "px";
-        usernameEl.style.maxWidth = "100%";
-        usernameEl.style.whiteSpace = "nowrap";
-
-        while (usernameEl.scrollWidth > available && size > min) {
-          size -= 1;
-          usernameEl.style.fontSize = size + "px";
+        if (legal) {
+          legal.textContent = 'X and the X logo are trademarks of X Corp.';
         }
       }
 
-      function syncProfileData() {
-        if (!usernameEl || !ctaEl) return;
+      if (!primary || !layer) return;
 
-        const rawText = usernameEl.textContent.trim();
-        const handle = normalizeHandle(rawText);
+      let lastBurst = 0;
 
-        if (handleInlineEl) {
-          handleInlineEl.textContent = handle;
+      const rand = (min, max) => Math.random() * (max - min) + min;
+
+      const setFocus = (value) => {
+        if (value) document.body.dataset.twitterFocus = 'true';
+        else delete document.body.dataset.twitterFocus;
+      };
+
+      const burst = () => {
+        if (reducedMotion.matches) return;
+
+        const now = performance.now();
+        if (now - lastBurst < 300) return;
+        lastBurst = now;
+
+        const amount = window.innerWidth <= 560 ? 8 : 12;
+
+        for (let i = 0; i < amount; i++) {
+          const item = document.createElement('span');
+          item.className = 'tw-bird';
+
+          const img = document.createElement('img');
+          img.src = isX ? xSrc : birdSrc;
+          img.alt = '';
+          item.appendChild(img);
+
+          const angle = rand(-170, -10) * Math.PI / 180;
+          const distance = rand(76, window.innerWidth <= 560 ? 150 : 215);
+          const tx = Math.cos(angle) * distance;
+          const ty = Math.sin(angle) * distance - rand(6, 42);
+
+          item.style.setProperty('--tx', `${tx.toFixed(1)}px`);
+          item.style.setProperty('--ty', `${ty.toFixed(1)}px`);
+          item.style.setProperty('--scale', rand(.88, 1.28).toFixed(2));
+          item.style.setProperty('--size', `${rand(isX ? 14 : 16, isX ? 30 : 34).toFixed(0)}px`);
+          item.style.setProperty('--dur', `${rand(760, 1080).toFixed(0)}ms`);
+          item.style.setProperty('--delay', `${rand(0, 110).toFixed(0)}ms`);
+          item.style.setProperty('--rot-start', `${rand(-14, 14).toFixed(1)}deg`);
+          item.style.setProperty('--rot-end', `${rand(-34, 34).toFixed(1)}deg`);
+
+          layer.appendChild(item);
+          item.addEventListener('animationend', () => item.remove(), { once: true });
         }
+      };
 
-        ctaEl.href = "https://twitter.com/" + handle;
-        fitUsernameToWidth();
-      }
-
-      syncProfileData();
-      window.addEventListener("resize", () => window.requestAnimationFrame(syncProfileData));
-
-      if (usernameEl) {
-        const observer = new MutationObserver(() => window.requestAnimationFrame(syncProfileData));
-        observer.observe(usernameEl, {
-          childList: true,
-          characterData: true,
-          subtree: true
+      if (finePointer.matches) {
+        primary.addEventListener('mouseenter', () => {
+          setFocus(true);
+          burst();
         });
-      }
-    </script>
 
-  </body>
+        primary.addEventListener('mouseleave', () => setFocus(false));
+
+        primary.addEventListener('focus', () => {
+          setFocus(true);
+          burst();
+        });
+
+        primary.addEventListener('blur', () => setFocus(false));
+      }
+
+      primary.addEventListener('pointerdown', burst);
+    })();
+  </script>
+</body>
 </html>
