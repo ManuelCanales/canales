@@ -430,6 +430,33 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+    /* ===== Final heritage stripe: Perú + Lima ===== */
+.heritage-stripe{
+  width:100%;
+  height:8px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+.heritage-stripe-peru{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+.heritage-stripe-peru span:nth-child(1),
+.heritage-stripe-peru span:nth-child(3){
+  background:#D91023;
+}
+.heritage-stripe-peru span:nth-child(2){
+  background:#FFFFFF;
+}
+.heritage-stripe-lima{
+  background:#D4AF37;
+}
+@media(max-width:520px){
+  .heritage-stripe{height:6px}
+}
+
   </style>
 </head>
 
@@ -1240,6 +1267,13 @@
   </div>
   </div>
 </footer>
+
+<div class="heritage-stripe" aria-hidden="true">
+  <div class="heritage-stripe-peru">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="heritage-stripe-lima"></div>
+</div>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-circle-fill"></i></a>
 
