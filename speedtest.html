@@ -1,0 +1,372 @@
+<!doctype html><html lang="es-PE"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Speedtest | CANALES®</title><meta name="description" content="Mide la velocidad de tu conexión a Internet con CANALES®: descarga, subida y latencia usando Speedtest.">
+<link rel="canonical" href="https://www.canales.pe/speedtest/">
+<meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light"><meta property="og:type" content="website"><meta property="og:site_name" content="CANALES"><meta property="og:title" content="Speedtest | CANALES®"><meta property="og:description" content="Mide la velocidad de tu conexión a Internet con CANALES®: descarga, subida y latencia usando Speedtest."><meta property="og:url" content="https://www.canales.pe/speedtest/"><meta property="og:image" content="https://cdn.mcq.cl/assets/img/generico.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://cdn.mcq.cl/assets/img/generico.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.mcq.cl/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.mcq.cl/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="https://cdn.mcq.cl/apple-touch-icon.png"><link rel="manifest" href="https://www.canales.pe/site.webmanifest">
+<link rel="preconnect" href="https://cdn.mcq.cl" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.mcq.cl/nuevositio/site.css?v=63"><style>
+/* Speedtest CANALES · isolated light interior, CDN components unchanged. */
+:root{color-scheme:light}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{background:#fff!important;color:#171717!important;font-family:"DM Sans",Arial,sans-serif!important;overflow-x:clip;-webkit-font-smoothing:antialiased}
+#mcq-header .mcqhdr-bar{background:rgba(255,255,255,.95)!important;border-color:rgba(25,25,25,.12)!important;box-shadow:0 14px 60px rgba(20,20,20,.07)!important}
+#mcq-header .mcqhdr-bar::before{background:radial-gradient(ellipse,rgba(90,90,90,.13),transparent 67%)}
+#mcq-header .mcqhdr-bar::after{background:linear-gradient(180deg,rgba(255,255,255,.7),transparent)}
+#mcq-header .mcqhdr-menu,#mcq-header .mcqhdr-social a{color:#191919!important}
+#mcq-header .mcqhdr-panel{background:#f8f8f7!important;color:#151515!important}
+#mcq-header .mcqhdr-caption,#mcq-header .mcqhdr-group-label,#mcq-header .mcqhdr-lang-caption{color:#646464!important}
+#mcq-header .mcqhdr-links a{color:#191919!important;border-color:rgba(15,15,15,.17)!important}
+#mcq-header .mcqhdr-panel-social a{color:#191919!important}
+#mcq-header .mcqhdr-languages{border-color:rgba(15,15,15,.12)!important}
+#mcq-header .mcqlang-button{color:#333!important;border-color:rgba(0,0,0,.12)!important;background:#fff!important}
+#mcq-header .mcqlang-button[aria-pressed="true"]{background:#161616!important;color:#fff!important}
+#mcq-header :is(a,button):focus-visible{outline:2px solid #171717!important;outline-offset:3px}
+#cq-speed{--sp-ink:#161616;--sp-muted:#676767;--sp-line:#e4e4e4;--sp-paper:#f7f7f6;--sp-radius:26px;background:#fff;color:var(--sp-ink);font-family:"DM Sans",Arial,sans-serif;isolation:isolate;overflow:hidden}
+#cq-speed *,#cq-speed *::before,#cq-speed *::after{box-sizing:border-box}
+#cq-speed a{color:inherit}
+#cq-speed .sp-shell{width:min(1200px,calc(100% - 64px));margin-inline:auto}
+#cq-speed .sp-eyebrow{font:700 11px/1.35 "Archivo",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--sp-muted);margin:0}
+#cq-speed .sp-hero{padding:clamp(180px,17vw,245px) 0 clamp(50px,7vw,110px);background:#fff;position:relative}
+#cq-speed .sp-hero::after{content:"";position:absolute;inset:auto -10vw 0 55%;height:1px;background:#e6e6e6;pointer-events:none}
+#cq-speed .sp-topline{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+#cq-speed .sp-mark{display:flex;align-items:center;gap:9px;font:600 12px "Archivo",sans-serif;color:#555}
+#cq-speed .sp-mark i{font-size:14px;color:#333}
+#cq-speed h1,#cq-speed h2,#cq-speed h3{font-family:"Space Grotesk","Archivo",Arial,sans-serif;letter-spacing:-.064em;color:#111;}
+#cq-speed .sp-hero h1{font-size:clamp(60px,9.4vw,126px);line-height:.95;font-weight:700;margin:clamp(24px,3.2vw,42px) 0 clamp(28px,3.4vw,46px);max-width:980px;text-wrap:balance}
+#cq-speed .sp-hero h1 em{font-style:normal;color:#9a9a9a}
+#cq-speed .sp-hero-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+#cq-speed .sp-intro{font-size:clamp(17px,1.65vw,21px);line-height:1.55;color:#555;max-width:585px;margin:0}
+#cq-speed .sp-link{display:inline-flex;align-items:center;gap:10px;font:700 13px "Archivo",sans-serif;text-decoration:none;border-bottom:1px solid #777;padding:0 0 8px;white-space:nowrap;transition:opacity .22s ease}
+#cq-speed .sp-link:hover{opacity:.55}
+#cq-speed .sp-link i{font-size:16px}
+#cq-speed .sp-test{background:var(--sp-paper);padding:clamp(30px,4vw,54px) 0 clamp(65px,7vw,110px);border-top:1px solid #e9e9e9}
+#cq-speed .sp-section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:28px}
+#cq-speed .sp-section-head h2{font-weight:700;font-size:clamp(28px,4vw,45px);line-height:1.08;margin:9px 0 0}
+#cq-speed .sp-tool-note{display:flex;align-items:center;gap:8px;color:#777;font-size:13px;line-height:1.35}
+#cq-speed .sp-frame{overflow:hidden;border:1px solid #dedede;border-radius:var(--sp-radius);background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.045);min-width:0}
+#cq-speed .sp-frame-top{height:67px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(18px,3vw,33px);border-bottom:1px solid #ebebeb;background:#fff}
+#cq-speed .sp-frame-label{display:flex;align-items:center;gap:11px;min-width:0;color:#272727;font:700 12px/1.3 "Archivo",Arial,sans-serif;letter-spacing:.015em}
+#cq-speed .sp-frame-label i{font-size:20px}
+#cq-speed .sp-frame-status{font:500 11px/1.35 "DM Sans",Arial,sans-serif;color:#777;text-align:right}
+#cq-speed iframe{display:block;max-width:100%;width:100%;height:675px;min-width:0;border:0;background:#fff}
+#cq-speed .sp-frame-bottom{padding:19px clamp(18px,3vw,33px);background:#fff;border-top:1px solid #ebebeb;display:flex;align-items:center;justify-content:space-between;gap:15px 26px;flex-wrap:wrap}
+#cq-speed .sp-frame-bottom p{margin:0;color:#777;font-size:13px;line-height:1.4}
+#cq-speed .sp-frame-bottom a{color:#222;font:700 12px/1.4 "Archivo",sans-serif;text-decoration:underline;text-underline-offset:4px;transition:opacity .22s ease;display:inline-flex;gap:7px;align-items:center}
+#cq-speed .sp-frame-bottom a:hover{opacity:.6}
+#cq-speed .sp-explain{padding:clamp(74px,9vw,135px) 0;background:#fff}
+#cq-speed .sp-explain-title{max-width:660px;font-size:clamp(36px,5.5vw,67px);line-height:1.04;margin:16px 0 clamp(35px,6vw,60px)}
+#cq-speed .sp-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #ddd;border-bottom:1px solid #ddd}
+#cq-speed .sp-metric{padding:31px clamp(18px,3vw,40px) 38px 0;min-width:0}
+#cq-speed .sp-metric + .sp-metric{padding-left:clamp(18px,3vw,40px);border-left:1px solid #ddd}
+#cq-speed .sp-metric i{font-size:26px;color:#272727}
+#cq-speed .sp-metric h3{font-size:26px;line-height:1.15;margin:24px 0 12px;font-weight:650;letter-spacing:-.045em}
+#cq-speed .sp-metric p{font-size:15px;line-height:1.62;color:#656565;margin:0;max-width:35ch}
+#cq-speed .sp-notes{padding:clamp(55px,7vw,90px) 0;background:#efefee}
+#cq-speed .sp-notes-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,7vw,110px);align-items:start}
+#cq-speed .sp-notes h2{font-size:clamp(34px,4.7vw,57px);line-height:1.04;margin:14px 0 0}
+#cq-speed .sp-notes-list{list-style:none;margin:0;padding:0}
+#cq-speed .sp-notes-list li{display:flex;gap:17px;padding:17px 0;border-bottom:1px solid #d6d6d5;color:#555;font-size:15px;line-height:1.55}
+#cq-speed .sp-notes-list li:first-child{padding-top:4px}
+#cq-speed .sp-num{font:700 12px "Archivo",sans-serif;color:#333;padding-top:4px;flex:0 0 24px}
+#cq-speed .sp-disclaimer{margin:25px 0 0;color:#6b6b6b;font-size:12px;line-height:1.55;max-width:73ch}
+#cq-speed a:focus-visible{outline:2px solid #111;outline-offset:5px}
+@media(max-width:900px){
+ #cq-speed .sp-hero{padding-top:165px}
+ #cq-speed .sp-hero-bottom{grid-template-columns:1fr;gap:27px}
+ #cq-speed .sp-hero .sp-link{width:max-content}
+ #cq-speed .sp-frame iframe{height:695px}
+}
+@media(max-width:680px){
+ #cq-speed .sp-shell{width:calc(100% - 38px)}
+ #cq-speed .sp-hero{padding:147px 0 57px}
+ #cq-speed .sp-hero h1{font-size:clamp(49px,13.5vw,77px);line-height:1.01;margin:23px 0 25px;letter-spacing:-.067em}
+ #cq-speed .sp-mark{font-size:10px}
+ #cq-speed .sp-intro{font-size:16px}
+ #cq-speed .sp-test{padding-top:32px;padding-bottom:72px}
+ #cq-speed .sp-section-head{align-items:start;flex-direction:column;gap:12px}
+ #cq-speed .sp-frame{border-radius:17px}
+ #cq-speed .sp-frame-top{height:56px;padding:0 14px}
+ #cq-speed .sp-frame-label{font-size:10px;gap:6px}
+ #cq-speed .sp-frame-label i{font-size:18px}
+ #cq-speed .sp-frame-status{font-size:10px;max-width:105px}
+ #cq-speed iframe{height:655px}
+ #cq-speed .sp-frame-bottom{padding:19px 16px}
+ #cq-speed .sp-metrics{grid-template-columns:1fr}
+ #cq-speed .sp-metric{padding:25px 0 28px!important;border-left:0!important}
+ #cq-speed .sp-metric+.sp-metric{border-top:1px solid #dedede}
+ #cq-speed .sp-metric h3{margin:12px 0 9px;font-size:24px}
+ #cq-speed .sp-explain{padding:75px 0}
+ #cq-speed .sp-notes-grid{grid-template-columns:1fr;gap:30px}
+ #cq-speed .sp-notes{padding:65px 0}
+ #mcq-header .mcqhdr-panel{padding-top:115px!important}
+}
+@media(max-width:360px){#cq-speed .sp-hero h1{font-size:47px}#cq-speed .sp-frame-status{max-width:85px}}
+@media(hover:none){#cq-speed .sp-link:hover,#cq-speed .sp-frame-bottom a:hover{opacity:1}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}#cq-speed *,#cq-speed *::before,#cq-speed *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Speedtest V2 · Estado de conexión: componente autocontenido. */
+#cq-speed .sp-connection{background:#fff;border-bottom:1px solid #e6e6e6;border-top:1px solid #e4e4e4;padding:clamp(42px,5.6vw,82px) 0 clamp(43px,5.5vw,77px)}
+#cq-speed .sp-conn-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 28px;padding-bottom:clamp(23px,3vw,40px);border-bottom:1px solid #e6e6e6}
+#cq-speed .sp-conn-live{font:650 10px/1.3 "Archivo",Arial,sans-serif;letter-spacing:.10em;color:#565656;display:inline-flex;gap:8px;align-items:center;text-transform:uppercase}
+#cq-speed .sp-conn-live::before{content:"";height:7px;width:7px;background:#1c1c1c;border-radius:50%;display:inline-block}
+#cq-speed .sp-conn-grid{display:grid;grid-template-columns:minmax(200px,1fr) minmax(0,auto);align-items:center;gap:24px 45px;padding:clamp(26px,3.2vw,42px) 0 clamp(17px,2vw,27px)}
+#cq-speed .sp-conn-country{display:flex;align-items:center;gap:18px;min-width:0}
+#cq-speed .sp-flag-frame{width:80px;height:55px;min-width:80px;background:#f3f3f2;border:1px solid #e5e5e5;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#cq-speed .sp-flag-frame img{width:100%;height:100%;object-fit:cover;display:block}
+#cq-speed .sp-flag-frame img[hidden]{display:none}
+#cq-speed .sp-flag-frame .sp-flag-placeholder{font-size:25px;color:#666}
+#cq-speed .sp-flag-frame.has-flag .sp-flag-placeholder{display:none}
+#cq-speed .sp-conn-country-copy{display:flex;flex-direction:column;gap:7px;min-width:0}
+#cq-speed .sp-conn-caption{font:700 10px/1.4 "Archivo",Arial,sans-serif;letter-spacing:.1em;color:#666;text-transform:uppercase}
+#cq-speed .sp-country-name{font:700 clamp(19px,2vw,27px)/1.16 "Space Grotesk",Arial,sans-serif;letter-spacing:-.04em;color:#171717;overflow-wrap:anywhere}
+#cq-speed .sp-time-block{display:flex;flex-direction:column;gap:10px;min-width:0}
+#cq-speed .sp-clock{display:flex;align-items:baseline;gap:clamp(5px,1vw,16px);white-space:nowrap;color:#151515;font:700 clamp(27px,4.3vw,59px)/1 "Space Grotesk",Arial,sans-serif;letter-spacing:-.065em;font-variant-numeric:tabular-nums}
+#cq-speed .sp-clock-separator{color:#b3b3b3;font-size:.75em;font-weight:400;letter-spacing:-.1em}
+#cq-speed .sp-clock-meridiem{font-size:.36em;font-weight:700;letter-spacing:-.015em;margin-left:1px}
+#cq-speed .sp-conn-note{border-top:1px solid #e6e6e6;padding-top:17px;margin:0;color:#757575;font:400 12px/1.6 "DM Sans",Arial,sans-serif}
+@media(max-width:900px){
+  #cq-speed .sp-conn-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  #cq-speed .sp-clock{font-size:clamp(32px,7vw,56px)}
+}
+@media(max-width:480px){
+  #cq-speed .sp-conn-top{align-items:flex-start}
+  #cq-speed .sp-conn-grid{gap:27px;padding:28px 0 22px}
+  #cq-speed .sp-flag-frame{width:66px;min-width:66px;height:46px}
+  #cq-speed .sp-conn-country{gap:14px}
+  #cq-speed .sp-country-name{font-size:21px}
+  #cq-speed .sp-clock{font-size:clamp(27px,8.8vw,39px);gap:clamp(3px,1.5vw,9px)}
+}
+@media(max-width:350px){#cq-speed .sp-clock{font-size:27px;gap:4px}}
+</style></head><body><header aria-label="Encabezado de CANALES" id="mcq-header">
+<div class="mcqhdr-bar">
+<button aria-controls="mcqhdr-panel" aria-expanded="false" aria-label="Abrir menú" class="mcqhdr-menu" type="button">
+<i aria-hidden="true" class="bi bi-list"></i><span>MENÚ</span>
+</button>
+<a aria-label="CANALES — Inicio" class="mcqhdr-brand" href="https://www.canales.pe/#mcq-hero">
+<img alt="CANALES" decoding="async" height="46" src="https://cdn.mcq.cl/logo/canales-black.svg" width="174"/>
+</a>
+<nav aria-label="Redes sociales" class="mcqhdr-social">
+<a aria-label="Facebook" href="https://www.canales.pe/facebook" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-facebook"></i></a>
+<a aria-label="Threads" href="https://www.canales.pe/threads" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-threads"></i></a>
+<a aria-label="X" href="https://www.canales.pe/twitter" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-twitter-x"></i></a>
+<a aria-label="Instagram" href="https://www.canales.pe/instagram" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-instagram"></i></a>
+<a aria-label="TikTok" href="https://www.canales.pe/tiktok" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-tiktok"></i></a>
+</nav>
+</div>
+<nav aria-label="Navegación principal" class="mcqhdr-panel" id="mcqhdr-panel" inert="">
+<div class="mcqhdr-panel-inner">
+<span class="mcqhdr-caption">ACERCA DE ESTA PÁGINA</span>
+<div class="mcqhdr-links">
+
+
+<div class="mcqhdr-nav-group"><p class="mcqhdr-group-label" data-i18n="menu-group1">HERRAMIENTA</p>
+<a data-i18n="menu-tool" href="#cq-speedtest-tool">Prueba de velocidad <i aria-hidden="true" class="bi bi-arrow-up-right"></i></a>
+<a data-i18n="menu-guide" href="#cq-speedtest-guide">Cómo interpretar <i aria-hidden="true" class="bi bi-arrow-up-right"></i></a>
+</div><div class="mcqhdr-nav-group"><p class="mcqhdr-group-label" data-i18n="menu-group2">EXPLORAR</p>
+<a data-i18n="menu-notes" href="#cq-speedtest-notes">Recomendaciones <i aria-hidden="true" class="bi bi-arrow-up-right"></i></a>
+<a data-i18n="menu-return" href="https://www.canales.pe/">Volver a CANALES <i aria-hidden="true" class="bi bi-arrow-up-right"></i></a>
+</div></div>
+<div aria-label="Seleccionar idioma" class="mcqhdr-languages" role="group">
+<span class="mcqhdr-lang-caption">IDIOMA / LANGUAGE</span>
+<div class="mcqhdr-lang-options">
+<button aria-label="Español" aria-pressed="true" class="mcqlang-button" data-mcq-lang="es" lang="es" type="button"><img alt="" decoding="async" height="16" loading="lazy" src="https://flagcdn.com/w40/pe.png" width="24"/><span>Español</span></button>
+<button aria-label="English" aria-pressed="false" class="mcqlang-button" data-mcq-lang="en" lang="en" type="button"><img alt="" decoding="async" height="16" loading="lazy" src="https://flagcdn.com/w40/gb.png" width="24"/><span>English</span></button>
+<button aria-label="Português" aria-pressed="false" class="mcqlang-button" data-mcq-lang="pt" lang="pt" type="button"><img alt="" decoding="async" height="16" loading="lazy" src="https://flagcdn.com/w40/br.png" width="24"/><span>Português</span></button>
+</div>
+</div>
+<div aria-label="Redes sociales" class="mcqhdr-panel-social">
+<a aria-label="Facebook" href="https://www.canales.pe/facebook"><i class="bi bi-facebook"></i></a>
+<a aria-label="Threads" href="https://www.canales.pe/threads"><i class="bi bi-threads"></i></a>
+<a aria-label="X" href="https://www.canales.pe/twitter"><i class="bi bi-twitter-x"></i></a>
+<a aria-label="Instagram" href="https://www.canales.pe/instagram"><i class="bi bi-instagram"></i></a>
+<a aria-label="TikTok" href="https://www.canales.pe/tiktok"><i class="bi bi-tiktok"></i></a>
+</div>
+</div>
+</nav>
+</header><main id="cq-speed">
+<section class="sp-hero" aria-labelledby="sp-main-title"><div class="sp-shell">
+<div class="sp-topline"><p class="sp-eyebrow" data-i18n="eyebrow">CANALES® / HERRAMIENTAS</p><span class="sp-mark"><i class="bi bi-globe2" aria-hidden="true"></i><span data-i18n="external">SERVICIO EXTERNO · SPEEDTEST</span></span></div>
+<h1 id="sp-main-title" data-i18n-html="title">Mide tu<br><em>conexión.</em></h1>
+<div class="sp-hero-bottom"><p class="sp-intro" data-i18n="intro">Consulta el rendimiento de tu conexión a Internet mediante una prueba de velocidad integrada. Visualiza descarga, subida y latencia.</p><a class="sp-link" href="#cq-speedtest-tool" data-i18n="jump">Ir a la prueba <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a></div>
+</div></section>
+<section class="sp-test" id="cq-speedtest-tool" aria-labelledby="sp-tool-title"><div class="sp-shell">
+<div class="sp-section-head"><div><p class="sp-eyebrow" data-i18n="test-eyebrow">01 / MEDICIÓN</p><h2 id="sp-tool-title" data-i18n="test-title">Prueba de velocidad</h2></div><span class="sp-tool-note"><i class="bi bi-info-circle" aria-hidden="true"></i><span data-i18n="tool-note">Servicio integrado de terceros</span></span></div>
+<div class="sp-frame"><div class="sp-frame-top"><span class="sp-frame-label"><i class="bi bi-speedometer2" aria-hidden="true"></i><span>SPEEDTEST</span><span style="font-weight:400;color:#888">/ CANALES</span></span><span class="sp-frame-status" data-i18n="tool-status">Proporcionado por Ookla</span></div>
+<iframe title="Prueba de velocidad de Internet con Speedtest" src="https://canales.speedtestcustom.com/" allowfullscreen="" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin" loading="eager"></iframe>
+<div class="sp-frame-bottom"><p data-i18n="fallback">¿La prueba no se muestra correctamente?</p><a href="https://canales.speedtestcustom.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="open-external">Abrir Speedtest</span><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></div></div>
+</div></section>
+<section class="sp-connection" id="cq-speedtest-connection" aria-label="Datos de conexión y hora local">
+  <div class="sp-shell">
+    <div class="sp-conn-top"><p class="sp-eyebrow" data-sp-i18n="section">CONEXIÓN / AHORA</p><span class="sp-conn-live" data-sp-i18n="live">INFORMACIÓN EN DIRECTO</span></div>
+    <div class="sp-conn-grid">
+      <div class="sp-conn-country">
+        <div class="sp-flag-frame"><i class="bi bi-globe2 sp-flag-placeholder" aria-hidden="true"></i><img id="sp-country-flag" alt="" width="80" height="55" hidden></div>
+        <div class="sp-conn-country-copy"><span class="sp-conn-caption" data-sp-i18n="countryLabel">PAÍS DE CONEXIÓN</span><strong id="sp-country-name" class="sp-country-name">Detectando…</strong></div>
+      </div>
+      <div class="sp-time-block">
+        <span class="sp-conn-caption" data-sp-i18n="clockLabel">FECHA Y HORA LOCAL</span>
+        <time class="sp-clock" id="sp-local-clock" role="timer" aria-live="off">
+          <span id="sp-clock-date">--.--.--</span><span class="sp-clock-separator" aria-hidden="true">///</span><span id="sp-clock-time">--:--:--</span><span id="sp-clock-meridiem" class="sp-clock-meridiem">--</span>
+        </time>
+      </div>
+    </div>
+    <p class="sp-conn-note" data-sp-i18n="note">El país es aproximado y se identifica por la IP pública de tu conexión; la fecha y hora corresponden a tu dispositivo. Una VPN puede modificar el país detectado.</p>
+  </div>
+</section>
+<section class="sp-explain" id="cq-speedtest-guide" aria-labelledby="sp-explain-title"><div class="sp-shell"><p class="sp-eyebrow" data-i18n="guide-eyebrow">02 / RESULTADOS</p><h2 class="sp-explain-title" id="sp-explain-title" data-i18n="guide-title">Tres métricas.<br>Una conexión.</h2>
+<div class="sp-metrics"><article class="sp-metric"><i class="bi bi-arrow-down-circle" aria-hidden="true"></i><h3 data-i18n="download-title">Descarga</h3><p data-i18n="download-desc">Indica la velocidad a la que recibes datos. Influye en streaming, descargas y navegación.</p></article>
+<article class="sp-metric"><i class="bi bi-arrow-up-circle" aria-hidden="true"></i><h3 data-i18n="upload-title">Subida</h3><p data-i18n="upload-desc">Mide el envío de datos. Es relevante para videollamadas y archivos en la nube.</p></article>
+<article class="sp-metric"><i class="bi bi-stopwatch" aria-hidden="true"></i><h3 data-i18n="ping-title">Latencia</h3><p data-i18n="ping-desc">Expresa el tiempo de respuesta de la conexión, normalmente en milisegundos.</p></article></div>
+</div></section>
+<section class="sp-notes" id="cq-speedtest-notes" aria-labelledby="sp-notes-title"><div class="sp-shell sp-notes-grid"><div><p class="sp-eyebrow" data-i18n="notes-eyebrow">03 / RECOMENDACIONES</p><h2 id="sp-notes-title" data-i18n="notes-title">Antes de<br>medir.</h2></div>
+<div><ol class="sp-notes-list"><li><span class="sp-num">01</span><span data-i18n="note1">Conéctate a la red que deseas evaluar y evita descargas simultáneas.</span></li><li><span class="sp-num">02</span><span data-i18n="note2">Para comparar resultados, realiza varias mediciones en condiciones similares.</span></li><li><span class="sp-num">03</span><span data-i18n="note3">La velocidad observada puede variar por la señal Wi-Fi, el dispositivo, la congestión y el servidor de prueba.</span></li></ol><p class="sp-disclaimer" data-i18n="disclaimer">La medición es orientativa y corresponde a un servicio de terceros. CANALES® no controla sus resultados ni garantiza su disponibilidad.</p></div></div></section>
+</main><footer aria-label="Pie de página CANALES" id="mcq-footer">
+<canvas aria-hidden="true" class="mcqfoot-cross-field"></canvas>
+<div class="mcqfoot-shell">
+<div class="mcqfoot-top">
+<div class="mcqfoot-brand">
+<a aria-label="CANALES — Inicio" class="mcqfoot-brand-link" href="https://www.canales.pe/#mcq-hero"><picture><source media="(max-width:760px)" srcset="https://cdn.mcq.cl/logo/canales-white.svg"/><img alt="CANALES" decoding="async" height="74" loading="lazy" src="https://cdn.mcq.cl/logo/canales-iso-white.svg" width="220"/></picture></a>
+<div class="mcqfoot-social-groups">
+<div><span class="mcqfoot-handle">@manuelcanales</span><nav aria-label="Redes de Manuel Canales" class="mcqfoot-social">
+<a aria-label="X" href="https://www.canales.pe/twitter" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-twitter-x"></i></a>
+<a aria-label="Facebook" href="https://www.canales.pe/facebook" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-facebook"></i></a>
+<a aria-label="Instagram" href="https://www.canales.pe/instagram" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-instagram"></i></a>
+<a aria-label="Threads" href="https://www.canales.pe/threads" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-threads"></i></a>
+</nav></div>
+<div><span class="mcqfoot-handle">@canales</span><nav aria-label="TikTok de CANALES" class="mcqfoot-social"><a aria-label="TikTok" href="https://www.canales.pe/tiktok" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-tiktok"></i></a></nav></div>
+</div>
+</div>
+<nav aria-label="Navegación del pie de página" class="mcqfoot-navigation"><h2 data-i18n="footer-explore">Explorar</h2>
+<a data-i18n="menu-tool" href="#cq-speedtest-tool">Prueba de velocidad</a>
+<a data-i18n="menu-guide" href="#cq-speedtest-guide">Cómo interpretar</a>
+<a data-i18n="menu-notes" href="#cq-speedtest-notes">Recomendaciones</a>
+<a data-i18n="menu-return" href="https://www.canales.pe/">Volver a CANALES</a>
+<a data-i18n="footer-rules" href="https://www.canales.pe/normativa/">Normas comunitarias</a></nav>
+<div class="mcqfoot-extras"><h2>Más de CANALES</h2>
+<a href="https://brandfetch.com/canales.pe" rel="noopener noreferrer" target="_blank">Brandfetch <i aria-hidden="true" class="mcq-vector-icon bi bi-arrow-up-right"><svg aria-hidden="true" class="mcq-icon-svg" fill="currentColor" focusable="false" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14 2a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V5.414l-9.293 9.293a1 1 0 0 1-1.414-1.414L11.586 4H4a1 1 0 1 1 0-2z" fill-rule="evenodd"></path></svg></i></a>
+<a aria-label="Enlaces Manuel Canales" class="mcqfoot-banner" href="https://www.canales.pe/beacons"><img alt="Manuel Canales" decoding="async" height="56" loading="lazy" src="https://cdn.mcq.cl/manuelcanales.png" width="220"/></a>
+<a aria-label="Página de Manuel Canales" class="mcqfoot-crest" href="https://www.canales.pe/manuel"><img alt="Escudo de Manuel Canales" decoding="async" height="76" loading="lazy" src="https://cdn.mcq.cl/assets/img/mcq-escudo.png" width="180"/></a>
+</div>
+<div class="mcqfoot-origin"><h2>Desde Lima</h2><img alt="Hecho en Lima" decoding="async" height="91" loading="lazy" src="https://cdn.mcq.cl/assets/img/hecho-en-lima.png" width="210"/></div>
+</div>
+<!-- Footer compacto solo para móvil: versión editorial reducida -->
+<div aria-label="Pie de página móvil" class="mcqfoot-mobile">
+<a aria-label="CANALES — volver al inicio" class="mcqfoot-mobile-logo" href="https://www.canales.pe/#mcq-hero"><img alt="CANALES" decoding="async" height="66" loading="lazy" src="https://cdn.mcq.cl/logo/canales-white.svg" width="240"/></a>
+<nav aria-label="Redes sociales" class="mcqfoot-mobile-social">
+<a aria-label="X" href="https://www.canales.pe/twitter" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-twitter-x"></i></a>
+<a aria-label="Facebook" href="https://www.canales.pe/facebook" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-facebook"></i></a>
+<a aria-label="Instagram" href="https://www.canales.pe/instagram" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-instagram"></i></a>
+<a aria-label="Threads" href="https://www.canales.pe/threads" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-threads"></i></a>
+<a aria-label="TikTok" href="https://www.canales.pe/tiktok" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="bi bi-tiktok"></i></a>
+</nav>
+<nav aria-label="Enlaces rápidos" class="mcqfoot-mobile-links"><a data-i18n="menu-tool" href="#cq-speedtest-tool">Prueba de velocidad</a>
+<a data-i18n="menu-guide" href="#cq-speedtest-guide">Cómo interpretar</a>
+<a data-i18n="footer-rules" href="https://www.canales.pe/normativa/">Normas comunitarias</a>
+<a data-i18n="menu-return" href="https://www.canales.pe/">Volver a CANALES</a></nav>
+</div>
+<div class="mcqfoot-pride">
+<span class="mcqfoot-pride-copy">Hecho con orgullo y amor en <strong>Lima Metropolitana, República del Perú</strong>.</span>
+<button aria-label="Celebrar Lima y el Perú con corazones" class="mcqfoot-heart-button" title="Con amor desde Lima" type="button">
+<i aria-hidden="true" class="bi bi-heart-fill"></i>
+</button>
+<span aria-hidden="true" class="mcqfoot-heart-layer"></span>
+</div>
+<div class="mcqfoot-bottom"><span>© <span id="mcqfoot-year"></span> CANALES. Todos los derechos reservados.</span><span>CANALES ® es una marca registrada de Manuel Canales Q.</span></div>
+</div>
+<div aria-label="Colores de Perú y Lima" class="mcqfoot-heritage" role="img"><div class="mcqfoot-peru"><span></span><span></span><span></span></div><div class="mcqfoot-lima"></div></div>
+</footer><script src="https://cdn.mcq.cl/nuevositio/header.js?v=63" defer></script><script src="https://cdn.mcq.cl/nuevositio/footer.js?v=63" defer></script><script src="https://cdn.mcq.cl/nuevositio/footer-pattern.js?v=63" defer></script><script src="https://cdn.mcq.cl/assets/js/cookies-cq.js" defer></script><script src="https://cdn.mcq.cl/assets/js/cookies-semaforo.js" defer></script><script>(()=>{
+  const data={"es":{"eyebrow":"CANALES® / HERRAMIENTAS","external":"SERVICIO EXTERNO · SPEEDTEST","title":"Mide tu<br><em>conexión.</em>","intro":"Consulta el rendimiento de tu conexión a Internet mediante una prueba de velocidad integrada. Visualiza descarga, subida y latencia.","jump":"Ir a la prueba","test-eyebrow":"01 / MEDICIÓN","test-title":"Prueba de velocidad","tool-note":"Servicio integrado de terceros","tool-status":"Proporcionado por Ookla","fallback":"¿La prueba no se muestra correctamente?","open-external":"Abrir Speedtest","guide-eyebrow":"02 / RESULTADOS","guide-title":"Tres métricas. Una conexión.","download-title":"Descarga","download-desc":"Indica la velocidad a la que recibes datos. Influye en streaming, descargas y navegación.","upload-title":"Subida","upload-desc":"Mide el envío de datos. Es relevante para videollamadas y archivos en la nube.","ping-title":"Latencia","ping-desc":"Expresa el tiempo de respuesta de la conexión, normalmente en milisegundos.","notes-eyebrow":"03 / RECOMENDACIONES","notes-title":"Antes de medir.","note1":"Conéctate a la red que deseas evaluar y evita descargas simultáneas.","note2":"Para comparar resultados, realiza varias mediciones en condiciones similares.","note3":"La velocidad observada puede variar por la señal Wi-Fi, el dispositivo, la congestión y el servidor de prueba.","disclaimer":"La medición es orientativa y corresponde a un servicio de terceros. CANALES® no controla sus resultados ni garantiza su disponibilidad.","menu-group1":"HERRAMIENTA","menu-tool":"Prueba de velocidad","menu-guide":"Cómo interpretar","menu-group2":"EXPLORAR","menu-notes":"Recomendaciones","menu-return":"Volver a CANALES","footer-explore":"Explorar","footer-rules":"Normas comunitarias","menu-caption":"ACERCA DE ESTA PÁGINA","page-title":"Speedtest | CANALES®","page-description":"Mide la velocidad de tu conexión a Internet con CANALES®: descarga, subida y latencia usando Speedtest."},"en":{"eyebrow":"CANALES® / TOOLS","external":"EXTERNAL SERVICE · SPEEDTEST","title":"Test your<br><em>connection.</em>","intro":"Check your internet connection using an integrated speed test. View download speed, upload speed and latency.","jump":"Go to speed test","test-eyebrow":"01 / MEASUREMENT","test-title":"Internet speed test","tool-note":"Third-party integrated service","tool-status":"Powered by Ookla","fallback":"Is the test not displaying correctly?","open-external":"Open Speedtest","guide-eyebrow":"02 / RESULTS","guide-title":"Three metrics. One connection.","download-title":"Download","download-desc":"How quickly you receive data. It affects streaming, file downloads and browsing.","upload-title":"Upload","upload-desc":"How quickly you send data. Important for video calls and cloud uploads.","ping-title":"Latency","ping-desc":"The response time of your connection, typically measured in milliseconds.","notes-eyebrow":"03 / RECOMMENDATIONS","notes-title":"Before you test.","note1":"Connect to the network you want to check and pause simultaneous downloads.","note2":"To compare results, run several tests under similar conditions.","note3":"Results may vary due to Wi-Fi signal, device capabilities, congestion and test server.","disclaimer":"Results are indicative and are provided by a third party. CANALES® does not control the measurements or guarantee service availability.","menu-group1":"SPEED TEST","menu-tool":"Internet speed test","menu-guide":"Understanding results","menu-group2":"EXPLORE","menu-notes":"Recommendations","menu-return":"Back to CANALES","footer-explore":"Explore","footer-rules":"Community guidelines","menu-caption":"ABOUT THIS PAGE","page-title":"Speedtest | CANALES®","page-description":"Test your internet connection with CANALES®: download, upload and latency using Speedtest."},"pt":{"eyebrow":"CANALES® / FERRAMENTAS","external":"SERVIÇO EXTERNO · SPEEDTEST","title":"Meça sua<br><em>conexão.</em>","intro":"Verifique o desempenho da sua conexão à Internet com um teste de velocidade integrado. Veja download, upload e latência.","jump":"Ir para o teste","test-eyebrow":"01 / MEDIÇÃO","test-title":"Teste de velocidade","tool-note":"Serviço de terceiros integrado","tool-status":"Fornecido pela Ookla","fallback":"O teste não está aparecendo corretamente?","open-external":"Abrir Speedtest","guide-eyebrow":"02 / RESULTADOS","guide-title":"Três métricas. Uma conexão.","download-title":"Download","download-desc":"Indica a velocidade de recebimento de dados. Afeta streaming, downloads e navegação.","upload-title":"Upload","upload-desc":"Mede o envio de dados. Importante para videochamadas e arquivos na nuvem.","ping-title":"Latência","ping-desc":"Indica o tempo de resposta da conexão, normalmente em milissegundos.","notes-eyebrow":"03 / RECOMENDAÇÕES","notes-title":"Antes de medir.","note1":"Conecte-se à rede que deseja avaliar e evite downloads simultâneos.","note2":"Para comparar resultados, faça vários testes em condições semelhantes.","note3":"Os resultados podem variar conforme o sinal Wi-Fi, o dispositivo, a congestão e o servidor de teste.","disclaimer":"A medição é indicativa e realizada por um serviço de terceiros. A CANALES® não controla os resultados nem garante sua disponibilidade.","menu-group1":"FERRAMENTA","menu-tool":"Teste de velocidade","menu-guide":"Como interpretar","menu-group2":"EXPLORAR","menu-notes":"Recomendações","menu-return":"Voltar à CANALES","footer-explore":"Explorar","footer-rules":"Normas da comunidade","menu-caption":"SOBRE ESTA PÁGINA","page-title":"Speedtest | CANALES®","page-description":"Meça a velocidade da sua conexão com a CANALES®: download, upload e latência usando o Speedtest."}};
+  const languageButtons=[...document.querySelectorAll('[data-mcq-lang]')];
+  const search=new URLSearchParams(location.search);
+  const supported=['es','en','pt'];
+  const init=supported.includes(search.get('idioma'))?search.get('idioma'):'es';
+  const allowedHtmlKeys=new Set(['title']);
+  function setLanguage(lang,updateHistory){
+    if(!data[lang])return;
+    const t=data[lang];
+    document.documentElement.lang=lang==='pt'?'pt-BR':lang==='en'?'en':'es-PE';
+    document.title=t['page-title'];
+    document.querySelector('meta[name="description"]')?.setAttribute('content',t['page-description']);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content',t['page-description']);
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key=el.dataset.i18n;
+      if(t[key]){
+        if(el.children.length && el.querySelector('.bi')){
+          const icon=el.querySelector('.bi').outerHTML;
+          el.innerHTML=t[key]+' '+icon;
+        }else el.textContent=t[key];
+      }
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const key=el.dataset.i18nHtml;
+      if(allowedHtmlKeys.has(key)&&t[key])el.innerHTML=t[key];
+    });
+    document.querySelectorAll('[data-mcq-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mcqLang===lang)));
+    const caption=document.querySelector('#mcq-header .mcqhdr-caption');if(caption)caption.textContent=t['menu-caption'];
+    if(updateHistory){
+      const url=new URL(location.href);
+      if(lang==='es')url.searchParams.delete('idioma');else url.searchParams.set('idioma',lang);
+      history.replaceState(null,'',url.pathname+url.search+url.hash);
+    }
+  }
+  languageButtons.forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.mcqLang,true)));
+  setLanguage(init,false);
+})();</script><script>
+/* Speedtest V2 · Country lookup via GeoJS; device-local clock. No CDN changes. */
+(()=>{
+  'use strict';
+  const root=document.getElementById('cq-speedtest-connection');
+  if(!root)return;
+  const flag=document.getElementById('sp-country-flag');
+  const country=document.getElementById('sp-country-name');
+  const date=document.getElementById('sp-clock-date');
+  const time=document.getElementById('sp-clock-time');
+  const meridiem=document.getElementById('sp-clock-meridiem');
+  const translations={
+    es:{section:'CONEXIÓN / AHORA',live:'INFORMACIÓN EN DIRECTO',countryLabel:'PAÍS DE CONEXIÓN',clockLabel:'FECHA Y HORA LOCAL',note:'El país es aproximado y se identifica por la IP pública de tu conexión; la fecha y hora corresponden a tu dispositivo. Una VPN puede modificar el país detectado.',detecting:'Detectando…',unavailable:'No disponible'},
+    en:{section:'CONNECTION / NOW',live:'LIVE INFORMATION',countryLabel:'CONNECTION COUNTRY',clockLabel:'LOCAL DATE & TIME',note:'Country is estimated from your connection’s public IP address; date and time come from your device. A VPN may change the detected country.',detecting:'Detecting…',unavailable:'Unavailable'},
+    pt:{section:'CONEXÃO / AGORA',live:'INFORMAÇÃO EM TEMPO REAL',countryLabel:'PAÍS DA CONEXÃO',clockLabel:'DATA E HORA LOCAL',note:'O país é estimado pelo IP público da sua conexão; a data e a hora são do seu dispositivo. Uma VPN pode alterar o país identificado.',detecting:'Detectando…',unavailable:'Indisponível'}
+  };
+  let countryCode=null;
+  function language(){const code=document.documentElement.lang.toLowerCase();return code.startsWith('pt')?'pt':code.startsWith('en')?'en':'es'}
+  function countryName(code,lang){
+    try{return new Intl.DisplayNames([lang==='pt'?'pt-BR':lang],{type:'region'}).of(code)||code}catch{return code}
+  }
+  function renderLocale(){
+    const lang=language();const t=translations[lang];
+    root.querySelectorAll('[data-sp-i18n]').forEach(el=>{const key=el.dataset.spI18n;if(t[key])el.textContent=t[key]});
+    country.textContent=countryCode?countryName(countryCode,lang):(country.dataset.failed==='true'?t.unavailable:t.detecting);
+    root.setAttribute('aria-label',t.section);
+    if(countryCode)flag.alt=countryName(countryCode,lang);
+  }
+  function pad(n){return String(n).padStart(2,'0')}
+  function renderClock(){
+    const now=new Date();const hours=now.getHours();
+    const d=pad(now.getDate())+'.'+pad(now.getMonth()+1)+'.'+pad(now.getFullYear()%100);
+    const h=pad(hours%12||12)+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
+    if(date.textContent!==d)date.textContent=d;
+    if(time.textContent!==h)time.textContent=h;
+    meridiem.textContent=hours>=12?'PM':'AM';
+    document.getElementById('sp-local-clock').dateTime=now.toISOString();
+  }
+  renderLocale();renderClock();
+  setInterval(renderClock,1000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderClock()});
+  new MutationObserver(renderLocale).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  const controller=new AbortController();const abort=setTimeout(()=>controller.abort(),6000);
+  fetch('https://get.geojs.io/v1/ip/country.json',{mode:'cors',cache:'no-store',signal:controller.signal})
+    .then(res=>{if(!res.ok)throw new Error('GeoIP HTTP '+res.status);return res.json()})
+    .then(result=>{
+      const code=String(result?.country||'').toUpperCase();
+      if(!/^[A-Z]{2}$/.test(code))throw new Error('Invalid country');
+      countryCode=code;
+      flag.src='https://flagcdn.com/w160/'+code.toLowerCase()+'.png';
+      renderLocale();
+    })
+    .catch(()=>{country.dataset.failed='true';renderLocale()})
+    .finally(()=>clearTimeout(abort));
+  flag.addEventListener('load',()=>{flag.hidden=false;flag.parentElement.classList.add('has-flag')});
+  flag.addEventListener('error',()=>{flag.hidden=true;flag.parentElement.classList.remove('has-flag')});
+})();
+</script></body></html>
