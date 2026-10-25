@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#161616">
+  <meta name="description" content="Glass Lab de CANALES®. Generador CSS de glassmorphism de CANALES®. Edita transparencia, blur, color y contorno y copia el resultado en tiempo real.">
+  <meta name="author" content="CANALES®">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Glass Lab — Generador de glassmorphism | CANALES®">
+  <meta property="og:description" content="Diseña superficies de cristal con controles en tiempo real y exporta CSS compatible con Safari.">
+  <meta property="og:image" content="https://cdn.mcq.cl/assets/img/generico.png">
+  <meta property="og:url" content="https://www.canales.pe/glass/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.canales.pe/glass/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CANALES Glass Lab","description":"Generador de CSS glassmorphism con vista previa interactiva.","url":"https://www.canales.pe/glass/","applicationCategory":"DesignApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="icon" href="https://cdn.mcq.cl/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="https://cdn.mcq.cl/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/nuevositio/glass/glass.css?v=2">
+  <title>Glass Lab — Generador de glassmorphism | CANALES®</title>
+</head>
+<body data-glass-app>
+  <header class="gls-header">
+    <a id="gls-brand" class="gls-brand" href="https://www.canales.pe/labs/" aria-label="Volver a CANALES Labs">
+      <img id="gls-logo" class="gls-logo" src="https://cdn.mcq.cl/logo/canales-white.svg" alt="" loading="eager">
+      <span class="gls-brand-text">CANALES<sup>®</sup></span>
+    </a>
+    <div class="gls-header-right"><span class="gls-header-label">LAB / HERRAMIENTAS</span><a class="gls-back" href="https://www.canales.pe/labs/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>Volver a Labs</a></div>
+  </header>
+  <main class="gls-shell">
+    <div class="gls-intro"><div><p class="gls-kicker">CANALES® / LAB 001</p><h1 class="gls-heading">El arte de lo <span class="outline">translúcido.</span></h1></div><p class="gls-intro-copy">Diseña superficies de cristal para la web. Ajusta transparencia, blur, color y contorno; el código se actualiza al instante y queda siempre a la vista.</p></div>
+    <div class="gls-workspace">
+      <section class="gls-visual" aria-label="Vista previa del cristal">
+        <div id="gls-stage" class="gls-stage" data-scene="color">
+          <div class="gls-shape gls-shape-1" aria-hidden="true"></div><div class="gls-shape gls-shape-2" aria-hidden="true"></div><div class="gls-shape gls-shape-3" aria-hidden="true"></div><div class="gls-shape gls-shape-4" aria-hidden="true"></div><div class="gls-shape gls-shape-5" aria-hidden="true"></div>
+          <span class="gls-stage-text" aria-hidden="true">GLASS.</span>
+          <div id="gls-preview" class="gls-preview-glass" aria-label="Muestra del cristal"></div>
+          <div class="gls-stage-bottom"><span>PREVIEW / 01</span><span class="gls-cross" aria-hidden="true">+</span><span>GLASS EFFECT</span></div>
+        </div>
+        <div class="gls-scene-bar"><span class="gls-scene-label">Fondo de prueba</span><div class="gls-scenes" role="group" aria-label="Elegir fondo de prueba"><button class="gls-scene-btn" data-scene="color" aria-pressed="true">Color</button><button class="gls-scene-btn" data-scene="night" aria-pressed="false">Nocturno</button><button class="gls-scene-btn" data-scene="mono" aria-pressed="false">Monocromo</button></div></div>
+      </section>
+      <aside class="gls-side" aria-labelledby="gls-settings-title">
+  <div class="gls-side-head">
+    <div><p class="gls-editor-eyebrow">GENERADOR / GLASSMORPHISM</p><h2 class="gls-side-title" id="gls-settings-title">Glass CSS.</h2><p class="gls-editor-description">Los controles y el código, en un solo lugar.</p></div>
+    <button type="button" id="gls-reset" class="gls-reset" title="Restablecer valores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5"/></svg><span>Restablecer</span></button>
+  </div>
+  <div class="gls-presets" role="group" aria-label="Efectos predefinidos"><button type="button" data-preset="subtle" aria-pressed="false" class="gls-preset">Sutil</button><button type="button" data-preset="frosted" aria-pressed="false" class="gls-preset">Esmerilado</button><button type="button" data-preset="strong" aria-pressed="false" class="gls-preset">Intenso</button><button type="button" data-preset="dark" aria-pressed="false" class="gls-preset">Oscuro</button></div>
+  <div class="gls-control-list" aria-label="Propiedades del cristal">
+    <div class="gls-field"><div class="gls-field-top"><label class="gls-field-name" for="gls-transparency">Transparencia</label><output class="gls-field-value" id="gls-transparency-output" for="gls-transparency">20%</output></div><input type="range" id="gls-transparency" min="0" max="95" step="1" value="20"></div>
+    <div class="gls-field"><div class="gls-field-top"><label class="gls-field-name" for="gls-blur">Desenfoque</label><output class="gls-field-value" id="gls-blur-output" for="gls-blur">15 px</output></div><input type="range" id="gls-blur" min="0" max="40" step="1" value="15"></div>
+    <div class="gls-field"><div class="gls-field-top"><label class="gls-field-name" for="gls-color">Color del cristal</label><span class="gls-field-value">HEX</span></div><div class="gls-color-row"><input class="gls-color-input" aria-label="Elegir color del cristal" id="gls-color" type="color" value="#ffffff"><input class="gls-hex-input" id="gls-hex" aria-label="Color hexadecimal" inputmode="text" value="#FFFFFF" maxlength="7" spellcheck="false"></div></div>
+    <div class="gls-field"><div class="gls-field-top"><label class="gls-field-name" for="gls-outline">Contorno</label><output class="gls-field-value" id="gls-outline-output" for="gls-outline">30%</output></div><input type="range" id="gls-outline" min="0" max="100" step="1" value="30"></div>
+  </div>
+  <details class="gls-advanced"><summary>Más ajustes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="gls-advanced-fields">
+      <div class="gls-field"><div class="gls-field-top"><label class="gls-field-name" for="gls-radius">Radio de esquina</label><output class="gls-field-value" id="gls-radius-output" for="gls-radius">24 px</output></div><input type="range" id="gls-radius" min="0" max="48" step="1" value="24"></div>
+      <div class="gls-field"><div class="gls-field-top"><label class="gls-field-name" for="gls-saturation">Saturación</label><output class="gls-field-value" id="gls-saturation-output" for="gls-saturation">140%</output></div><input type="range" id="gls-saturation" min="100" max="200" step="5" value="140"></div>
+    </div>
+  </details>
+  <div class="gls-code-panel gls-code-inline" aria-labelledby="gls-code-heading"><div class="gls-code-toolbar"><h3 id="gls-code-heading">CSS / RESULTADO</h3><button type="button" data-copy class="gls-copy-small" aria-label="Copiar el código CSS">Copiar CSS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div><pre class="gls-css-code"><code id="gls-code"></code></pre></div>
+  <p class="gls-side-note">Todo se calcula localmente en tu navegador. El CSS incluye compatibilidad con Safari y WebKit.</p>
+</aside>
+    </div>
+    <div class="gls-how"><h2>¿Qué es glassmorphism?</h2><p>Un tratamiento de interfaz que utiliza fondos translúcidos, desenfoque del contenido posterior y bordes delicados para crear profundidad. Funciona mejor sobre imágenes, gradientes y superficies con contraste.</p></div>
+  </main>
+  <footer class="gls-footer"><span>© <span id="gls-year">2026</span> <strong>CANALES®</strong> · Lima, República del Perú</span><span>Una herramienta original de CANALES / LAB.</span></footer>
+  <div class="gls-toast" id="gls-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script defer src="https://cdn.mcq.cl/nuevositio/glass/glass.js?v=2"></script>
+  <script>document.getElementById('gls-year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

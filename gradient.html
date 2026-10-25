@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#161616">
+  <meta name="description" content="Crea degradados CSS lineales y radiales con CANALES Gradient Lab. Edita colores, transparencia, puntos de transición y ángulos en tiempo real; copia el CSS listo para usar.">
+  <meta name="author" content="CANALES®">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.canales.pe/gradient/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CANALES®">
+  <meta property="og:title" content="Gradient Lab — Generador de degradados CSS | CANALES®">
+  <meta property="og:description" content="Un estudio para crear, editar y exportar degradados CSS lineales y radiales.">
+  <meta property="og:url" content="https://www.canales.pe/gradient/">
+  <meta property="og:image" content="https://cdn.mcq.cl/assets/img/generico.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://cdn.mcq.cl/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://cdn.mcq.cl/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.mcq.cl/nuevositio/gradient/gradient.css?v=1">
+  <title>Gradient Lab — Generador de degradados CSS | CANALES®</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CANALES Gradient Lab","url":"https://www.canales.pe/gradient/","description":"Editor de degradados CSS lineales y radiales","applicationCategory":"DesignApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+  <header class="cgl-header">
+    <a class="cgl-brand" href="https://www.canales.pe/labs/" aria-label="CANALES — volver a Labs">
+      <img src="https://cdn.mcq.cl/logo/canales-white.svg" alt="CANALES®" width="134" height="40">
+      <span class="cgl-brand-fallback">CANALES®</span>
+    </a>
+    <nav class="cgl-top-nav" aria-label="Navegación de herramientas">
+      <span class="cgl-label-top">CANALES / LAB 002</span>
+      <a href="https://www.canales.pe/glass/" class="cgl-nav-link">Glass Lab <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      <a href="https://www.canales.pe/labs/" class="cgl-nav-link cgl-nav-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg> Labs</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="cgl-intro cgl-wrap">
+      <div><p class="cgl-kicker">ESTUDIO DE COLOR / 002</p><h1>El color toma <em>forma.</em></h1></div>
+      <p>Construye un degradado a tu manera. Ajusta cada color, desplaza los puntos y copia código CSS listo para producción.</p>
+    </div>
+
+    <section class="cgl-showcase" aria-label="Vista previa del degradado">
+      <div id="cgl-hero-preview" class="cgl-hero-preview">
+        <span class="cgl-preview-chip"><span class="cgl-live-dot"></span> VISTA EN TIEMPO REAL</span>
+        <span class="cgl-preview-index">GRADIENT / 001</span>
+      </div>
+    </section>
+
+    <section class="cgl-wrap cgl-editor" aria-label="Editor de degradados">
+      <div class="cgl-editor-toolbar">
+        <div class="cgl-timeline-head"><span class="cgl-caption">PUNTOS DE COLOR</span><span id="cgl-stop-count" class="cgl-small-muted">3 PARADAS</span></div>
+        <div class="cgl-editor-actions">
+          <div class="cgl-switch" role="group" aria-label="Tipo de degradado"><button type="button" class="cgl-switch-btn is-active" data-type="linear" aria-pressed="true">Lineal</button><button type="button" class="cgl-switch-btn" data-type="radial" aria-pressed="false">Radial</button></div>
+          <div id="cgl-angle-wrap" class="cgl-angle-control"><label for="cgl-angle">Ángulo</label><input type="number" id="cgl-angle" min="0" max="360" step="1" value="90" inputmode="numeric"><span>°</span></div>
+          <div id="cgl-origin-wrap" class="cgl-origin-control" hidden><label for="cgl-origin">Origen</label><select id="cgl-origin"><option value="center">Centro</option><option value="top left">Sup. izquierda</option><option value="top right">Sup. derecha</option><option value="bottom left">Inf. izquierda</option><option value="bottom right">Inf. derecha</option></select></div>
+          <button type="button" id="cgl-add" class="cgl-icon-button" aria-label="Agregar punto de color" title="Agregar parada"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          <button type="button" id="cgl-random" class="cgl-icon-button" aria-label="Crear degradado aleatorio" title="Aleatorio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 14 4 4-4 4m-4-4h4a3 3 0 0 0 3-3M2 6h3c4 0 5 12 10 12M18 2l4 4-4 4m-4 4h4a3 3 0 0 0 3-3M2 18h3c2 0 3-3 4-6"/></svg></button>
+        </div>
+      </div>
+      <div class="cgl-stop-track" id="cgl-track" aria-label="Puntos del degradado; pulsa para añadir una parada">
+        <div class="cgl-track-fill" id="cgl-track-fill"></div>
+        <div class="cgl-handles" id="cgl-handles"></div>
+      </div>
+      <div class="cgl-timeline-markers" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+
+      <div class="cgl-panel-body">
+        <section class="cgl-color-panel" aria-label="Selector de color">
+          <div class="cgl-panel-heading"><h2>Color.</h2><span class="cgl-subtitle">AJUSTA LA PARADA ACTIVA</span></div>
+          <div id="cgl-picker" class="cgl-sv-picker" role="slider" aria-label="Saturación y brillo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55" tabindex="0"><div class="cgl-picker-cursor" id="cgl-picker-cursor"></div></div>
+          <div class="cgl-slider-row"><label for="cgl-hue">Tono</label><input type="range" id="cgl-hue" min="0" max="360" value="197"><output id="cgl-hue-output">197°</output></div>
+          <div class="cgl-slider-row"><label for="cgl-alpha">Opacidad</label><input type="range" id="cgl-alpha" min="0" max="100" value="100"><output id="cgl-alpha-output">100%</output></div>
+        </section>
+
+        <section class="cgl-values-panel" aria-label="Valores del color seleccionado">
+          <div class="cgl-panel-heading"><h2>Valores.</h2><span class="cgl-subtitle">COLOR ACTIVO</span></div>
+          <div class="cgl-selected-swatch" id="cgl-active-swatch"><span>COLOR / HEX</span><strong id="cgl-active-hex">#2A7B9B</strong></div>
+          <label class="cgl-field-label" for="cgl-hex">Hexadecimal</label>
+          <div class="cgl-input-line"><input type="text" id="cgl-hex" maxlength="7" spellcheck="false" value="#2A7B9B" aria-label="Color en formato HEX"><button type="button" id="cgl-copy-hex" title="Copiar hexadecimal" aria-label="Copiar color HEX"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+          <span class="cgl-field-label">RGBA</span>
+          <div class="cgl-rgba-grid"><label>R<input type="number" id="cgl-red" min="0" max="255" value="42"></label><label>G<input type="number" id="cgl-green" min="0" max="255" value="123"></label><label>B<input type="number" id="cgl-blue" min="0" max="255" value="155"></label><label>A<input type="number" id="cgl-opacity" min="0" max="100" value="100"></label></div>
+          <p class="cgl-help">Arrastra el selector para cambiar el color. Ajusta la opacidad sin afectar los demás puntos.</p>
+        </section>
+
+        <section class="cgl-stops-panel" aria-label="Lista de paradas del degradado">
+          <div class="cgl-panel-heading"><h2>Paradas.</h2><span class="cgl-subtitle">EDITA Y REORDENA</span></div>
+          <div class="cgl-stop-column-head"><span>COLOR</span><span>HEX</span><span>POS.</span><span></span></div>
+          <div id="cgl-stop-list" class="cgl-stop-list"></div>
+          <button id="cgl-add-secondary" type="button" class="cgl-add-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Añadir punto</button>
+          <p class="cgl-help">Mueve los puntos en la barra superior o introduce su posición de 0 a 100.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="cgl-wrap cgl-code-section" aria-label="CSS generado">
+      <div class="cgl-code-top"><div><span class="cgl-code-eyebrow">LISTO PARA USAR</span><h2>Tu CSS.</h2></div><div class="cgl-code-actions"><button type="button" class="cgl-button-secondary" id="cgl-reset">Restablecer</button><button type="button" class="cgl-button-primary" id="cgl-copy-css">Copiar CSS <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div></div>
+      <div class="cgl-code-window"><div class="cgl-code-titlebar"><span class="cgl-code-led"></span><span>gradient.css</span><span>CSS3 / WEBKIT</span></div><pre><code id="cgl-code"></code></pre></div>
+    </section>
+
+    <section class="cgl-wrap cgl-inspire" aria-labelledby="cgl-presets-title"><div><span class="cgl-caption">PUNTO DE PARTIDA</span><h2 id="cgl-presets-title">Paletas para explorar.</h2><p>Selecciona una combinación para llevarla al editor y personalizarla.</p></div><div class="cgl-presets" id="cgl-presets"></div></section>
+  </main>
+  <footer class="cgl-footer"><span>© <span id="cgl-year">2026</span> <strong>CANALES®</strong> · Lima, República del Perú</span><span>Una herramienta original de CANALES / LAB.</span></footer>
+  <div class="cgl-toast" id="cgl-toast" role="status" aria-live="polite"></div>
+  <script defer src="https://cdn.mcq.cl/nuevositio/gradient/gradient.js?v=1"></script>
+</body>
+</html>
